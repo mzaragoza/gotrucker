@@ -29,7 +29,7 @@ only screen and (                min-resolution: 2dppx)
 {
 	body {
 		background-size: 200px 200px;
-		background-image: url('../img/bg/square_bg_@2X.png');
+		background-image: url('/assets/public2/img/bg/square_bg_@2X.png');
 	}
 }
 
