@@ -45,7 +45,7 @@
                     %strong Number of Users
                     = p.licenses
               .table-footer
-                =# link_to t(:sign_up), new_user_registration_path(:plan => p.slug), :class => 'btn'
+                = link_to t(:sign_up), new_user_registration_path(:plan => p.slug), :class => 'btn'
           .pricing-table
             .table-header
               .name= t(:custom)

@@ -1,4 +1,29 @@
 Gotrucker::Application.routes.draw do
+  devise_for :users, :controllers => { registrations:  'users/registrations',
+                                      :sessions => "users/sessions",
+                                      :passwords => 'users/passwords',
+                                      :confirmations => 'users/confirmations'
+  }
+  authenticate :user do
+    namespace :users do
+      resources :ui
+      resources :users
+      resources :accounts, :only => [:show, :edit, :update]
+      resources :drivers
+      resources :profile, :only => [:edit, :update]
+      resources :trucks
+      resources :trailers
+      resources :brokers do
+        collection { post :import }
+      end
+      resources :shipments
+      resources :receipts
+      resources :repairs
+      get '/dashboard' => 'dashboards#index', as: :dashboard
+      get '/' => 'dashboards#index'
+    end
+  end
+
   devise_for :admins, :controllers => { registrations: 'admins/registrations',
                                       :sessions => "admins/sessions",
                                       :passwords => 'admins/passwords',
