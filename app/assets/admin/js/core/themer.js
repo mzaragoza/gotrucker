@@ -9,7 +9,7 @@
  
 (function($) {
 	$(document).ready(function() {
-		var backgroundPattern = "images/core/bg/paper.png";
+		var backgroundPattern = "/assets/images/core/bg/paper.png";
 		var baseColor = "#35353a";
 		var highlightColor = "#c5d52b";
 		var textColor = "#c5d52b";
@@ -18,190 +18,190 @@
 		var patterns = [
 			{
 				name: "Paper", 
-				img: "images/core/bg/paper.png"
+				img: "/assets/images/core/bg/paper.png"
 			}, {
 				name: "Blueprint", 
-				img: "images/core/bg/blueprint.png"
+				img: "/assets/images/core/bg/blueprint.png"
 			}, {
 				name: "Bricks", 
-				img: "images/core/bg/bricks.png"
+				img: "/assets/images/core/bg/bricks.png"
 			}, {
 				name: "Carbon", 
-				img: "images/core/bg/carbon.png"
+				img: "/assets/images/core/bg/carbon.png"
 			}, {
 				name: "Circuit", 
-				img: "images/core/bg/circuit.png"
+				img: "/assets/images/core/bg/circuit.png"
 			}, {
 				name: "Holes", 
-				img: "images/core/bg/holes.png"
+				img: "/assets/images/core/bg/holes.png"
 			}, {
 				name: "Mozaic", 
-				img: "images/core/bg/mozaic.png"
+				img: "/assets/images/core/bg/mozaic.png"
 			}, {
 				name: "Roof", 
-				img: "images/core/bg/roof.png"
+				img: "/assets/images/core/bg/roof.png"
 			}, {
 				name: "Stripes", 
-				img: "images/core/bg/stripes.png"
+				img: "/assets/images/core/bg/stripes.png"
 			}, {
 				name: "Arches", 
-				img: "images/core/bg/arches.png"
+				img: "/assets/images/core/bg/arches.png"
 			}, {
 				name: "Bright Squares", 
-				img: "images/core/bg/bright_squares.png"
+				img: "/assets/images/core/bg/bright_squares.png"
 			}, {
 				name: "Brushed Alu", 
-				img: "images/core/bg/brushed_alu.png"
+				img: "/assets/images/core/bg/brushed_alu.png"
 			}, {
 				name: "Circles", 
-				img: "images/core/bg/circles.png"
+				img: "/assets/images/core/bg/circles.png"
 			}, {
 				name: "Climpek", 
-				img: "images/core/bg/climpek.png"
+				img: "/assets/images/core/bg/climpek.png"
 			}, {
 				name: "Connect", 
-				img: "images/core/bg/connect.png"
+				img: "/assets/images/core/bg/connect.png"
 			}, {
 				name: "Corrugation", 
-				img: "images/core/bg/corrugation.png"
+				img: "/assets/images/core/bg/corrugation.png"
 			}, {
 				name: "Cubes", 
-				img: "images/core/bg/cubes.png"
+				img: "/assets/images/core/bg/cubes.png"
 			}, {
 				name: "Diagonal Noise", 
-				img: "images/core/bg/diagonal-noise.png"
+				img: "/assets/images/core/bg/diagonal-noise.png"
 			}, {
 				name: "Diagonal Striped Brick", 
-				img: "images/core/bg/diagonal_striped_brick.png"
+				img: "/assets/images/core/bg/diagonal_striped_brick.png"
 			}, {
 				name: "Diamonds", 
-				img: "images/core/bg/diamonds.png"
+				img: "/assets/images/core/bg/diamonds.png"
 			}, {
 				name: "Diamond Upholstery", 
-				img: "images/core/bg/diamond_upholstery.png"
+				img: "/assets/images/core/bg/diamond_upholstery.png"
 			}, {
 				name: "Escheresque", 
-				img: "images/core/bg/escheresque.png"
+				img: "/assets/images/core/bg/escheresque.png"
 			}, {
 				name: "Fabric Plaid", 
-				img: "images/core/bg/fabric_plaid.png"
+				img: "/assets/images/core/bg/fabric_plaid.png"
 			}, {
 				name: "Furley", 
-				img: "images/core/bg/furley_bg.png"
+				img: "/assets/images/core/bg/furley_bg.png"
 			}, {
 				name: "Gplaypattern", 
-				img: "images/core/bg/gplaypattern.png"
+				img: "/assets/images/core/bg/gplaypattern.png"
 			}, {
 				name: "Gradient Squares", 
-				img: "images/core/bg/gradient_squares.png"
+				img: "/assets/images/core/bg/gradient_squares.png"
 			}, {
 				name: "Grey", 
-				img: "images/core/bg/grey.png"
+				img: "/assets/images/core/bg/grey.png"
 			}, {
 				name: "Grilled", 
-				img: "images/core/bg/grilled.png"
+				img: "/assets/images/core/bg/grilled.png"
 			}, {
 				name: "Hexellence", 
-				img: "images/core/bg/hexellence.png"
+				img: "/assets/images/core/bg/hexellence.png"
 			}, {
 				name: "Lghtmesh", 
-				img: "images/core/bg/lghtmesh.png"
+				img: "/assets/images/core/bg/lghtmesh.png"
 			}, {
 				name: "Light Alu", 
-				img: "images/core/bg/light_alu.png"
+				img: "/assets/images/core/bg/light_alu.png"
 			}, {
 				name: "Light Checkered Tiles", 
-				img: "images/core/bg/light_checkered_tiles.png"
+				img: "/assets/images/core/bg/light_checkered_tiles.png"
 			}, {
 				name: "Light Honeycomb", 
-				img: "images/core/bg/light_honeycomb.png"
+				img: "/assets/images/core/bg/light_honeycomb.png"
 			}, {
 				name: "Littleknobs", 
-				img: "images/core/bg/littleknobs.png"
+				img: "/assets/images/core/bg/littleknobs.png"
 			}, {
 				name: "Nistri", 
-				img: "images/core/bg/nistri.png"
+				img: "/assets/images/core/bg/nistri.png"
 			}, {
 				name: "Noise Lines", 
-				img: "images/core/bg/noise_lines.png"
+				img: "/assets/images/core/bg/noise_lines.png"
 			}, {
 				name: "Noise Pattern", 
-				img: "images/core/bg/noise_pattern_with_crosslines.png"
+				img: "/assets/images/core/bg/noise_pattern_with_crosslines.png"
 			}, {
 				name: "Noisy Grid", 
-				img: "images/core/bg/noisy_grid.png"
+				img: "/assets/images/core/bg/noisy_grid.png"
 			}, {
 				name: "Norwegian Rose", 
-				img: "images/core/bg/norwegian_rose.png"
+				img: "/assets/images/core/bg/norwegian_rose.png"
 			}, {
 				name: "Pineapplecut", 
-				img: "images/core/bg/pineapplecut.png"
+				img: "/assets/images/core/bg/pineapplecut.png"
 			}, {
 				name: "Pinstripe", 
-				img: "images/core/bg/pinstripe.png"
+				img: "/assets/images/core/bg/pinstripe.png"
 			}, {
 				name: "Project Papper", 
-				img: "images/core/bg/project_papper.png"
+				img: "/assets/images/core/bg/project_papper.png"
 			}, {
 				name: "Ravenna", 
-				img: "images/core/bg/ravenna.png"
+				img: "/assets/images/core/bg/ravenna.png"
 			}, {
 				name: "Reticular Tissue", 
-				img: "images/core/bg/reticular_tissue.png"
+				img: "/assets/images/core/bg/reticular_tissue.png"
 			}, {
 				name: "Rockywall", 
-				img: "images/core/bg/rockywall.png"
+				img: "/assets/images/core/bg/rockywall.png"
 			}, {
 				name: "Roughcloth", 
-				img: "images/core/bg/roughcloth.png"
+				img: "/assets/images/core/bg/roughcloth.png"
 			}, {
 				name: "Shattered", 
-				img: "images/core/bg/shattered.png"
+				img: "/assets/images/core/bg/shattered.png"
 			}, {
 				name: "Silver Scales", 
-				img: "images/core/bg/silver_scales.png"
+				img: "/assets/images/core/bg/silver_scales.png"
 			}, {
 				name: "Skelatal Weave", 
-				img: "images/core/bg/skelatal_weave.png"
+				img: "/assets/images/core/bg/skelatal_weave.png"
 			}, {
 				name: "Small Crackle Bright", 
-				img: "images/core/bg/small-crackle-bright.png"
+				img: "/assets/images/core/bg/small-crackle-bright.png"
 			}, {
 				name: "Small Tiles", 
-				img: "images/core/bg/small_tiles.png"
+				img: "/assets/images/core/bg/small_tiles.png"
 			}, {
 				name: "Square", 
-				img: "images/core/bg/square_bg.png"
+				img: "/assets/images/core/bg/square_bg.png"
 			}, {
 				name: "Struckaxiom", 
-				img: "images/core/bg/struckaxiom.png"
+				img: "/assets/images/core/bg/struckaxiom.png"
 			}, {
 				name: "Subtle Stripes", 
-				img: "images/core/bg/subtle_stripes.png"
+				img: "/assets/images/core/bg/subtle_stripes.png"
 			}, {
 				name: "Vichy", 
-				img: "images/core/bg/vichy.png"
+				img: "/assets/images/core/bg/vichy.png"
 			}, {
 				name: "Washi", 
-				img: "images/core/bg/washi.png"
+				img: "/assets/images/core/bg/washi.png"
 			}, {
 				name: "Wavecut", 
-				img: "images/core/bg/wavecut.png"
+				img: "/assets/images/core/bg/wavecut.png"
 			}, {
 				name: "Weave", 
-				img: "images/core/bg/weave.png"
+				img: "/assets/images/core/bg/weave.png"
 			}, {
 				name: "Whitey", 
-				img: "images/core/bg/whitey.png"
+				img: "/assets/images/core/bg/whitey.png"
 			}, {
 				name: "White Brick Wall", 
-				img: "images/core/bg/white_brick_wall.png"
+				img: "/assets/images/core/bg/white_brick_wall.png"
 			}, {
 				name: "White Tiles", 
-				img: "images/core/bg/white_tiles.png"
+				img: "/assets/images/core/bg/white_tiles.png"
 			}, {
 				name: "Worn Dots", 
-				img: "images/core/bg/worn_dots.png"
+				img: "/assets/images/core/bg/worn_dots.png"
 			}
 		];
 		
