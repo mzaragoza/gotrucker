@@ -4,8 +4,8 @@
     src:url('/icons/public/glyphicons/fonts/icomoon.eot');
     src:url('/icons/public/glyphicons/fonts/icomoon.eot?#iefix') format('embedded-opentype'),
         url('/icons/public/glyphicons/fonts/icomoon.svg#IcoMoon') format('svg'),
-        url('icons/public/glyphicons//fonts/icomoon.woff') format('woff'),
-        url('icons/public/glyphicons//fonts/icomoon.ttf') format('truetype');
+        url('/icons/public/glyphicons//fonts/icomoon.woff') format('woff'),
+        url('/icons/public/glyphicons//fonts/icomoon.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
