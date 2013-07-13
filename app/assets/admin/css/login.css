@@ -122,13 +122,13 @@ body {
 }
 
 #mws-login .mws-login-username {
-    background-image: url(assets/css/icons/icol16/src/user.png);
+    background-image: url(/assets/css/icons/icol16/src/user.png);
     background-repeat: no-repeat;
     background-position: 8px center;
 }
 
 #mws-login .mws-login-password {
-    background-image: url(assets/css/icons/icol16/src/key.png);
+    background-image: url(/assets/css/icons/icol16/src/key.png);
     background-repeat: no-repeat;
     background-position: 8px center;
 }
