@@ -2,7 +2,7 @@
   #mws-login
     %h1 Login
     .mws-login-lock
-      %i.icon-lock
+      = image_tag 'myicons/lock-icon.png'
     #mws-login-form
       = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
         .mws-form-row
