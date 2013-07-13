@@ -13,6 +13,6 @@
   *= require plugins/layerslider/css/layerslider
   *= require plugins/flexslider/flexslider
   *= require plugins/magnificpopup/jquery.magnific-popup
- 
+  *= require my_css
   *= require_self
  */

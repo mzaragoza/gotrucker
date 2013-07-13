@@ -41,19 +41,16 @@
                   %li{:class => "#{'active' if params[:controller] == 'pages' and params[:action] == 'prices' }"}
                     = link_to t(:login), users_dashboard_path
       / End Header
-      .container
+      .content
         - unless flash[:notice].blank?
-          #notice
+          .alert.alert-info
             %h3= flash[:notice]
-          %br
         - unless flash[:error].blank?
           #error
             %h3= flash[:error]
-          %br
         - unless flash[:alert].blank?
           #alert
             %h3= flash[:alert]
-          %br
       = yield
       / Footer
       %footer.footer

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130713041715) do
+ActiveRecord::Schema.define(:version => 20130713152226) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name",       :default => ""
@@ -61,6 +61,25 @@ ActiveRecord::Schema.define(:version => 20130713041715) do
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
   add_index "admins", ["unlock_token"], :name => "index_admins_on_unlock_token", :unique => true
+
+  create_table "leads", :force => true do |t|
+    t.string   "first_name",      :default => "",    :null => false
+    t.string   "last_name",       :default => "",    :null => false
+    t.string   "email",           :default => "",    :null => false
+    t.string   "message",         :default => "",    :null => false
+    t.string   "phone",           :default => "",    :null => false
+    t.string   "address",         :default => "",    :null => false
+    t.string   "address2",        :default => "",    :null => false
+    t.string   "city",            :default => "",    :null => false
+    t.string   "state",           :default => "",    :null => false
+    t.string   "zip",             :default => "",    :null => false
+    t.string   "status",          :default => "",    :null => false
+    t.string   "remoteip",        :default => "f"
+    t.boolean  "newsletter",      :default => false
+    t.string   "conversion_date", :default => ""
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
 
   create_table "plans", :force => true do |t|
     t.decimal  "monthy_price"
