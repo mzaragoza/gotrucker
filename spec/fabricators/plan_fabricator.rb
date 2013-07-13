@@ -4,7 +4,7 @@ Fabricator(:plan) do
   featured {false}
   active {true}
   licenses {rand(100)}
-  yearly_price {rand(100)}
-  monthy_price {rand(100)*10}
+  yearly_price {rand(100)*10}
+  monthy_price {rand(100)}
 end
 
