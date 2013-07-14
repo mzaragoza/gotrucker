@@ -11,6 +11,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.boolean :active, :default => true
       t.string :website, :default => ''
       t.string :photo, :default => ''
+      t.boolean :show_support, :default => true
 
       t.timestamps
     end

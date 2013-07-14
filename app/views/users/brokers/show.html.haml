@@ -1,0 +1,57 @@
+.mws-panel.grid_12
+  .mws-panel-header
+    = link_to 'Edit', edit_users_broker_path(broker), :class => 'btn btn-info pull-right'
+    %span
+      = broker.name.titleize
+  .mws-panel-body.no-padding
+    %ul.mws-summary.clearfix
+      %li
+        %span.key
+          = t(:name)
+        %span.val
+          %span.text-nowrap= broker.name
+      %li
+        %span.key
+          = t(:carreir_packet_pdf)
+        %span.val
+          %span.text-nowrap
+            - unless broker.carreir_packet_pdf.blank?
+              = link_to t(:carreir_packet), broker.carreir_packet_pdf_url, :target => '_blanl'
+            - else
+              %span{:style => 'color:#F00'}= t(:carreir_packet)
+      %li
+        %span.key
+          = t(:phone)
+        %span.val
+          %span.text-nowrap= number_to_phone(broker.phone)
+      %li
+        %span.key
+          = t(:fax)
+        %span.val
+          %span.text-nowrap= number_to_phone(broker.fax)
+      %li
+        %span.key
+          = t(:email)
+        %span.val
+          %span.text-nowrap= broker.email
+      %li
+        %span.key
+          = t(:address)
+        %span.val
+          %span.text-nowrap
+            = broker.address
+            = broker.address2
+            = broker.city
+            = broker.state
+            = broker.zip
+      %li
+        %span.key
+          = t(:website)
+        %span.val
+          %span.text-nowrap= broker.website
+      %li
+        %span.key
+          = t(:motor_carrier_number)
+        %span.val
+          %span.text-nowrap= broker.motor_carrier_number
+

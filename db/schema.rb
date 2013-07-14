@@ -11,21 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130713152226) do
+ActiveRecord::Schema.define(:version => 20130714053545) do
 
   create_table "accounts", :force => true do |t|
-    t.string   "name",       :default => ""
-    t.string   "address",    :default => ""
-    t.string   "address2",   :default => ""
-    t.string   "city",       :default => ""
-    t.string   "state",      :default => ""
-    t.string   "zip",        :default => ""
-    t.string   "phone",      :default => ""
-    t.boolean  "active",     :default => true
-    t.string   "website",    :default => ""
-    t.string   "photo",      :default => ""
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.string   "name",         :default => ""
+    t.string   "address",      :default => ""
+    t.string   "address2",     :default => ""
+    t.string   "city",         :default => ""
+    t.string   "state",        :default => ""
+    t.string   "zip",          :default => ""
+    t.string   "phone",        :default => ""
+    t.boolean  "active",       :default => true
+    t.string   "website",      :default => ""
+    t.string   "photo",        :default => ""
+    t.boolean  "show_support", :default => true
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "admins", :force => true do |t|
@@ -61,6 +62,55 @@ ActiveRecord::Schema.define(:version => 20130713152226) do
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
   add_index "admins", ["unlock_token"], :name => "index_admins_on_unlock_token", :unique => true
+
+  create_table "brokers", :force => true do |t|
+    t.integer  "account_id"
+    t.string   "name",                 :default => "", :null => false
+    t.string   "phone",                :default => "", :null => false
+    t.string   "address",              :default => "", :null => false
+    t.string   "address2",             :default => "", :null => false
+    t.string   "city",                 :default => "", :null => false
+    t.string   "state",                :default => "", :null => false
+    t.string   "zip",                  :default => "", :null => false
+    t.string   "fax",                  :default => "", :null => false
+    t.string   "email",                :default => "", :null => false
+    t.string   "website",              :default => "", :null => false
+    t.string   "motor_carrier_number", :default => "", :null => false
+    t.string   "carreir_packet_pdf",   :default => "", :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+  end
+
+  create_table "drivers", :force => true do |t|
+    t.integer  "truck_id"
+    t.integer  "account_id"
+    t.string   "first_name",                                          :default => "",    :null => false
+    t.string   "last_name",                                           :default => "",    :null => false
+    t.string   "address",                                             :default => "",    :null => false
+    t.string   "address2",                                            :default => "",    :null => false
+    t.string   "city",                                                :default => "",    :null => false
+    t.string   "state",                                               :default => "",    :null => false
+    t.string   "zip",                                                 :default => "",    :null => false
+    t.string   "cell",                                                :default => "",    :null => false
+    t.string   "email",                                               :default => "",    :null => false
+    t.string   "ssn",                                                 :default => "",    :null => false
+    t.string   "photo",                                               :default => "",    :null => false
+    t.string   "drivers_license_photo",                               :default => "",    :null => false
+    t.string   "drivers_license",                                     :default => "",    :null => false
+    t.string   "pay_rate",                                            :default => "",    :null => false
+    t.string   "hire_date",                                           :default => "",    :null => false
+    t.boolean  "active",                                              :default => true
+    t.string   "bank_name",                                           :default => "",    :null => false
+    t.string   "bank_account_number",                                 :default => "",    :null => false
+    t.string   "bank_rauting_number",                                 :default => "",    :null => false
+    t.boolean  "double_triple_trailers",                              :default => false
+    t.boolean  "passenger",                                           :default => false
+    t.boolean  "tank_vehicle",                                        :default => false
+    t.boolean  "hazardous_materials",                                 :default => false
+    t.boolean  "combination_of_tank_vehicle_and_hazardous_materials", :default => false
+    t.datetime "created_at",                                                             :null => false
+    t.datetime "updated_at",                                                             :null => false
+  end
 
   create_table "leads", :force => true do |t|
     t.string   "first_name",      :default => "",    :null => false
@@ -103,6 +153,55 @@ ActiveRecord::Schema.define(:version => 20130713152226) do
     t.integer  "licenses"
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
+  end
+
+  create_table "trailers", :force => true do |t|
+    t.integer  "account_id"
+    t.string   "name",                          :default => "",    :null => false
+    t.string   "length",                        :default => "",    :null => false
+    t.string   "width",                         :default => "",    :null => false
+    t.string   "height",                        :default => "",    :null => false
+    t.string   "gross_vehicle_weight_rating",   :default => "",    :null => false
+    t.string   "suspension",                    :default => "",    :null => false
+    t.string   "axle_capacity",                 :default => "",    :null => false
+    t.string   "wheels",                        :default => "",    :null => false
+    t.string   "tires",                         :default => "",    :null => false
+    t.string   "trailer_type",                  :default => "",    :null => false
+    t.string   "vehicle_identification_number", :default => "",    :null => false
+    t.string   "vehicle_tag",                   :default => "",    :null => false
+    t.string   "photo",                         :default => "",    :null => false
+    t.string   "annual_inspection",             :default => "",    :null => false
+    t.boolean  "vented",                        :default => false, :null => false
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+  end
+
+  create_table "trucks", :force => true do |t|
+    t.integer  "account_id"
+    t.integer  "trailer_id"
+    t.string   "name",                          :default => "", :null => false
+    t.string   "annual_inspection_date",        :default => "", :null => false
+    t.string   "engine",                        :default => "", :null => false
+    t.string   "sleeper_size",                  :default => "", :null => false
+    t.string   "transmission",                  :default => "", :null => false
+    t.string   "suspension",                    :default => "", :null => false
+    t.string   "front_axel_capacity",           :default => "", :null => false
+    t.string   "rear_axle_capacity",            :default => "", :null => false
+    t.string   "rear_end_ratio",                :default => "", :null => false
+    t.string   "wheelbase",                     :default => "", :null => false
+    t.string   "wheels",                        :default => "", :null => false
+    t.string   "tires",                         :default => "", :null => false
+    t.string   "odometer",                      :default => "", :null => false
+    t.string   "vehicle_identification_number", :default => "", :null => false
+    t.string   "vehicle_tag",                   :default => "", :null => false
+    t.string   "truck_year",                    :default => "", :null => false
+    t.string   "photo",                         :default => "", :null => false
+    t.string   "manufacturer",                  :default => "", :null => false
+    t.string   "truck_model",                   :default => "", :null => false
+    t.string   "engine_specs",                  :default => "", :null => false
+    t.string   "engine_type",                   :default => "", :null => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
   end
 
   create_table "users", :force => true do |t|

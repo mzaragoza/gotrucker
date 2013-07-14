@@ -1,0 +1,73 @@
+.row-fluid
+  .mws-panel.grid_2.pull-right
+    - unless trailer.photo.blank?
+      = image_tag trailer.photo.large_thumb, :width => '500', :class => 'img-polaroid'
+    - else
+      = image_tag 'myicons/trailer-icon.png', :width => '500', :class => 'img-polaroid'
+  .mws-panel.grid_6
+    .mws-panel-header
+      = link_to 'Edit', edit_users_trailer_path(trailer), :class => 'btn btn-info pull-right'
+      %span
+        = trailer.name.titleize
+    .mws-panel-body.no-padding
+      %ul.mws-summary.clearfix
+        %li
+          %span.key
+            = t(:name)
+          %span.val
+            %span.text-nowrap= trailer.name
+        %li
+          %span.key
+            = t(:trailer_type)
+          %span.val
+            %span.text-nowrap= trailer.trailer_type
+        %li
+          %span.key
+            = t(:length)
+          %span.val
+            %span.text-nowrap= trailer.length
+        %li
+          %span.key
+            = t(:width)
+          %span.val
+            %span.text-nowrap= trailer.width
+        %li
+          %span.key
+            = t(:height)
+          %span.val
+            %span.text-nowrap= trailer.height
+        %li
+          %span.key
+            = t(:gross_vehicle_weight_rating)
+          %span.val
+            %span.text-nowrap= trailer.gross_vehicle_weight_rating
+        %li
+          %span.key
+            = t(:suspension)
+          %span.val
+            %span.text-nowrap= trailer.suspension
+        %li
+          %span.key
+            = t(:axle_capacity)
+          %span.val
+            %span.text-nowrap= trailer.axle_capacity
+        %li
+          %span.key
+            = t(:wheels)
+          %span.val
+            %span.text-nowrap= trailer.wheels
+        %li
+          %span.key
+            = t(:tires)
+          %span.val
+            %span.text-nowrap= trailer.tires
+        %li
+          %span.key
+            = t(:vin)
+          %span.val
+            %span.text-nowrap= trailer.vehicle_identification_number
+        %li
+          %span.key
+            = t(:tag)
+          %span.val
+            %span.text-nowrap= trailer.vehicle_tag
