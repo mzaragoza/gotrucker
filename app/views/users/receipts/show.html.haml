@@ -1,0 +1,50 @@
+.mws-panel.grid_12
+  .mws-panel-header
+    = link_to 'Edit', edit_users_receipt_path(receipt), :class => 'btn btn-info pull-right'
+    %span
+      = receipt.id
+  .mws-panel-body.no-padding
+    %ul.mws-summary.clearfix
+      %li
+        %span.key
+          = t(:truck)
+        %span.val
+          %span.text-nowrap
+            = receipt.truck.name.titleize if receipt.truck
+      %li
+        %span.key
+          = t(:driver)
+        %span.val
+          %span.text-nowrap
+            = receipt.driver.name if receipt.driver
+      %li
+        %span.key
+          = t(:receipt_date)
+        %span.val
+          %span.text-nowrap= receipt.receipt_date
+      %li
+        %span.key
+          = t(:gallons)
+        %span.val
+          %span.text-nowrap= receipt.fill_up_gallons
+      %li
+        %span.key
+          = t(:state)
+        %span.val
+          %span.text-nowrap= receipt.state
+      %li
+        %span.key
+          = t(:cost)
+        %span.val
+          %span.text-nowrap= number_to_currency(receipt.cost)
+      %li
+        %span.key
+          = t(:odometer)
+        %span.val
+          %span.text-nowrap= receipt.odometer
+      %li
+        %span.key
+          = t(:credit_card_number)
+        %span.val
+          %span.text-nowrap= receipt.credit_card_number.last(4)
+

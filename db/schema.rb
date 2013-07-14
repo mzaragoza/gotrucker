@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130714054418) do
+ActiveRecord::Schema.define(:version => 20130714070555) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name",         :default => ""
@@ -141,6 +141,47 @@ ActiveRecord::Schema.define(:version => 20130714054418) do
     t.integer  "licenses"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
+  end
+
+  create_table "receipts", :force => true do |t|
+    t.integer  "account_id"
+    t.integer  "truck_id"
+    t.integer  "driver_id"
+    t.string   "receipt_date",       :default => "", :null => false
+    t.string   "fill_up_gallons",    :default => "", :null => false
+    t.string   "state",              :default => "", :null => false
+    t.decimal  "cost"
+    t.string   "odometer",           :default => "", :null => false
+    t.string   "credit_card_number", :default => "", :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  create_table "repairs", :force => true do |t|
+    t.integer  "account_id"
+    t.integer  "truck_id"
+    t.integer  "trailer_id"
+    t.string   "service_provider_name",     :default => "", :null => false
+    t.string   "service_provider_address",  :default => "", :null => false
+    t.string   "service_provider_address2", :default => "", :null => false
+    t.string   "service_provider_city",     :default => "", :null => false
+    t.string   "service_provider_state",    :default => "", :null => false
+    t.string   "service_provider_zip",      :default => "", :null => false
+    t.string   "service_provider_fax",      :default => "", :null => false
+    t.string   "service_provider_phone",    :default => "", :null => false
+    t.string   "delivery_date",             :default => "", :null => false
+    t.string   "return_date",               :default => "", :null => false
+    t.string   "payment_info",              :default => "", :null => false
+    t.string   "invoice_date",              :default => "", :null => false
+    t.string   "invoice_number",            :default => "", :null => false
+    t.text     "details",                   :default => "", :null => false
+    t.decimal  "labor"
+    t.decimal  "parts"
+    t.decimal  "tax"
+    t.decimal  "total"
+    t.string   "invoice",                   :default => "", :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
   end
 
   create_table "shipments", :force => true do |t|

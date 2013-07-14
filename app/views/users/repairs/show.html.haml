@@ -1,0 +1,99 @@
+.mws-panel.grid_12
+  .mws-panel-header
+    = link_to 'Edit', edit_users_repair_path(repair), :class => 'btn btn-info pull-right'
+    %span
+      = repair.service_provider_name.titleize
+      |
+      = repair.truck.name.titleize if repair.truck
+      |
+      = repair.trailer.name.titleize if repair.trailer
+      |
+      = repair.invoice_number
+  .mws-panel-body.no-padding
+    %ul.mws-summary.clearfix
+      %li
+        %span.key
+          = t(:truck)
+        %span.val
+          %span.text-nowrap= repair.truck.name.titleize if repair.truck
+      %li
+        %span.key
+          = t(:trailer)
+        %span.val
+          %span.text-nowrap= repair.trailer.name.titleize if repair.trailer
+      %li
+        %span.key
+          = t(:service_provider_name)
+        %span.val
+          %span.text-nowrap= repair.service_provider_name.titleize
+      %li
+        %span.key
+          = t(:address)
+        %span.val
+          %span.text-nowrap
+            = repair.service_provider_address
+            = repair.service_provider_address2
+            = repair.service_provider_city
+            = repair.service_provider_state
+            = repair.service_provider_zip
+      %li
+        %span.key
+          = t(:service_provider_phone)
+        %span.val
+          %span.text-nowrap= repair.service_provider_phone
+      %li
+        %span.key
+          = t(:service_provider_fax)
+        %span.val
+          %span.text-nowrap= repair.service_provider_fax
+      %li
+        %span.key
+          = t(:delivery_date)
+        %span.val
+          %span.text-nowrap= repair.delivery_date
+      %li
+        %span.key
+          = t(:return_date)
+        %span.val
+          %span.text-nowrap= repair.return_date
+      %li
+        %span.key
+          = t(:payment_info)
+        %span.val
+          %span.text-nowrap= repair.payment_info
+      %li
+        %span.key
+          = t(:invoice_date)
+        %span.val
+          %span.text-nowrap= repair.invoice_date
+      %li
+        %span.key
+          = t(:invoice_number)
+        %span.val
+          %span.text-nowrap= repair.invoice_number
+      %li
+        %span.key
+          = t(:details)
+        %span.val
+          %span.text-nowrap= repair.details
+      %li
+        %span.key
+          = t(:labor)
+        %span.val
+          %span.text-nowrap= number_to_currency(repair.labor)
+      %li
+        %span.key
+          = t(:parts)
+        %span.val
+          %span.text-nowrap= number_to_currency(repair.parts)
+      %li
+        %span.key
+          = t(:tax)
+        %span.val
+          %span.text-nowrap= number_to_currency(repair.tax)
+      %li
+        %span.key
+          = t(:total)
+        %span.val
+          %span.text-nowrap= number_to_currency(repair.total)
+
