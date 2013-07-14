@@ -30,3 +30,4 @@ public/assets/*
 app/assets/videos/*
 uploads/*
 public/uploads/*
+*.DS_Store
