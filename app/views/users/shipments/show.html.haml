@@ -1,3 +1,10 @@
+- content_for :pagetitle do 
+  Shipment
+  = shipment.broker.name.titleize if shipment.broker
+  = shipment.load_number
+  = shipment.truck.name.titleize if shipment.truck
+  = shipment.pick_up_date
+
 .mws-panel.grid_12
   .mws-panel-header
     = link_to 'Edit', edit_users_shipment_path(shipment), :class => 'btn btn-info pull-right'

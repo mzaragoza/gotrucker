@@ -1,3 +1,6 @@
+- content_for :pagetitle do 
+  Driver
+  = driver.full_name.titleize
 .row-fluid
   .mws-panel.grid_2.pull-right
     - if driver.photo?

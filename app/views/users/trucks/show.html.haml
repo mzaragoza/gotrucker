@@ -1,3 +1,6 @@
+- content_for :pagetitle do 
+  Truck
+  = truck.name.titleize
 .row-fluid
   .mws-panel.grid_2.pull-right
     - unless truck.photo.blank?

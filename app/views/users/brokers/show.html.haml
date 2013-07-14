@@ -1,3 +1,6 @@
+- content_for :pagetitle do 
+  Broker
+  = broker.name.titleize
 .mws-panel.grid_12
   .mws-panel-header
     = link_to 'Edit', edit_users_broker_path(broker), :class => 'btn btn-info pull-right'
@@ -9,7 +12,7 @@
         %span.key
           = t(:name)
         %span.val
-          %span.text-nowrap= broker.name
+          %span.text-nowrap= broker.name.titleize
       %li
         %span.key
           = t(:carreir_packet_pdf)
