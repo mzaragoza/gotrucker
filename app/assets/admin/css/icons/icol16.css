@@ -23,7 +23,7 @@
 [class^="icol-"], 
 [class*=" icol-"]
 {
-	background-image: url(icol16/sprite.png);
+	background-image: url(/assets/css/icons/icol16/sprite.png);
 }
 
 /* Icon Definitions

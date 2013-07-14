@@ -12,7 +12,7 @@
     width: 180px;
     padding: 10px;
     display: none;
-    background: url(../images/datepicker/datepicker-bg.png) repeat-x;
+    background: url(/assets/jui/images/datepicker/datepicker-bg.png) repeat-x;
 }
 
 .ui-datepicker .ui-datepicker-header {
@@ -100,7 +100,7 @@
 }
 
 .ui-datepicker table thead {
-    background: url(../images/datepicker/datepicker-stitch.png) repeat-x left 2px;
+    background: url(/assets/jui/images/datepicker/datepicker-stitch.png) repeat-x left 2px;
 }
 
 .ui-datepicker th {

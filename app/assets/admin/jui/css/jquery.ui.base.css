@@ -8,6 +8,7 @@
  *
  * http://docs.jquery.com/UI/Theming
  */
+/*!
 @import url("jquery.ui.core.css");
 
 @import url("jquery.ui.accordion.css");
@@ -22,3 +23,4 @@
 @import url("jquery.ui.slider.css");
 @import url("jquery.ui.spinner.css");
 @import url("jquery.ui.tabs.css");
+ */

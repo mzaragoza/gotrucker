@@ -20,7 +20,7 @@
 .ui-dialog .ui-dialog-titlebar {
     position: relative;
     padding: 13px 16px;
-    background: url(../../images/core/mws-panel-header-bg.png) repeat-x;
+    background: url(/assets/images/core/mws-panel-header-bg.png) repeat-x;
 }
 
 .ui-dialog .ui-dialog-title {

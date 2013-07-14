@@ -6,31 +6,12 @@
 %html{:lang => "en"}
   / <![endif]
   %head
-    %title 
-      = yield :page_title
-      | Go Trucker Go
     %meta{:charset => "utf-8"}/
-    / Viewport Metatag
     %meta{:content => "width=device-width,initial-scale=1.0", :name => "viewport"}/
-    = csrf_meta_tags
-    =# stylesheet_link_tag "application", :media => "all"
-    <link rel="stylesheet" type="text/css" href="/css/plugins/colorpicker/colorpicker.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/css/plugins/imgareaselect/css/imgareaselect-default.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/css/plugins/jgrowl/jquery.jgrowl.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.min.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/css/fonts/ptsans/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/css/fonts/icomoon/style.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/css/mws-style.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/css/demo.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/css/jui/css/jquery.ui.all.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/css/jui/css/jquery.ui.timepicker.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/css/jui/jquery-ui.custom.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/css/mws-theme.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/css/themer.css" media="screen">
-    = stylesheet_link_tag "icons/icol32", :media => "all"
-    = stylesheet_link_tag "icons/icol16", :media => "all"
-    = stylesheet_link_tag "my_css", :media => "all"
-    = render '/shared/analytics'
+    = stylesheet_link_tag 'user_application', :media => "all"
+    %title
+      = yield :pagetitle
+      | Go Trucker Go
   %body
     / Header
     #mws-header.clearfix
@@ -38,7 +19,7 @@
       #mws-logo-container
         / Logo Wrapper, images put within this wrapper will always be vertically centered
         #mws-logo-wrap
-          = image_tag 'logo.png', :alt => t(:company_name), :class => 'pull-left'
+          = image_tag 'logo_white.png', :alt => t(:go_trucker_go), :class => 'pull-left'
           - if current_account.photo?
             = image_tag current_account.photo, :alt => current_account.name.titleize, :class => 'pull-right'
       / User Tools (notifications, logout, profile, change password)
@@ -50,7 +31,7 @@
             - if current_user.photo_url
               = image_tag current_user.photo.thumb, :alt => current_user.full_name
             - else
-              = image_tag 'example/profile.jpg', :alt => t(:company_name)
+              = image_tag '/assets/example/profile.jpg', :alt => current_user.full_name
 
           / Username and Functions
           #mws-user-functions
@@ -62,7 +43,6 @@
                 = link_to 'Profile', edit_users_profile_path(current_user)
               %li
                 = link_to 'Logout', destroy_user_session_path, :method => :delete
-    / Start Main Wrapper
     #mws-wrapper
       / Necessary markup, do not remove
       #mws-sidebar-stitch
@@ -107,7 +87,7 @@
             %li{:class => "#{'active' if params[:controller] == 'users/brokers' }"}
               = link_to users_brokers_path do
                 %i.icol32-brokers
-                Brokers 
+                Brokers
             %li{:class => "#{'active' if params[:controller] == 'users/shipments' }"}
               = link_to users_shipments_path do
                 %i.icol32-shipments
@@ -125,11 +105,10 @@
                 %i.icol32-help2
                 Support
       / Main Container Start
-      -#mws-container.clearfix
+      #mws-container.clearfix
         / Inner Container Start
         .container
-          / Statistics Button Container
-          .mws-stat-container.clearfix
+          -#.mws-stat-container.clearfix
             / Statistic Item
             = link_to users_drivers_path, :class => 'mws-stat' do
               / Statistic Icon (edit to change icon)
@@ -215,19 +194,15 @@
             #alert
               %h3= flash[:alert]
             %br
-          = yield :pageheader
         .container
           = yield
+        / Panels Start
+        / Inner Container End
         / Footer
         #mws-footer
-          Copyright 
-          = t(:company_name) 
-          2013
-          All Rights Reserved.
+          Copyright Your Website 2012. All Rights Reserved.
       / Main Container End
     / JavaScript Plugins
-    /[if lt IE 9]
-      <script src="js/libs/excanvas.min.js"></script>
-    = javascript_include_tag "application"
+    = javascript_include_tag "user_application"
     = render '/shared/uservoise'
     = yield :page_footer

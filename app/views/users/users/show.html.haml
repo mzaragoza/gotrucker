@@ -1,0 +1,44 @@
+.row-fluid
+  .mws-panel.grid_2.pull-right
+    - if user.photo?
+      = image_tag user.photo.large_thumb, :width => '500', :alt => user.name, :class => 'img-polaroid'
+    - else
+      = image_tag 'myicons/user-icon.png', :width => '500', :class => 'img-polaroid'
+  .mws-panel.grid_6
+    .mws-panel-header
+      = link_to 'Edit', edit_users_user_path(user), :class => 'btn btn-info pull-right'
+      %span
+        = user.full_name.titleize
+    .mws-panel-body.no-padding
+      %ul.mws-summary.clearfix
+        %li
+          %span.key
+            = t(:email)
+          %span.val
+            %span.text-nowrap= mail_to user.email
+        %li
+          %span.key
+            = t(:name)
+          %span.val
+            %span.text-nowrap= user.full_name
+        %li
+          %span.key
+            = t(:owner)
+          %span.val
+            %span.text-nowrap
+              -if user.is_owner
+                .badge.badge-success Owner
+              -else
+                .badge.badge-important User
+        %li
+          %span.key
+            = t(:phone)
+          %span.val
+            %span.text-nowrap= user.phone
+        %li
+          %span.key
+            = t(:active)
+          %span.val
+            %span.text-nowrap= user.active
+
+

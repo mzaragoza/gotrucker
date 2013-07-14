@@ -13,7 +13,7 @@
     position: relative;
     zoom: 1;
     font-weight: normal;
-    background: url(../../images/core/mws-panel-header-bg.png) repeat-x;
+    background: url(/assets/images/core/mws-panel-header-bg.png) repeat-x;
     line-height: 25px;
     height: 25px;
     padding: 12px 20px;

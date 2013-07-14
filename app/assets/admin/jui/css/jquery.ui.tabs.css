@@ -15,7 +15,7 @@
 
 .ui-tabs .ui-tabs-nav {
     margin: 0;
-    background: url(../../images/core/mws-panel-header-bg.png) repeat-x;
+    background: url(/assets/images/core/mws-panel-header-bg.png) repeat-x;
     padding: 12px;
     padding-bottom: 0;
 }
