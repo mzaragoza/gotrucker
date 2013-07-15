@@ -1,18 +1,18 @@
 - content_for :pagetitle do 
   Shipment
-  = shipment.broker.name.titleize if shipment.broker
-  = shipment.load_number
-  = shipment.truck.name.titleize if shipment.truck
-  = shipment.pick_up_date
+  =# shipment.broker.name.titleize if shipment.broker
+  =# shipment.load_number
+  =# shipment.truck.name.titleize if shipment.truck
+  =# shipment.pick_up_date
 
 .mws-panel.grid_12
   .mws-panel-header
     = link_to 'Edit', edit_users_shipment_path(shipment), :class => 'btn btn-info pull-right'
     %span
-      = shipment.broker.name.titleize if shipment.broker
-      = shipment.load_number
-      = shipment.truck.name.titleize if shipment.truck
-      = shipment.pick_up_date
+      =# shipment.broker.name.titleize if shipment.broker
+      =# shipment.load_number
+      =# shipment.truck.name.titleize if shipment.truck
+      =# shipment.pick_up_date
   .mws-panel-body.no-padding
     %ul.mws-summary.clearfix
       %li
@@ -29,19 +29,19 @@
           = t(:broker)
         %span.val
           %span.text-nowrap
-            = link_to shipment.broker.name, users_broker_path(shipment.broker) if shipment.broker
+            =# link_to shipment.broker.name, users_broker_path(shipment.broker) if shipment.broker
       %li
         %span.key
           = t(:truck)
         %span.val
           %span.text-nowrap
-            = link_to shipment.truck.name, users_truck_path(shipment.trailer) if shipment.truck
+            =# link_to shipment.truck.name, users_truck_path(shipment.trailer) if shipment.truck
       %li
         %span.key
           = t(:trailer)
         %span.val
           %span.text-nowrap
-            = link_to shipment.new_trailer.name, users_trailer_path(shipment.trailer) if shipment.new_trailer
+            =# link_to shipment.new_trailer.name, users_trailer_path(shipment.trailer) if shipment.new_trailer
       %li
         %span.key
           = t(:load_number)
