@@ -1,5 +1,6 @@
 Fabricator(:invoice) do
   invoice_number {rand(9999999999)}
+  broker_name { Faker::Name.first_name }
   broker_address { Faker::Address.street_name }
   broker_address2 { Faker::Address.secondary_address}
   broker_city { Faker::Address.city}

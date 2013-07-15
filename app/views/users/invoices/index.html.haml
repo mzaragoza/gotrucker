@@ -23,7 +23,7 @@
             %td= link_to t(:show), users_invoice_path(i), :class => 'btn btn-small btn-info'
             %td
               = i.broker.name if i.broker
-            %td= number_to_currency(i.price)
+            %td= number_to_currency(i.total)
             %td= i.pick_up_date
             %td= i.invoice_number
             %td= i.paid_status

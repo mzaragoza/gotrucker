@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(:version => 20130715020737) do
     t.integer  "shipment_id"
     t.integer  "broker_id"
     t.string   "invoice_number",              :default => ""
+    t.string   "broker_name",                 :default => ""
     t.string   "broker_address",              :default => ""
     t.string   "broker_address2",             :default => ""
     t.string   "broker_city",                 :default => ""
