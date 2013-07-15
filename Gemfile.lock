@@ -176,6 +176,7 @@ GEM
       rails
     launchy (2.3.0)
       addressable (~> 2.3)
+    le (2.1.9)
     letter_opener (1.1.2)
       launchy (~> 2.2)
     macaddr (1.6.1)
@@ -396,6 +397,7 @@ DEPENDENCIES
   kaminari
   kaminari-bootstrap
   launchy
+  le
   letter_opener
   meta_request
   newrelic_rpm

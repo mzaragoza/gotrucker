@@ -54,6 +54,7 @@ end
 
 group :production, :staging do
   gem 'newrelic_rpm' # ab -kc 20 -t 60 http://on-call-architect-staging.herokuapp.com/---
+  gem 'le'
 end
 
 gem 'letter_opener', :group => :development
