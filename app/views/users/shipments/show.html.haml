@@ -41,7 +41,7 @@
           = t(:trailer)
         %span.val
           %span.text-nowrap
-            = link_to shipment.new_trailer.name, users_trailer_path(shipment.trailer) if shipment.new_trailer
+            = link_to shipment.trailer.name, users_trailer_path(shipment.trailer) if shipment.new_trailer
       %li
         %span.key
           = t(:load_number)
