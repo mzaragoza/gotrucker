@@ -65,5 +65,5 @@ Gotrucker::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   #
-  Rails.logger = Le.new('LOGENTRIES_TOKEN')
+  #Rails.logger = Le.new('LOGENTRIES_TOKEN')
 end
