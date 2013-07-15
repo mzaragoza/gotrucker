@@ -92,6 +92,10 @@
               = link_to users_shipments_path do
                 %i.icol32-shipments
                 Shipments
+            %li{:class => "#{'active' if params[:controller] == 'users/invoices' }"}
+              = link_to users_invoices_path do
+                %i.icol32-invoices
+                Invoices
             %li{:class => "#{'active' if params[:controller] == 'users/receipts' }"}
               = link_to users_receipts_path do
                 %i.icol32-credit-card

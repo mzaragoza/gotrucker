@@ -1,0 +1,32 @@
+- content_for :pagetitle do 
+  Invoices
+=# link_to t(:add_driver), new_users_driver_path, :class => 'btn btn-info pull-right'
+.mws-panel.grid_8.mws-collapsible
+  .mws-panel-header
+    %span
+      Invoices
+  .mws-panel-body.no-padding
+    %table.mws-datatable-fn.mws-table
+      %thead
+        %tr
+          %th
+          %th=t(:broker)
+          %th=t(:price)
+          %th=t(:pick_up_date)
+          %th=t(:invoice_number)
+          %th=t(:paid_status)
+          %th=t(:paid_date)
+          %th
+      %tbody
+        - invoices.each do |i|
+          %tr
+            %td= link_to t(:show), users_invoice_path(i), :class => 'btn btn-small btn-info'
+            %td
+              = i.broker.name if i.broker
+            %td= number_to_currency(i.price)
+            %td= i.pick_up_date
+            %td= i.invoice_number
+            %td= i.paid_status
+            %td= i.paid_date
+            %td= link_to 'Edit', edit_users_invoice_path(i), :class => 'btn btn-small btn-info'
+

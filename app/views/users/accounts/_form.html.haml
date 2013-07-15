@@ -4,6 +4,10 @@
     .mws-form-item
     = f.input :name, :label => false
   .mws-form-row
+    %label.mws-form-label= t(:motor_carrier_number)
+    .mws-form-item
+    = f.input :motor_carrier_number, :label => false
+  .mws-form-row
     %label.mws-form-label= t(:address)
     .mws-form-item
     = f.input :address, :label => false

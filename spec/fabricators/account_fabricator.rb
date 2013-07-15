@@ -8,6 +8,7 @@ Fabricator(:account) do
   phone { Faker::PhoneNumber.cell_phone.to_s.gsub(/[^0-9]/, "").to_s[0...10] }
   active { true }
   website {Faker::Internet.url}
+  motor_carrier_number {rand(999999)}
 
 end
 

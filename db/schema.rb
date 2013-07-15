@@ -11,22 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130714070555) do
+ActiveRecord::Schema.define(:version => 20130715020737) do
 
   create_table "accounts", :force => true do |t|
-    t.string   "name",         :default => ""
-    t.string   "address",      :default => ""
-    t.string   "address2",     :default => ""
-    t.string   "city",         :default => ""
-    t.string   "state",        :default => ""
-    t.string   "zip",          :default => ""
-    t.string   "phone",        :default => ""
-    t.boolean  "active",       :default => true
-    t.string   "website",      :default => ""
-    t.string   "photo",        :default => ""
-    t.boolean  "show_support", :default => true
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.string   "name",                 :default => ""
+    t.string   "address",              :default => ""
+    t.string   "address2",             :default => ""
+    t.string   "city",                 :default => ""
+    t.string   "state",                :default => ""
+    t.string   "zip",                  :default => ""
+    t.string   "phone",                :default => ""
+    t.boolean  "active",               :default => true
+    t.string   "website",              :default => ""
+    t.string   "photo",                :default => ""
+    t.boolean  "show_support",         :default => true
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "motor_carrier_number", :default => ""
   end
 
   create_table "admins", :force => true do |t|
@@ -110,6 +111,38 @@ ActiveRecord::Schema.define(:version => 20130714070555) do
     t.boolean  "combination_of_tank_vehicle_and_hazardous_materials", :default => false
     t.datetime "created_at",                                                             :null => false
     t.datetime "updated_at",                                                             :null => false
+  end
+
+  create_table "invoices", :force => true do |t|
+    t.integer  "account_id"
+    t.integer  "shipment_id"
+    t.integer  "broker_id"
+    t.string   "invoice_number",              :default => ""
+    t.string   "broker_address",              :default => ""
+    t.string   "broker_address2",             :default => ""
+    t.string   "broker_city",                 :default => ""
+    t.string   "broker_state",                :default => ""
+    t.string   "broker_zip",                  :default => ""
+    t.string   "broker_phone",                :default => ""
+    t.string   "broker_fax",                  :default => ""
+    t.string   "broker_motor_carrier_number", :default => ""
+    t.string   "load_number",                 :default => ""
+    t.decimal  "price"
+    t.string   "pick_up_location_city",       :default => ""
+    t.string   "pick_up_location_state",      :default => ""
+    t.string   "delivery_location_city",      :default => ""
+    t.string   "delivery_location_state",     :default => ""
+    t.string   "pick_up_date",                :default => ""
+    t.string   "deliver_date",                :default => ""
+    t.string   "paid_status",                 :default => ""
+    t.string   "paid_date",                   :default => ""
+    t.string   "load_conformation",           :default => ""
+    t.decimal  "lumper_fee"
+    t.decimal  "detention_fee"
+    t.decimal  "unloading_fee"
+    t.decimal  "reconsignment_fee"
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
   end
 
   create_table "leads", :force => true do |t|
