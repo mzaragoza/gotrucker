@@ -31,7 +31,7 @@
             %td= b.motor_carrier_number
             %td
               - unless b.carreir_packet_pdf.blank?
-                = link_to t(:carreir_packet), b.carreir_packet_pdf_url, :target => '_blank'
+                = link_to t(:carrier_pack), b.carreir_packet_pdf_url, :target => '_blank'
               - else
                 %span{:style => 'color:#F00'}= t(:carreir_packet)
             %td= link_to 'Edit', edit_users_broker_path(b), :class => 'btn btn-small btn-info'

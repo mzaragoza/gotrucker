@@ -19,9 +19,9 @@
         %span.val
           %span.text-nowrap
             - unless broker.carreir_packet_pdf.blank?
-              = link_to t(:carreir_packet), broker.carreir_packet_pdf_url, :target => '_blanl'
+              = link_to t(:carrier_pack), broker.carreir_packet_pdf_url, :target => '_blanl'
             - else
-              %span{:style => 'color:#F00'}= t(:carreir_packet)
+              %span{:style => 'color:#F00'}= t(:carrier_pack)
       %li
         %span.key
           = t(:phone)
