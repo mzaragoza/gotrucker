@@ -136,7 +136,7 @@
 .ui-icon {
     width: 16px;
     height: 16px;
-    background-image: url(../images/ui-icons.png);
+    background-image: url(/assets/jui/images/ui-icons.png);
 }
 
 .ui-widget-content .ui-icon {}
