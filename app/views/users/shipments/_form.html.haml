@@ -10,9 +10,6 @@
   .mws-form-row
     %label.mws-form-label= t(:trailer)
     .mws-form-item
-    OLD
-    = f.association :new_trailer, collection: current_account.trailers.all(order: 'name'), prompt: "Choose a Trailer", :label => false
-    New
     = f.association :trailer, collection: current_account.trailers.all(order: 'name'), prompt: "Choose a Trailer", :label => false
   .mws-form-row
     %label.mws-form-label= t(:load_number)
