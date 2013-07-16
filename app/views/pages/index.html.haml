@@ -84,18 +84,16 @@
         .highlight-inner
           .col-text
             %h2.headline
-              %span.accent> Clean
-              ,
-              %span.accent Elegant
-              and
-              %span.accent Modern
-              Trucking application for the future
+              Everything you need to run your 
+              %span.accent
+                trucking 
+              business
           .col-btn
             = link_to t(:try_for_free), prices_path, :class => 'btn'
   / End Highlight
   / Start Content
   .container.main
-    .row
+    -#.row
       / Feature Text
       .one-third.column
         .feature-text.dotted
@@ -126,7 +124,7 @@
               Premium Plugins Included
             Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.
       / End Feature Text
-    .row
+    -#.row
       %h3.title
         %span Featured Work
       .portfolio-items.clearfix
@@ -195,7 +193,55 @@
               %span.item-tags wordpress / coding / seo
         / End Portfolio Item
     .nine.columns
-      .row
+      / Feature Text
+      .one-third.column
+        .feature-text.dotted
+          .text
+            %h4.caption
+              %span.icon
+                %i.icon-iphone
+            Mange your trucks, trailers, drivers, And Brokers
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidi dunt ut labore et dolore magna aliqua.
+      / End Feature Text
+      .one-third.column
+        .feature-text.dotted
+          .text
+            %h4.caption
+              %span.icon
+                %i.icon-iphone
+            Book Loads fast and easyly 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidi dunt ut labore et dolore magna aliqua.
+      / End Feature Text
+      / Feature Text
+      .one-third.column
+        .feature-text.dotted
+          .text
+            %h4.caption
+              %span.icon
+                %i.icon-eye-open
+            Sharp, Retina Ready Design
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+      / End Feature Text
+      -#%h3.title
+        %span Featured Work
+      -#.portfolio-items.clearfix
+        / Portfolio Item
+        .four.columns
+          .portfolio-item
+            %figure.item-image
+              %img{:alt => "", :src => "/assets/demo/work/child.jpg"}/
+              %span.overlay
+                %span.overlay-links
+                  %a{:href => "portfolio-single.html"}
+                    %i.icon-link
+                  %a{:href => "/assets/demo/work/child.jpg", :rel => "magnific-popup", :title => "Hiding From Danger"}
+                    %i.icon-search
+            .item-info
+              %h5.item-title
+                %a{:href => "portfolio-single.html"} Hiding From Danger
+              %span.item-tags wordpress / coding / seo
+        / End Portfolio Item
+      -#.row
         %h3.title
           %span Recent Posts
         / Recent Post
@@ -254,25 +300,25 @@
         .testimonial
           .text
             %article
-              %p Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.
+              %p The system works great for us and the support we get from your team has been excellent.
               %p.author
-                Albus Dumbledore
-                %span Youxi Themes
+                John Connor
+                %span Custom Built
             %article
-              %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidi dunt ut labore et dolore magna aliqua. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.
+              %p Our experience has been nothing but pleasurable,  go trucker go. has exceeded our expectations.
               %p.author
-                Tom Riddle
-                %span Dementor Themes
+                Sarah Moorehouse
+                %span Nyc Transport
             %article
-              %p Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.
+              %p This system is great for trucking businesses. It is fairly easy to learn and has lots to offer. I have yet to stop learning new things from this system.
               %p.author
-                Dolores Umbridge
-                %span Hogwarts
+                Brandon Roy
+                %span J.B. Hunt Transport
             %article
-              %p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.
+              %p The Go Trucker Go software has been a great success for our fleet. We currently operate a transportation company with a fleet of 10 trucks. The quick-preview really helps us to keep an eye on our equipment and load orders at all times. 
               %p.author
-                Hermione Granger
-                %span Envato
+                Sidney Grace
+                %span Boyle Transportation
           .photo
             .photo-holder
               %img{:alt => "", :src => "/assets/demo/testimonial/1.jpg"}/
