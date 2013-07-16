@@ -30,23 +30,19 @@
       .ls-s-1{:rel => "slidedirection: bottom; slideoutdirection: bottom; delayin: 2500; durationin: 250; durationout: 400; delayout: 800;", :style => "font-size: 14px; color: #FFF; left: 90px; top: 172px; background-color: #333333; padding:10px;"}
         %span{:style => "margin-right: 5px;"}
           %i.icon-ok-2
-        Fully Responsive Layout
+        Mange your trucks, trailers, drivers, and brokers
       .ls-s-1{:rel => "slidedirection: bottom; slideoutdirection: bottom; delayin: 2700; durationin: 250; durationout: 400; delayout: 600;", :style => "font-size: 14px; color: #FFF; left: 90px; top: 206px; background-color: #333333; padding:10px;"}
         %span{:style => "margin-right: 5px;"}
           %i.icon-ok-2
-        Retina Display Ready
+        Mannaged booked loads
       .ls-s-1{:rel => "slidedirection: bottom; slideoutdirection: bottom; delayin: 2900; durationin: 250; durationout: 400; delayout: 400;", :style => "font-size: 14px; color: #FFF; left: 90px; top: 240px; background-color: #333333; padding:10px;"}
         %span{:style => "margin-right: 5px;"}
           %i.icon-ok-2
-        Clean and Professional Design
+        Keep track of trucks performance
       .ls-s-1{:rel => "slidedirection: bottom; slideoutdirection: bottom; delayin: 3100; durationin: 250; durationout: 400; delayout: 200;", :style => "font-size: 14px; color: #FFF; left: 90px; top: 274px; background-color: #333333; padding:10px;"}
         %span{:style => "margin-right: 5px;"}
           %i.icon-ok-2
-        W3C Compliant HTML5 & CSS3
-      .ls-s-1{:rel => "slidedirection: bottom; slideoutdirection: bottom; delayin: 3300; durationin: 250; durationout: 400;", :style => "font-size: 14px; color: #FFF; left: 90px; top: 308px; background-color: #333333; padding:10px;"}
-        %span{:style => "margin-right: 5px;"}
-          %i.icon-ok-2
-        Premium Plugins Included
+        Keep track of accounts receivable
     / LayerSlider layer (Browsers)
     .ls-layer{:style => "slidedelay: 6000; delayout: 1200; transition2d: all;"}
       / LayerSlider background
@@ -77,19 +73,7 @@
 / End Slider Wrap
 / Content
 .content
-  / Highlight
-  .highlight
-    .container
-      .sixteen.columns
-        .highlight-inner
-          .col-text
-            %h2.headline
-              Everything you need to run your 
-              %span.accent
-                trucking 
-              business
-          .col-btn
-            = link_to t(:try_for_free), prices_path, :class => 'btn'
+  = render '/shared/promo'
   / End Highlight
   / Start Content
   .container.main
@@ -258,5 +242,6 @@
             %span.prev
               %i.icon-angle-right
         / End Testimonial
+  = render '/shared/promo'
 / End Content
 
