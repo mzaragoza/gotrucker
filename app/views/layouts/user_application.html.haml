@@ -170,7 +170,7 @@
                 %span.mws-stat-title Receipts
                 %span.mws-stat-value
                   = number_to_currency( current_account.receipts.sum(:cost) )
-            = link_to users_receipts_path, :class => 'mws-stat' do
+            = link_to users_repairs_path, :class => 'mws-stat' do
               / Statistic Icon (edit to change icon)
               %span.mws-stat-icon.icol32-repairs
               / Statistic Content
