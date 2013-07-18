@@ -8,6 +8,10 @@
     .mws-form-item
     = f.input :last_name, :label => false
   .mws-form-row
+    %label.mws-form-label= t(:email)
+    .mws-form-item
+    = f.input :email, :label => false
+  .mws-form-row
     %label.mws-form-label= t(:truck)
     .mws-form-item
     = f.association :truck, collection: current_account.trucks.all(order: 'name'), prompt: "Choose a Truck", :label => false
