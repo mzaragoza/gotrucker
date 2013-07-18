@@ -30,7 +30,7 @@
             %td
               = link_to s.truck.name, users_truck_path(s.truck) if s.truck
             %td
-              = link_to s.new_trailer.name, users_trailer_path(s.new_trailer) if s.new_trailer
+              = link_to s.trailer.name, users_trailer_path(s.trailer) if s.trailer
             %td= s.pick_up_date
             %td= s.deliver_date
             %td= s.paid_status

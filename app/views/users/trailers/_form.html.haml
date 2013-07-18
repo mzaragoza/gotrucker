@@ -52,6 +52,14 @@
     .mws-form-item
     = f.input :annual_inspection, :label => false, :input_html => { :class => 'datepicker'}
   .mws-form-row
+    %label.mws-form-label= t(:year_build)
+    .mws-form-item
+    = f.input :year_build, :label => false
+  .mws-form-row
+    %label.mws-form-label= t(:manufacturer)
+    .mws-form-item
+    = f.input :manufacturer, :label => false
+  .mws-form-row
     %label.mws-form-label= t(:vented)
     .mws-form-item
     = f.input :vented, :label => false
