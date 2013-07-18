@@ -19,5 +19,11 @@ class Users::ShipmentsController < UserController
       render :edit
     end
   end
+   def delete
+     s = Shipment.find(params[:format])
+     s.delete
+      flash[:notice] = t(:shipment_was_successfully_deleted)
+      redirect_to(users_shipments_path)
+   end
 end
 

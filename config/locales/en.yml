@@ -21,6 +21,7 @@ en:
   receipt_was_successfully_updated: "Receipt was successfully updated"
   shipment_was_successfully_created: "Shipment was successfully created"
   shipment_was_successfully_updated: "Shipment was successfully updated"
+  shipment_was_successfully_deleted: "Shipment was successfully deleted"
   trailer_was_successfully_created: "Trailer was successfully created"
   trailer_was_successfully_updated: "Trailer was successfully updated"
   truck_was_successfully_created: "Truck was successfully created"

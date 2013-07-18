@@ -16,6 +16,8 @@ Gotrucker::Application.routes.draw do
       resources :brokers do
         collection { post :import }
       end
+      match "/shipments/delete" => "shipments#delete", :as => :shipments_delete
+      resources :shipments
       resources :shipments
       resources :receipts
       resources :repairs

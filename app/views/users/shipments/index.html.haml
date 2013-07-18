@@ -47,4 +47,5 @@
               - if s.invoice
                 = link_to 'Invoice', edit_users_invoice_path(s.invoice), :class => 'btn btn-small btn-info'
               - else
-                = link_to 'Invoice', new_users_invoice_path(:shipment => s), :class => 'btn btn-small btn-info'
+                = link_to 'invoice', new_users_invoice_path(:shipment => s), :class => 'btn btn-small btn-info'
+              = link_to 'delete', users_shipments_delete_path(s), :confirm => 'Are you sure?' , :class => 'btn btn-small btn-info'
