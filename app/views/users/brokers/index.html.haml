@@ -27,7 +27,12 @@
             %td= number_to_phone(b.phone)
             %td= number_to_phone(b.fax)
             %td= mail_to b.email
-            %td= link_to b.website, b.website , :target => '_blank'
+            %td
+              - if b.website.include?('http')
+                = link_to b.website, b.website , :target => '_blank'
+              - else
+                = link_to b.website, 'http://' + b.website , :target => '_blank'
+
             %td= b.motor_carrier_number
             %td
               - unless b.carreir_packet_pdf.blank?

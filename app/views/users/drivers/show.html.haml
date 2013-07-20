@@ -40,11 +40,10 @@
             = t(:address)
           %span.val
             %span.text-nowrap
-              = driver.address
-              = driver.address2
-              = driver.city
-              = driver.state
-              = driver.zip
+              - address = driver.address + ' ' + driver.address2 + ' ' + driver.city  + ' ' + driver.state  + ' ' + driver.zip
+              = address
+              = link_to 'https://maps.google.com/maps?q='+ address  +'&t=m&z=17', :target => '_blank' do
+                %i.icol32-map2
         %li
           %span.key
             = t(:email)

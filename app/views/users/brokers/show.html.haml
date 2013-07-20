@@ -36,22 +36,25 @@
         %span.key
           = t(:email)
         %span.val
-          %span.text-nowrap= broker.email
+          %span.text-nowrap= mail_to broker.email
       %li
         %span.key
           = t(:address)
         %span.val
           %span.text-nowrap
-            = broker.address
-            = broker.address2
-            = broker.city
-            = broker.state
-            = broker.zip
+            - address = broker.address + ' ' + broker.address2 + ' ' + broker.city  + ' ' + broker.state  + ' ' + broker.zip
+            = address
+            = link_to 'https://maps.google.com/maps?q='+ address  +'&t=m&z=17', :target => '_blank' do
+              %i.icol32-map2
       %li
         %span.key
           = t(:website)
         %span.val
-          %span.text-nowrap= broker.website
+          %span.text-nowrap
+            - if broker.website.include?('http')
+              = link_to broker.website, broker.website , :target => '_blank'
+            - else
+              = link_to broker.website, 'http://' + broker.website , :target => '_blank'
       %li
         %span.key
           = t(:motor_carrier_number)
