@@ -1,8 +1,8 @@
 - content_for :pagetitle do 
   Brokers
-= link_to t(:add_broker), new_users_broker_path, :class => 'btn btn-info pull-right'
-=# link_to t(:imports_broker), import_users_brokers_path, :class => 'btn btn-info pull-right'
-.mws-panel.grid_8.mws-collapsible
+.grid_8
+  = link_to t(:add_broker), new_users_broker_path, :class => 'btn btn-info pull-right'
+.mws-panel.grid_8
   .mws-panel-header
     %span
       Brokers

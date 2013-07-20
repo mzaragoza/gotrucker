@@ -1,16 +1,18 @@
+- content_for :pagetitle do 
+  = account.name.titleize
 .row-fluid
   .mws-panel.grid_12
     .mws-panel-header
       = link_to 'Edit', edit_users_account_path(account), :class => 'btn btn-info pull-right'
       %span
-        = account.name
+        = account.name.titleize
     .mws-panel-body.no-padding
       %ul.mws-summary.clearfix
         %li
           %span.key
             = t(:name)
           %span.val
-            %span.text-nowrap= account.name
+            %span.text-nowrap= account.name.titleize
         %li
           %span.key
             = t(:motor_carrier_number)
@@ -20,32 +22,17 @@
           %span.key
             = t(:address)
           %span.val
-            %span.text-nowrap= account.address
-        %li
-          %span.key
-            = t(:address2)
-          %span.val
-            %span.text-nowrap= account.address
-        %li
-          %span.key
-            = t(:city)
-          %span.val
-            %span.text-nowrap= account.city
-        %li
-          %span.key
-            = t(:state)
-          %span.val
-            %span.text-nowrap= account.state
-        %li
-          %span.key
-            = t(:zip)
-          %span.val
-            %span.text-nowrap= account.zip
+            %span.text-nowrap
+              = account.address
+              = account.address2
+              = account.city
+              = account.state
+              = account.zip
         %li
           %span.key
             = t(:phone)
           %span.val
-            %span.text-nowrap= account.phone
+            %span.text-nowrap= number_to_phone(account.phone)
         %li
           %span.key
             = t(:website)

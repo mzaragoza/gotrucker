@@ -1,3 +1,6 @@
+- content_for :pagetitle do 
+  User
+  = user.full_name.titleize
 .row-fluid
   .mws-panel.grid_2.pull-right
     - if user.photo?

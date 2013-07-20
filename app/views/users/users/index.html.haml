@@ -1,10 +1,14 @@
-= current_account.users.where(:active => true).count
-= '/'
-= current_account.subscription.licenses
+- content_for :pagetitle do 
+  Users
 
-
-= link_to t(:add_user), new_users_user_path, :class => 'btn btn-info pull-right'
-.mws-panel.grid_8.mws-collapsible
+.grid_8
+  You are using 
+  = current_account.users.where(:active => true).count
+  out of
+  = current_account.subscription.licenses
+  lisences 
+  = link_to t(:add_user), new_users_user_path, :class => 'btn btn-info pull-right'
+.mws-panel.grid_8
   .mws-panel-header
     %span
       Users
@@ -24,8 +28,8 @@
         - users.each do |u|
           %tr
             %td= link_to t(:show), users_user_path(u), :class => 'btn btn-small btn-info'
-            %td= link_to u.full_name, users_user_path(u)
-            %td= u.email
+            %td= link_to u.full_name.titleize, users_user_path(u)
+            %td= mail_to u.email.downcase
             %td= number_to_phone(u.phone)
             %td
               -if u.is_owner
