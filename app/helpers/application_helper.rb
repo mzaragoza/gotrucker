@@ -104,5 +104,12 @@ module ApplicationHelper
         ['Converted', 'converted'],
       ]
   end
+  
+  def suspension_list
+      [
+        ['Air', 'air'],
+        ['Spring', 'spring'],
+      ]
+  end
 end
 

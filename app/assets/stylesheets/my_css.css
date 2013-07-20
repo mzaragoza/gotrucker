@@ -64,3 +64,6 @@ table a:hover {
   width: 380px;
 
 }
+input[type=checkbox] {
+  margin-right:20px;
+}

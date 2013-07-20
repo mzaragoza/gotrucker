@@ -11,7 +11,9 @@ class Shipment < ActiveRecord::Base
   before_validation { |shipment| shipment.delivery_location_zip = delivery_location_zip.to_s.gsub(/[^0-9]/, "").to_s }
   before_validation { |shipment| shipment.number_of_stops = number_of_stops.to_s.gsub(/[^0-9]/, "").to_s }
   before_validation { |shipment| shipment.delivery_location_phone = delivery_location_phone.to_s.gsub(/[^0-9]/, "").to_s }
+  before_validation { |shipment| shipment.delivery_location_zip = delivery_location_zip.to_s.gsub(/[^0-9]-/, "").to_s }
   before_validation { |shipment| shipment.pick_up_location_phone = pick_up_location_phone.to_s.gsub(/[^0-9]/, "").to_s }
+  before_validation { |shipment| shipment.pick_up_location_zip = pick_up_location_zip.to_s.gsub(/[^0-9]-/, "").to_s }
 
   mount_uploader :load_conformation_pdf, FileUploader
 

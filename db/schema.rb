@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130718033601) do
+ActiveRecord::Schema.define(:version => 20130720171650) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name",                 :default => ""
@@ -252,7 +252,7 @@ ActiveRecord::Schema.define(:version => 20130718033601) do
     t.boolean  "passenger",                  :default => false
     t.boolean  "tank_vehicle",               :default => false
     t.boolean  "hazardous_materials",        :default => false
-    t.boolean  "suspension",                 :default => false
+    t.string   "suspension",                 :default => ""
     t.string   "paid_status",                :default => ""
     t.string   "paid_date",                  :default => ""
     t.string   "load_conformation",          :default => ""
