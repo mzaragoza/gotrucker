@@ -1,7 +1,11 @@
 %html
   %head
     %meta{:charset => "utf-8"}/
-    %title Invoice
+    %title 
+      = current_account.name.titleize
+      Invoice#
+      = invoice.invoice_number
+
     = stylesheet_link_tag 'invoice', :media => "all"
     = javascript_include_tag "invoice"
     %link{:href => "http://www.opensource.org/licenses/mit-license/", :rel => "license"}/
@@ -21,32 +25,40 @@
           = current_account.zip
         %p= number_to_phone(current_account.phone)
       %span
-        %img{:alt => "", :src => "logo.png"}/
-        %input{:accept => "image/*", :type => "file"}/
+        - if current_account.photo?
+          = image_tag current_account.photo, :alt => current_account.name.titleize, :class => 'pull-right'
+        - else
+          = current_account.name.upcase
     %article
       %h1 Recipient
       %address
         %p
-          Some Company
-          %br>/
-          c/o Some Guy
+          = invoice.broker_name.titleize
+          %br
+          = invoice.broker_address.titleize
+          - if invoice.broker_address2
+            %br
+            = invoice.broker_address2.titleize
+          %br
+          = invoice.broker_city.titleize
+          = invoice.broker_state.titleize
+          = invoice.broker_zip.titleize
       %table.meta
         %tr
           %th
             %span Invoice #
           %td
-            %span 101138
+            %span= invoice.invoice_number.titleize
         %tr
           %th
             %span Date
           %td
-            %span January 1, 2012
+            %span= invoice.created_at.strftime('%D')
         %tr
           %th
             %span Amount Due
           %td
-            %span#prefix $
-            %span 600.00
+            %span= number_to_currency(invoice.total)
       %table.inventory
         %thead
           %tr
@@ -55,46 +67,67 @@
             %th
               %span Description
             %th
-              %span Rate
-            %th
               %span Quantity
             %th
               %span Price
         %tbody
           %tr
             %td
-              %a.cut -
-              %span Front End Consultation
+              %span Line Haul
             %td
-              %span Experience Review
+              %span
             %td
-              %span $
-              %span 150.00
+              %span
             %td
-              %span 4
+              %span= number_to_currency(invoice.price)
+          %tr
             %td
-              %span $
-              %span 600.00
+              %span Lumper Fee
+            %td
+              %span 
+            %td
+              %span
+            %td
+              %span= number_to_currency(invoice.lumper_fee)
+          %tr
+            %td
+              %span Detention Fee
+            %td
+              %span 
+            %td
+              %span
+            %td
+              %span= number_to_currency(invoice.unloading_fee)
+          %tr
+            %td
+              %span Unloading Fee
+            %td
+              %span
+            %td
+              %span
+            %td
+              %span= number_to_currency(invoice.unloading_fee)
+          %tr
+            %td
+              %span Reconsignment Fee
+            %td
+              %span
+            %td
+              %span
+            %td
+              %span= number_to_currency(invoice.reconsignment_fee)
       %table.balance
         %tr
           %th
             %span Total
           %td
-            %span $
-            %span 600.00
-        %tr
-          %th
-            %span Amount Paid
-          %td
-            %span $
-            %span 0.00
+            %span= number_to_currency(invoice.total)
         %tr
           %th
             %span Balance Due
           %td
-            %span $
-            %span 600.00
-    %aside
+            %span= number_to_currency(invoice.total)
+    -#%aside
       %h1
         %span Additional Notes
       %div
