@@ -100,6 +100,10 @@
     .mws-form-item
     = f.input :drivers_license_photo, :label => false
   .mws-form-row
+    %label.mws-form-label= t(:medical_long_form_pdf)
+    .mws-form-item
+    = f.input :medical_long_form_pdf, :label => false
+  .mws-form-row
     .mws-form-item
     = f.button :submit, :class => 'pull-right btn btn-info'
 

@@ -12,6 +12,18 @@
     .mws-form-item
       = f.input :annual_inspection_date, :label => false, :input_html => { :class => 'datepicker'}
   .mws-form-row
+    %label.mws-form-label= t(:annual_inspection_pdf)
+    .mws-form-item
+      = f.input :annual_inspection_pdf, :label => false
+  .mws-form-row
+    %label.mws-form-label= t(:insurance_pdf)
+    .mws-form-item
+      = f.input :insurance_pdf, :label => false
+  .mws-form-row
+    %label.mws-form-label= t(:registration_pdf)
+    .mws-form-item
+      = f.input :registration_pdf, :label => false
+  .mws-form-row
     %label.mws-form-label= t(:engine)
     .mws-form-item
     = f.input :engine, :label => false

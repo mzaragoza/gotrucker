@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130720171650) do
+ActiveRecord::Schema.define(:version => 20130721003823) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name",                 :default => ""
@@ -80,6 +80,9 @@ ActiveRecord::Schema.define(:version => 20130720171650) do
     t.string   "carreir_packet_pdf",   :default => "", :null => false
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
+    t.string   "emergency_number",     :default => ""
+    t.string   "contact_name",         :default => ""
+    t.string   "contact_extention",    :default => ""
   end
 
   create_table "drivers", :force => true do |t|
@@ -111,6 +114,7 @@ ActiveRecord::Schema.define(:version => 20130720171650) do
     t.boolean  "combination_of_tank_vehicle_and_hazardous_materials", :default => false
     t.datetime "created_at",                                                             :null => false
     t.datetime "updated_at",                                                             :null => false
+    t.string   "medical_long_form_pdf",                               :default => ""
   end
 
   create_table "invoices", :force => true do |t|
@@ -189,6 +193,7 @@ ActiveRecord::Schema.define(:version => 20130720171650) do
     t.string   "credit_card_number", :default => "", :null => false
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
+    t.string   "receipt_pdf",        :default => ""
   end
 
   create_table "repairs", :force => true do |t|
@@ -306,6 +311,9 @@ ActiveRecord::Schema.define(:version => 20130720171650) do
     t.datetime "updated_at",                                       :null => false
     t.string   "year_build",                    :default => ""
     t.string   "manufacturer",                  :default => ""
+    t.string   "annual_inspection_pdf",         :default => ""
+    t.string   "insurance_pdf",                 :default => ""
+    t.string   "registration_pdf",              :default => ""
   end
 
   create_table "trucks", :force => true do |t|
@@ -334,6 +342,9 @@ ActiveRecord::Schema.define(:version => 20130720171650) do
     t.string   "engine_type",                   :default => "", :null => false
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
+    t.string   "annual_inspection_pdf",         :default => ""
+    t.string   "insurance_pdf",                 :default => ""
+    t.string   "registration_pdf",              :default => ""
   end
 
   create_table "users", :force => true do |t|

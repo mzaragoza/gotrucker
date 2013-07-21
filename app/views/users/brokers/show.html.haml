@@ -5,6 +5,7 @@
   .mws-panel-header
     = link_to 'Edit', edit_users_broker_path(broker), :class => 'btn btn-info pull-right'
     %span
+      Broker -
       = broker.name.titleize
   .mws-panel-body.no-padding
     %ul.mws-summary.clearfix
@@ -60,4 +61,19 @@
           = t(:motor_carrier_number)
         %span.val
           %span.text-nowrap= broker.motor_carrier_number
+      %li
+        %span.key
+          = t(:emergency_number)
+        %span.val
+          %span.text-nowrap= number_to_phone(broker.emergency_number)
+      %li
+        %span.key
+          = t(:contact_name)
+        %span.val
+          %span.text-nowrap= broker.contact_name.titleize
+      %li
+        %span.key
+          = t(:contact_extention)
+        %span.val
+          %span.text-nowrap= broker.contact_extention
 

@@ -44,6 +44,18 @@
     .mws-form-item
     = f.input :motor_carrier_number, :label => false
   .mws-form-row
+    %label.mws-form-label= t(:emergency_number)
+    .mws-form-item
+    = f.input :emergency_number, :label => false
+  .mws-form-row
+    %label.mws-form-label= t(:contact_name)
+    .mws-form-item
+    = f.input :contact_name, :label => false
+  .mws-form-row
+    %label.mws-form-label= t(:contact_extention)
+    .mws-form-item
+    = f.input :contact_extention, :label => false
+  .mws-form-row
     %label.mws-form-label= t(:carrier_packet_pdf)
     .mws-form-item
     = f.input :carreir_packet_pdf, :label => false

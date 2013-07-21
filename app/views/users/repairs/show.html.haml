@@ -4,6 +4,7 @@
   .mws-panel-header
     = link_to 'Edit', edit_users_repair_path(repair), :class => 'btn btn-info pull-right'
     %span
+      Repair - 
       = repair.service_provider_name.titleize
       |
       = repair.truck.name.titleize if repair.truck
@@ -28,6 +29,15 @@
           = t(:service_provider_name)
         %span.val
           %span.text-nowrap= repair.service_provider_name.titleize
+      %li
+        %span.key
+          = t(:medical_long_form_pdf)
+        %span.val
+          %span.text-nowrap
+            - unless repair.invoice.blank?
+              = link_to t(:invoice), repair.invoice_url, :target => '_blanl'
+            - else
+              %span{:style => 'color:#F00'}= t(:invoice)
       %li
         %span.key
           = t(:address)

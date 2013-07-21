@@ -11,6 +11,7 @@
     .mws-panel-header
       = link_to 'Edit', edit_users_user_path(user), :class => 'btn btn-info pull-right'
       %span
+        User -
         = user.full_name.titleize
     .mws-panel-body.no-padding
       %ul.mws-summary.clearfix

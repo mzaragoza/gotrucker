@@ -11,6 +11,7 @@
     .mws-panel-header
       = link_to 'Edit', edit_users_truck_path(truck), :class => 'btn btn-info pull-right'
       %span
+        Truck - 
         = truck.name.titleize
     .mws-panel-body.no-padding
       %ul.mws-summary.clearfix
@@ -29,6 +30,33 @@
             = t(:annual_inspection_date)
           %span.val
             %span.text-nowrap= truck.annual_inspection_date
+        %li
+          %span.key
+            = t(:annual_inspection_pdf)
+          %span.val
+            %span.text-nowrap
+              - unless truck.annual_inspection_pdf.blank?
+                = link_to t(:annual_inspection_pdf), truck.annual_inspection_pdf_url, :target => '_blanl'
+              - else
+                %span{:style => 'color:#F00'}= t(:annual_inspection_pdf)
+        %li
+          %span.key
+            = t(:insurance_pdf)
+          %span.val
+            %span.text-nowrap
+              - unless truck.insurance_pdf.blank?
+                = link_to t(:insurance_pdf), truck.insurance_pdf_url, :target => '_blanl'
+              - else
+                %span{:style => 'color:#F00'}= t(:insurance_pdf)
+        %li
+          %span.key
+            = t(:registration_pdf)
+          %span.val
+            %span.text-nowrap
+              - unless truck.registration_pdf.blank?
+                = link_to t(:annual_inspection_pdf), truck.registration_pdf_url, :target => '_blanl'
+              - else
+                %span{:style => 'color:#F00'}= t(:registration_pdf)
         %li
           %span.key
             = t(:engine)

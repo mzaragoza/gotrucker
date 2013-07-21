@@ -9,6 +9,7 @@
   .mws-panel-header
     = link_to 'Edit', edit_users_shipment_path(shipment), :class => 'btn btn-info pull-right'
     %span
+      Shipment -
       = shipment.broker.name.titleize if shipment.broker
       = shipment.load_number
       = shipment.truck.name.titleize if shipment.truck
@@ -62,11 +63,10 @@
           = t(:pick_up_location_address)
         %span.val
           %span.text-nowrap
-            = shipment.pick_up_location_address
-            = shipment.pick_up_location_address2
-            = shipment.pick_up_location_city
-            = shipment.pick_up_location_state
-            = shipment.pick_up_location_zip
+            - address = shipment.pick_up_location_address + ' ' + shipment.pick_up_location_address2 + ' ' + shipment.pick_up_location_city  + ' ' + shipment.pick_up_location_state  + ' ' + shipment.pick_up_location_zip
+            = address
+            = link_to 'https://maps.google.com/maps?q='+ address  +'&t=m&z=17', :target => '_blank' do
+              %i.icol32-map2
       %li
         %span.key
           = t(:pick_up_location_phone)
@@ -77,11 +77,10 @@
           = t(:delivery_location_address)
         %span.val
           %span.text-nowrap
-            = shipment.delivery_location_address
-            = shipment.delivery_location_address2
-            = shipment.delivery_location_city
-            = shipment.delivery_location_state
-            = shipment.delivery_location_zip
+            - address = shipment.delivery_location_address + ' ' + shipment.delivery_location_address2 + ' ' + shipment.delivery_location_city  + ' ' + shipment.delivery_location_state  + ' ' + shipment.delivery_location_zip
+            = address
+            = link_to 'https://maps.google.com/maps?q='+ address  +'&t=m&z=17', :target => '_blank' do
+              %i.icol32-map2
       %li
         %span.key
           = t(:delivery_location_phone)
