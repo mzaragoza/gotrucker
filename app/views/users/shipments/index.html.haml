@@ -16,11 +16,8 @@
           %th= t(:trailer)
           %th= t(:pick_up_date)
           %th= t(:deliver_date)
-          %th= t(:paid_status)
-          %th= t(:paid_date)
           %th= t(:price)
           %th= t(:load_conformation)
-          %th
           %th
       %tbody
         - shipments.each do |s|
@@ -34,8 +31,6 @@
               = link_to s.trailer.name, users_trailer_path(s.trailer) if s.trailer
             %td= s.pick_up_date
             %td= s.deliver_date
-            %td= s.paid_status
-            %td= s.paid_date
             %td= number_to_currency(s.price)
             %td
               - unless s.load_conformation_pdf.blank?
@@ -43,10 +38,10 @@
               - else
                 %span{:style => 'color:#F00'}= t(:load_conformation)
 
-            %td= link_to 'Edit', edit_users_shipment_path(s), :class => 'btn btn-small btn-info'
             %td
+              = link_to 'Edit', edit_users_shipment_path(s), :class => 'btn btn-small btn-info'
               - if s.invoice
                 = link_to 'Invoice', edit_users_invoice_path(s.invoice), :class => 'btn btn-small btn-info'
               - else
-                = link_to 'invoice', new_users_invoice_path(:shipment => s), :class => 'btn btn-small btn-info'
-              = link_to 'delete', users_shipments_delete_path(s), :confirm => 'Are you sure?' , :class => 'btn btn-small btn-info'
+                = link_to 'Invoice', new_users_invoice_path(:shipment => s), :class => 'btn btn-small btn-info'
+              = link_to 'Delete', users_shipments_delete_path(s), :confirm => 'Are you sure?' , :class => 'btn btn-small btn-info'

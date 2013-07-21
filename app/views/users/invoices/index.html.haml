@@ -15,6 +15,7 @@
           %th=t(:invoice_number)
           %th=t(:paid_status)
           %th=t(:paid_date)
+          %th=t(:created_at)
           %th
       %tbody
         - invoices.each do |i|
@@ -27,5 +28,6 @@
             %td= i.invoice_number
             %td= i.paid_status
             %td= i.paid_date
+            %td= i.created_at
             %td= link_to 'Edit', edit_users_invoice_path(i), :class => 'btn btn-small btn-info'
 

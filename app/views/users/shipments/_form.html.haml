@@ -20,6 +20,10 @@
     .mws-form-item
     = f.input :price, :label => false
   .mws-form-row
+    %label.mws-form-label= t(:status)
+    .mws-form-item
+    = f.input :status, :collection => shipment_status_list,  :as => :select, include_blank: false, :label => false, prompt: "Choose a Trailer Type"
+  .mws-form-row
     %label.mws-form-label= t(:miles)
     .mws-form-item
     = f.input :miles, :label => false
@@ -44,7 +48,26 @@
     %label.mws-form-label= t(:suspension)
     .mws-form-item
     = f.input :suspension, :collection => suspension_list,  :as => :select, include_blank: false, :label => false
+  .mws-form-row
+    %label.mws-form-label= t(:number_of_stops)
+    .mws-form-item
+    = f.input :number_of_stops, :label => false
+  .mws-form-row
+    %label.mws-form-label= t(:size_of_trailer)
+    .mws-form-item
+    = f.input :size_of_trailer, :label => false
+  .mws-form-row
+    %label.mws-form-label= t(:number_of_pallets)
+    .mws-form-item
+    = f.input :pallets_pisses, :label => false
+    %label.mws-form-label= t(:trailer_type)
+    .mws-form-item
+    = f.input :trailer_type, :collection => trailer_type_list,  :as => :select, include_blank: false, :label => false, prompt: "Choose a Trailer Type"
   %h1= t(:pick_up)
+  .mws-form-row
+    %label.mws-form-label= t(:company)
+    .mws-form-item
+    = f.input :pick_up_company, :label => false
   .mws-form-row
     %label.mws-form-label= t(:address)
     .mws-form-item
@@ -70,7 +93,7 @@
     .mws-form-item
     = f.input :pick_up_location_phone, :label => false
   .mws-form-row
-    %label.mws-form-label= t(:number_)
+    %label.mws-form-label= t(:p_u_number)
     .mws-form-item
     = f.input :pick_up_number, :label => false
   .mws-form-row
@@ -88,9 +111,13 @@
   .mws-form-row
     %label.mws-form-label= t(:appointment)
     .mws-form-item
-    = f.input :pick_up_appointment, :label => false
+    = f.input :pick_up_appointment, :label => false, :input_html => { :class => 'timepicker'}
   .mws-form-row
   %h1= t(:delivery)
+  .mws-form-row
+    %label.mws-form-label= t(:company)
+    .mws-form-item
+    = f.input :delivery_company, :label => false
   .mws-form-row
     %label.mws-form-label= t(:address)
     .mws-form-item
@@ -120,7 +147,7 @@
     .mws-form-item
     = f.input :deliver_date, :label => false, :input_html => { :class => 'datepicker'}
   .mws-form-row
-    %label.mws-form-label= t(:number_)
+    %label.mws-form-label= t(:delivery_number)
     .mws-form-item
     = f.input :delivery_number, :label => false
   .mws-form-row
@@ -134,20 +161,12 @@
   .mws-form-row
     %label.mws-form-label= t(:appointment)
     .mws-form-item
-    = f.input :delivery_appointment, :label => false
-  %h1 ???NAME???
-  .mws-form-row
-    %label.mws-form-label= t(:number_of_stops)
-    .mws-form-item
-    = f.input :number_of_stops, :label => false
+    = f.input :delivery_appointment, :label => false , :input_html => { :class => 'timepicker'}
+  %h1 Notes
   .mws-form-row
     %label.mws-form-label= t(:notes)
     .mws-form-item
     = f.input :notes, :label => false
-  .mws-form-row
-    %label.mws-form-label= t(:status)
-    .mws-form-item
-    = f.input :status, :label => false
   .mws-form-row
     %label.mws-form-label= t(:drivers_notes)
     .mws-form-item
@@ -160,25 +179,14 @@
     %label.mws-form-label= t(:paid_date)
     .mws-form-item
     = f.input :paid_date, :label => false, :input_html => { :class => 'datepicker'}
-  .mws-form-row
+  -#.mws-form-row
     %label.mws-form-label= t(:load_conformation)
     .mws-form-item
     = f.input :load_conformation, :label => false
-  .mws-form-row
+  -#.mws-form-row
     %label.mws-form-label= t(:equipment_type)
     .mws-form-item
     = f.input :equipment_type, :label => false
-  .mws-form-row
-    %label.mws-form-label= t(:size_of_trailer)
-    .mws-form-item
-    = f.input :size_of_trailer, :label => false
-  .mws-form-row
-    %label.mws-form-label= t(:number_of_pallets)
-    .mws-form-item
-    = f.input :pallets_pisses, :label => false
-    %label.mws-form-label= t(:trailer_type)
-    .mws-form-item
-    = f.input :trailer_type, :label => false
   .mws-form-row
     %label.mws-form-label= t(:load_conformation_pdf)
     .mws-form-item

@@ -111,5 +111,20 @@ module ApplicationHelper
         ['Spring', 'spring'],
       ]
   end
+  def shipment_status_list
+    [
+      ['Needs to be dispatched', 'needs to be dispatched'],
+      ['Dispatched', 'dispatched'],
+      ['En route to pickup', 'en route to pickup'],
+      ['Loaded', 'loaded'],
+      ['Off loaded', 'off loaded'],
+    ]
+  end
+  def paid_status_list
+      [
+        ['Unpaid', 'unpaid'],
+        ['Paid', 'paid'],
+      ]
+  end
 end
 

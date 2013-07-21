@@ -31,7 +31,7 @@
             %td= link_to r.trailer.name, users_trailer_path(r.trailer) if  r.trailer
             %td= r.service_provider_city
             %td= r.service_provider_state
-            %td= r.service_provider_phone
+            %td= number_to_phone(r.service_provider_phone)
             %td= r.invoice_date
             %td= r.delivery_date
             %td= r.return_date

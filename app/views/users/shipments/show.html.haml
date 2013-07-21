@@ -7,7 +7,12 @@
 
 .mws-panel.grid_12
   .mws-panel-header
+    = link_to 'Delete', users_shipments_delete_path(shipment), :confirm => 'Are you sure?' , :class => 'btn btn-info pull-right'
     = link_to 'Edit', edit_users_shipment_path(shipment), :class => 'btn btn-info pull-right'
+    - if s.invoice
+      = link_to 'Invoice', edit_users_invoice_path(shipment.invoice), :class => 'btn btn-info pull-right'
+    - else
+      = link_to 'Invoice', new_users_invoice_path(:shipment => shipment), :class => 'btn btn-info pull-right'
     %span
       Shipment -
       = shipment.broker.name.titleize if shipment.broker
@@ -95,7 +100,7 @@
         %span.key
           = t(:notes)
         %span.val
-          %span.text-nowrap= shipment.notes
+          %span.text-nowrap= raw shipment.notes.gsub("\r\n" ,'<br>')
       %li
         %span.key
           = t(:pick_up_date)
@@ -120,7 +125,7 @@
         %span.key
           = t(:drivers_notes)
         %span.val
-          %span.text-nowrap= shipment.drivers_notes
+          %span.text-nowrap= raw shipment.drivers_notes.gsub("\r\n" ,'<br>')
       %li
         %span.key
           = t(:packing)
@@ -149,12 +154,12 @@
           = t(:suspension)
         %span.val
           %span.text-nowrap= shipment.suspension
-      %li
+      -#%li
         %span.key
           = t(:paid_status)
         %span.val
           %span.text-nowrap= shipment.paid_status
-      %li
+      -#%li
         %span.key
           = t(:paid_date)
         %span.val

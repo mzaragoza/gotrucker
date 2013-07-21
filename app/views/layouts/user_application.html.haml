@@ -185,16 +185,18 @@
               %span.mws-stat-content
                 %span.mws-stat-title Weelly Receipts
                 %span.mws-stat-value $14531
-        .container
-          - unless flash[:notice].blank?
+        - unless flash[:notice].blank?
+          .container
             #notice
               %h3= flash[:notice]
             %br
-          - unless flash[:error].blank?
+        - unless flash[:error].blank?
+          .container
             #error
               %h3= flash[:error]
             %br
-          - unless flash[:alert].blank?
+        - unless flash[:alert].blank?
+          .container
             #alert
               %h3= flash[:alert]
             %br

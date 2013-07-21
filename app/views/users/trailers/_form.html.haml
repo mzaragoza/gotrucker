@@ -38,7 +38,7 @@
   .mws-form-row
     %label.mws-form-label= t(:suspension)
     .mws-form-item
-    = f.input :suspension, :label => false
+    = f.input :suspension, :collection => suspension_list,  :as => :select, include_blank: false, :label => false
   .mws-form-row
     %label.mws-form-label= t(:axle_capacity)
     .mws-form-item

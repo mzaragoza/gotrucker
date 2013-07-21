@@ -23,9 +23,9 @@
     %label.mws-form-label= t(:paid_status)
     .mws-form-item
       - if shipment
-        = f.input :paid_status, :label => false, input_html: { value: "#{shipment.paid_status if shipment}" }
+        = f.input :paid_status, :collection => paid_status_list,  :as => :select, include_blank: false, :label => false, input_html: { value: "#{shipment.paid_status if shipment}" }
       - else
-        = f.input :paid_status, :label => false
+        = f.input :paid_status, :collection => paid_status_list,  :as => :select, include_blank: false, :label => false
   .mws-form-row
     %label.mws-form-label= t(:paid_date)
     .mws-form-item
@@ -33,7 +33,7 @@
         = f.input :paid_date, :label => false, input_html: { value: "#{shipment.paid_date if shipment}", :class => 'datepicker' }
       - else
         = f.input :paid_date, :label => false, input_html: { :class => 'datepicker' }
-  .mws-form-row
+  -#.mws-form-row
     %label.mws-form-label= t(:load_conformation)
     .mws-form-item
       - if shipment
@@ -71,6 +71,7 @@
       - if shipment
         = f.input :broker_city, :label => false, input_html: { value: "#{shipment.broker.city if shipment && shipment.broker}" }
       - else
+        = f.input :broker_city, :label => false
   .mws-form-row
     %label.mws-form-label= t(:state)
     .mws-form-item

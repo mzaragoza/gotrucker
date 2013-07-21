@@ -51,12 +51,12 @@
         %span.key
           = t(:service_provider_phone)
         %span.val
-          %span.text-nowrap= repair.service_provider_phone
+          %span.text-nowrap= number_to_phone(repair.service_provider_phone)
       %li
         %span.key
           = t(:service_provider_fax)
         %span.val
-          %span.text-nowrap= repair.service_provider_fax
+          %span.text-nowrap= number_to_phone(repair.service_provider_fax)
       %li
         %span.key
           = t(:delivery_date)
