@@ -26,5 +26,10 @@ class Users::InvoicesController < UserController
       render :edit
     end
   end
+  
+  def pdf
+    render :layout => 'invoice'
+    #render :layout => false  
+  end
 end
 

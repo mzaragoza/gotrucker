@@ -18,9 +18,9 @@ Gotrucker::Application.routes.draw do
       end
       match "/shipments/delete" => "shipments#delete", :as => :shipments_delete
       resources :shipments
-      resources :shipments
       resources :receipts
       resources :repairs
+      match '/invoices/:id/pdf' => 'invoices#pdf', :as => :invoices_pdf
       resources :invoices
       get '/dashboard' => 'dashboards#index', as: :dashboard
       get '/' => 'dashboards#index'

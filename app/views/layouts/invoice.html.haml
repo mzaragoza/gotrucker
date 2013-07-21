@@ -1,0 +1,101 @@
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %title Invoice
+    = stylesheet_link_tag 'invoice', :media => "all"
+    = javascript_include_tag "invoice"
+    %link{:href => "http://www.opensource.org/licenses/mit-license/", :rel => "license"}/
+  %body
+    %header
+      %h1 
+        = current_account.name.titleize
+        Invoice
+      %address
+        %p= current_account.name.titleize
+        %p
+          = current_account.address
+          = ' ' + current_account.address2 if current_account.address2
+          %br
+          = current_account.city 
+          = current_account.state
+          = current_account.zip
+        %p= number_to_phone(current_account.phone)
+      %span
+        %img{:alt => "", :src => "logo.png"}/
+        %input{:accept => "image/*", :type => "file"}/
+    %article
+      %h1 Recipient
+      %address
+        %p
+          Some Company
+          %br>/
+          c/o Some Guy
+      %table.meta
+        %tr
+          %th
+            %span Invoice #
+          %td
+            %span 101138
+        %tr
+          %th
+            %span Date
+          %td
+            %span January 1, 2012
+        %tr
+          %th
+            %span Amount Due
+          %td
+            %span#prefix $
+            %span 600.00
+      %table.inventory
+        %thead
+          %tr
+            %th
+              %span Item
+            %th
+              %span Description
+            %th
+              %span Rate
+            %th
+              %span Quantity
+            %th
+              %span Price
+        %tbody
+          %tr
+            %td
+              %a.cut -
+              %span Front End Consultation
+            %td
+              %span Experience Review
+            %td
+              %span $
+              %span 150.00
+            %td
+              %span 4
+            %td
+              %span $
+              %span 600.00
+      %table.balance
+        %tr
+          %th
+            %span Total
+          %td
+            %span $
+            %span 600.00
+        %tr
+          %th
+            %span Amount Paid
+          %td
+            %span $
+            %span 0.00
+        %tr
+          %th
+            %span Balance Due
+          %td
+            %span $
+            %span 600.00
+    %aside
+      %h1
+        %span Additional Notes
+      %div
+        %p A finance charge of 1.5% will be made on unpaid balances after 30 days.
