@@ -31,7 +31,7 @@
           %span.text-nowrap= repair.service_provider_name.titleize
       %li
         %span.key
-          = t(:medical_long_form_pdf)
+          = t(:invoice)
         %span.val
           %span.text-nowrap
             - unless repair.invoice.blank?
@@ -43,11 +43,10 @@
           = t(:address)
         %span.val
           %span.text-nowrap
-            = repair.service_provider_address
-            = repair.service_provider_address2
-            = repair.service_provider_city
-            = repair.service_provider_state
-            = repair.service_provider_zip
+            - address = repair.service_provider_address + ' ' + repair.service_provider_address2 + ' ' + repair.service_provider_city  + ' ' + repair.service_provider_state  + ' ' + repair.service_provider_zip
+            = address
+            = link_to 'https://maps.google.com/maps?q='+ address  +'&t=m&z=17', :target => '_blank' do
+              %i.icol32-map2
       %li
         %span.key
           = t(:service_provider_phone)
