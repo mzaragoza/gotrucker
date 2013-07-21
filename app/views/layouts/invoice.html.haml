@@ -80,42 +80,46 @@
               %span
             %td
               %span= number_to_currency(invoice.price)
-          %tr
-            %td
-              %span Lumper Fee
-            %td
-              %span 
-            %td
-              %span
-            %td
-              %span= number_to_currency(invoice.lumper_fee)
-          %tr
-            %td
-              %span Detention Fee
-            %td
-              %span 
-            %td
-              %span
-            %td
-              %span= number_to_currency(invoice.unloading_fee)
-          %tr
-            %td
-              %span Unloading Fee
-            %td
-              %span
-            %td
-              %span
-            %td
-              %span= number_to_currency(invoice.unloading_fee)
-          %tr
-            %td
-              %span Reconsignment Fee
-            %td
-              %span
-            %td
-              %span
-            %td
-              %span= number_to_currency(invoice.reconsignment_fee)
+          - if invoice.lumper_fee
+            %tr
+              %td
+                %span Lumper Fee
+              %td
+                %span 
+              %td
+                %span
+              %td
+                %span= number_to_currency(invoice.lumper_fee)
+          - if invoice.detention_fee
+            %tr
+              %td
+                %span Detention Fee
+              %td
+                %span 
+              %td
+                %span
+              %td
+                %span= number_to_currency(invoice.detention_fee)
+          - if invoice.unloading_fee
+            %tr
+              %td
+                %span Unloading Fee
+              %td
+                %span 
+              %td
+                %span
+              %td
+                %span= number_to_currency(invoice.unloading_fee)
+          - if invoice.reconsignment_fee
+            %tr
+              %td
+                %span Reconsignment Fee
+              %td
+                %span
+              %td
+                %span
+              %td
+                %span= number_to_currency(invoice.reconsignment_fee)
       %table.balance
         %tr
           %th
