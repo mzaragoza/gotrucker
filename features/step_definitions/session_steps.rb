@@ -13,3 +13,11 @@ Given 'I am signed in as an user' do
   step %(I fill in "user_password" with "#{@user.password}")
   step %(I press "Login")
 end
+
+Given 'I am signed in as an owner' do
+  @user = Fabricate(:user, :is_owner => true)
+  step %(I go to the user sign in page)
+  step %(I fill in "user_email" with "#{@user.email}")
+  step %(I fill in "user_password" with "#{@user.password}")
+  step %(I press "Login")
+end
