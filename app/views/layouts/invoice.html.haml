@@ -36,7 +36,7 @@
           = invoice.broker_name.titleize
           %br
           = invoice.broker_address.titleize
-          - if invoice.broker_address2
+          - if invoice.broker_address2.blank?
             %br
             = invoice.broker_address2.titleize
           %br
