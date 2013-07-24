@@ -1,4 +1,4 @@
-- content_for :pagetitle do 
+- content_for :pagetitle do
   Home
 
 / Slider Wrap
@@ -50,13 +50,19 @@
       / LayerSlider sublayers
       %img.ls-s-1{:alt => "", :rel => "slidedirection: top; slideoutdirection: right; rotateout: 180; rotatein: -360; durationout: 1500; durationin: 2000; delayin: 1500; delayout: 1000; easingin: easeOutBounce;", :src => "/assets/demo/slides/dynamic/chrome.png", :style => "left: 222px; top: 280px;"}/
       .ls-s3{:rel => "slidedirection: fade; scalein: 4; delayin: 4000; easingin: easeOutExpo;", :style => "left: 216px; top: 385px; color: #ffffff; font-size: 13px; padding: 5px 10px;"}
-        Office
+        Chrome
+      %img.ls-s-1{:alt => "", :rel => "slidedirection: top; slideoutdirection: right; rotateout: 180; rotatein: 360; durationout: 1500; durationin: 2000; delayin: 2000; delayout: 1000; easingin: easeOutBounce;", :src => "/assets/demo/slides/dynamic/firefox.png", :style => "left: 342px; top: 280px;"}/
+      .ls-s3{:rel => "slidedirection: fade; scalein: 4; delayin: 4000; easingin: easeOutExpo;", :style => "left: 363px; top: 385px; color: #ffffff; font-size: 13px; padding: 5px 10px;"}
+        Firefox
       %img.ls-s-1{:alt => "", :rel => "slidedirection: top; slideoutdirection: right; rotateout: 180; rotatein: -360; durationout: 1500; durationin: 2000; delayin: 2500; delayout: 1000; easingin: easeOutBounce;", :src => "/assets/demo/slides/dynamic/safari.png", :style => "left: 462px; top: 280px;"}/
       .ls-s3{:rel => "slidedirection: fade; scalein: 4; delayin: 4000; easingin: easeOutExpo;", :style => "left: 486px; top: 385px; color: #ffffff; font-size: 13px; padding: 5px 10px;"}
-        Home
+        Safari
+      %img.ls-s-1{:alt => "", :rel => "slidedirection: top; slideoutdirection: right; rotateout: 180; rotatein: 360; durationout: 1500; durationin: 2000; delayin: 2000; delayout: 1000; easingin: easeOutBounce;", :src => "/assets/demo/slides/dynamic/opera.png", :style => "left: 582px; top: 280px;"}/
+      .ls-s3{:rel => "slidedirection: fade; scalein: 4; delayin: 4000; easingin: easeOutExpo;", :style => "left: 605px; top: 385px; color: #ffffff; font-size: 13px; padding: 5px 10px;"}
+        Opera
       %img.ls-s-1{:alt => "", :rel => "slidedirection: top; slideoutdirection: right; rotateout: 180; rotatein: -360; durationout: 1500; durationin: 2000; delayin: 1500; delayout: 1000; easingin: easeOutBounce;", :src => "/assets/demo/slides/dynamic/ie.png", :style => "left: 702px; top: 280px;"}/
       .ls-s3{:rel => "slidedirection: fade; scalein: 4; delayin: 4000; easingin: easeOutExpo;", :style => "left: 730px; top: 385px; color: #ffffff; font-size: 13px; padding: 5px 10px;"}
-        Road
+        IE 8
       .ls-s-1{:rel => "slidedirection: fade; slideoutdirection: left; delayout: 1000; durationin: 2000; durationout: 500;", :style => "padding: 10px 20px; border-radius: 3px; background-color: #ffffff; font-weight: 300; font-size: 26px; color: #181818; white-space: nowrap; left: 50%; top: 90px;"}
         You can manage your load from anywhere!
     / LayerSlider layer (Green Planet)
@@ -178,21 +184,24 @@
         / End Portfolio Item
     .nine.columns
       / Feature Text
-      .one-third.column
-        .feature-text.dotted
-          .text
-            %h4.caption
-              = image_tag 'myicons/mange.png', :width => '50'
-              Manage your trucks, trailers, drivers, And Brokers
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidi dunt ut labore et dolore magna aliqua.
+      .feature-text.dotted
+        .text
+          %h4.caption
+            = image_tag 'myicons/mange.png', :width => '50'
+            Manage your trucks, trailers, drivers, And Brokers
+          As you run your business, it is easy to stay on top of today’s loads.
+          What if you need to remember what happened last week, last month, or even last year?
+          There are times when you need to know where a driver has been, not just where he is at. When a customer calls, you want to be able to quickly know all the loads you have run for them.
+          GoTruckerGO puts all this information at your fingertips.
       / End Feature Text
-      .one-third.column
-        .feature-text.dotted
-          .text
-            %h4.caption
-              = image_tag 'myicons/book-loads-icon.png', :width => '50'
-              Book Loads fast and easily
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidi dunt ut labore et dolore magna aliqua.
+      .feature-text.dotted
+        .text
+          %h4.caption
+            = image_tag '/assets/css/icons/icol32/paid.png', :width => '50'
+            Track your money like an accountant
+          Creating an invoice has never been so easy.
+          We know that you are not an accountant.  With GoTruckerGo, you can quickly see who has paid and who hasn’t. It alerts you when customers go over 30 days on an outstanding invoice.
+          So come try out GoTruckerGO.
       / End Feature Text
       / Feature Text
       -#.one-third.column
@@ -227,7 +236,7 @@
                 Brandon Roy
                 %span J.B. Hunt Transport
             %article
-              %p The Go Trucker Go software has been a great success for our fleet. We currently operate a transportation company with a fleet of 10 trucks. The quick-preview really helps us to keep an eye on our equipment and load orders at all times. 
+              %p The Go Trucker Go software has been a great success for our fleet. We currently operate a transportation company with a fleet of 10 trucks. The quick-preview really helps us to keep an eye on our equipment and load orders at all times.
               %p.author
                 Sidney Grace
                 %span Boyle Transportation

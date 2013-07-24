@@ -57,7 +57,7 @@
       / Footer
       %footer.footer
         / Footer Top
-        .footer-top
+        -#.footer-top
           .container
             / Text
             .column
@@ -78,7 +78,7 @@
                   = link_to t(:home), root_path
                 %li
                   = link_to t(:prices), prices_path
-                %li
+                -#%li
                   = link_to t(:about_us), about_us_path
                 %li
                   = link_to t(:contact_us), contact_us_path
