@@ -26,7 +26,6 @@
               - if p.featured
                 .ribbon
                   .ribbon-label Featured
-
               .table-header
                 .name= p.name.titleize
               .table-price
@@ -35,7 +34,7 @@
                   = number_to_currency(p.monthy_price)
                 .price-description
                   per month
-              .table-price
+              -#.table-price
                 .price
                   %span>
                   = number_to_currency(p.yearly_price)
@@ -44,7 +43,7 @@
               .table-features
                 %ul
                   %li
-                    %strong Number of Users
+                    %strong Number of Trucks
                     = p.licenses
               .table-footer
                 = link_to t(:sign_up), new_user_registration_path(:plan => p.slug), :class => 'btn'
@@ -57,7 +56,7 @@
                 You Tell Us
               .price-description
                 per month
-            .table-price
+            -#.table-price
               .price
                 %span
                 You Tell Us
