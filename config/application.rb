@@ -22,6 +22,17 @@ module Gotrucker
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
+    config.autoload_paths += %W(#{config.root}/extras #{Rails.root}/lib)
+    config.autoload_paths += %W(#{config.root}/lib/middleware)
+    config.autoload_paths += %W(#{config.root}/lib/rack)
+    config.autoload_paths += %W(#{config.root}/lib)
+
+    config.before_initialize do
+      dev = File.join(Rails.root, 'config', 'development.yml')
+      YAML.load(File.open(dev)).each do |key,value|
+      ENV[key.to_s] = value
+      end if File.exists?(dev)
+    end
     # Activate observers that should always be running.
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 
