@@ -12,5 +12,8 @@ class Truck < ActiveRecord::Base
   mount_uploader :insurance_pdf, FileUploader
   mount_uploader :registration_pdf, FileUploader
 
+  def current_shipment
+    self.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]).first
+  end
 end
 
