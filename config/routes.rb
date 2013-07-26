@@ -54,6 +54,7 @@ Gotrucker::Application.routes.draw do
     end
   end
 
+  resources :comments
   resources :leads, :only => [:new, :create]
   match '/contact_us' => 'leads#new', :as => :contact_us
   match '/thanks' => 'leads#thanks', :as => :thanks

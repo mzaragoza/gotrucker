@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130721042935) do
+ActiveRecord::Schema.define(:version => 20130726211201) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name",                 :default => ""
@@ -83,6 +83,15 @@ ActiveRecord::Schema.define(:version => 20130721042935) do
     t.string   "emergency_number",     :default => ""
     t.string   "contact_name",         :default => ""
     t.string   "contact_extention",    :default => ""
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "commenter_id"
+    t.string   "commenter_type"
+    t.text     "note"
+    t.integer  "user_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "drivers", :force => true do |t|

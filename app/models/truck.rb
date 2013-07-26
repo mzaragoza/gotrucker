@@ -4,6 +4,7 @@ class Truck < ActiveRecord::Base
   belongs_to :account
   has_many :shipments
   has_many :receipts
+  has_many :comments, :as => :commenter
   attr_accessible :trailer_id, :name, :annual_inspection_date, :engine, :sleeper_size, :transmission, :suspension, :front_axel_capacity, :rear_axle_capacity, :rear_end_ratio, :wheelbase, :wheels, :tires, :odometer, :photo, :account_id, :vehicle_identification_number, :vehicle_tag, :truck_year, :manufacturer, :truck_model, :engine_specs, :engine_type, :annual_inspection_pdf, :insurance_pdf, :registration_pdf
 
   validates_uniqueness_of :name, :scope => :account_id

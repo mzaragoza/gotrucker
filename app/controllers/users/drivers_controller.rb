@@ -1,6 +1,7 @@
 class Users::DriversController < UserController
   expose(:drivers){ current_account.drivers.order("id DESC").scoped{} }
   expose(:driver)
+  expose(:comment) { driver.comments.new}
 
   def create
     if driver.save

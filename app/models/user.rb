@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :account
+  has_many :comments
+  has_many :comments, :as => :commenter
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   attr_accessible :email, :password, :password_confirmation, :remember_me

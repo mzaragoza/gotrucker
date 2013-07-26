@@ -2,6 +2,7 @@ class Repair < ActiveRecord::Base
   belongs_to :truck
   belongs_to :trailer
   belongs_to :account
+  has_many :comments, :as => :commenter
 
   attr_accessible :truck_id, :trailer_id, :service_provider_name, :service_provider_address, :service_provider_address2, :service_provider_city, :service_provider_state, :service_provider_zip, :service_provider_fax, :service_provider_phone, :delivery_date, :return_date, :payment_info, :invoice_date, :invoice_number, :details, :labor, :parts, :tax, :total, :account_id, :invoice
   
