@@ -124,9 +124,9 @@
 %a{:name => "notes"}
 .mws-panel.grid_12
   .mws-panel-header
-    %span Notes
+    %span notes
   .mws-panel-body
-    - Comment.where(:commenter_type => 'driver').where(:commenter_id => driver.id).order('id DESC').each do |c|
+    - comment.where(:commenter_type => 'driver').where(:commenter_id => driver.id).order('id desc').each do |c|
       .clear
         .grid_1
           - if c.user.photo_url
@@ -139,7 +139,7 @@
           = c.note
           = c.id
         .grid_2.pull-left
-          = c.created_at.in_time_zone('Eastern Time (US & Canada)').strftime('%D %r')
+          = c.created_at.in_time_zone('eastern time (us & canada)').strftime('%d %r')
     .clear
 
 
@@ -148,12 +148,12 @@
 .row-fluid
 .mws-panel.grid_12
   .mws-panel-header
-    %span Add Notes
+    %span add notes
   .mws-panel-body
     = form_for comment, :url => comments_path(:commenter_type => "driver", :commenter_id => driver.id) do |f|
       .mws-form-row
         %label.mws-form-label
-          Note
+          note
         .mws-form-item
           = f.text_area :note
         %br

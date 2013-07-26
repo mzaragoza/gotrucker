@@ -1,6 +1,7 @@
 class Users::InvoicesController < UserController
   expose(:invoices){ current_account.invoices.order("id DESC").scoped{} }
   expose(:invoice)
+  expose(:comment) { invoice.comments.new}
   expose(:shipment) {
     if params[:shipment]
       current_account.shipments.find(params[:shipment])

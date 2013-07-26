@@ -2,6 +2,7 @@ class Users::BrokersController < UserController
   require 'csv'
   expose(:brokers){ current_account.brokers.order("id DESC").scoped{} }
   expose(:broker)
+  expose(:comment) { broker.comments.new}
 
   def create
     if broker.save

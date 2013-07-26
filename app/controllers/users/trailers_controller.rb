@@ -1,6 +1,7 @@
 class Users::TrailersController < UserController
   expose(:trailers){ current_account.trailers.order("id DESC").scoped{} }
   expose(:trailer)
+  expose(:comment) { trailer.comments.new}
 
   def create
     if trailer.save

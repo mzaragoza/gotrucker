@@ -1,6 +1,7 @@
 class Users::ReceiptsController < UserController
   expose(:receipts){ current_account.receipts.order("id DESC").scoped{} }
   expose(:receipt)
+  expose(:comment) { receipt.comments.new}
 
   def create
     if receipt.save

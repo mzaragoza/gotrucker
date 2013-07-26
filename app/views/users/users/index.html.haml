@@ -2,11 +2,6 @@
   Users
 
 .grid_8
-  You are using 
-  = current_account.users.where(:active => true).count
-  out of
-  = current_account.subscription.licenses
-  lisences 
   = link_to t(:add_user), new_users_user_path, :class => 'btn btn-info pull-right'
 .mws-panel.grid_8
   .mws-panel-header

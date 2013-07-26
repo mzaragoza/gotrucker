@@ -1,6 +1,7 @@
 class Users::ShipmentsController < UserController
   expose(:shipments){ current_account.shipments.order("id DESC").scoped{} }
   expose(:shipment)
+  expose(:comment) { comment.comments.new}
 
   def create
     if shipment.save

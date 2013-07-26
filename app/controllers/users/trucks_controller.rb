@@ -1,6 +1,7 @@
 class Users::TrucksController < UserController
   expose(:trucks){ current_account.trucks.order("id DESC").scoped{} }
   expose(:truck)
+  expose(:comment) { truck.comments.new}
 
   def create
     if truck.save
