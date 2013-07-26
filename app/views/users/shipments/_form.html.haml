@@ -22,7 +22,7 @@
   .mws-form-row
     %label.mws-form-label= t(:status)
     .mws-form-item
-    = f.input :status, :collection => shipment_status_list,  :as => :select, include_blank: false, :label => false, prompt: "Choose a Trailer Type"
+    = f.input :status, :collection => shipment_status_list,  :as => :select, include_blank: false, :label => false, prompt: "Select Shipment Status"
   .mws-form-row
     %label.mws-form-label= t(:miles)
     .mws-form-item
