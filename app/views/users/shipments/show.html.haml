@@ -7,7 +7,7 @@
 
 .mws-panel.grid_12
   .mws-panel-header
-    = link_to 'Delete', users_shipments_delete_path(shipment), :confirm => 'Are you sure?' , :class => 'btn btn-info pull-right'
+    = link_to 'Delete Shipment', users_shipments_delete_path(shipment), :confirm => 'Are you sure?' , :class => 'btn pull-right btn-danger'
     = link_to 'Edit', edit_users_shipment_path(shipment), :class => 'btn btn-info pull-right'
     - if s.invoice
       = link_to 'Invoice', edit_users_invoice_path(shipment.invoice), :class => 'btn btn-info pull-right'
