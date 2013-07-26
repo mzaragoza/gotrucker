@@ -18,6 +18,7 @@
           %th= t(:deliver_date)
           %th= t(:price)
           %th= t(:load_conformation)
+          %th= t(:load_number)
           %th= t(:status)
           %th
       %tbody
@@ -38,12 +39,13 @@
                 = link_to 'load_conformation_pdf', s.load_conformation_pdf_url, :target => '_blanl'
               - else
                 %span{:style => 'color:#F00'}= t(:load_conformation)
+            %td= s.load_number
             %td= s.status
 
             %td
               = link_to 'Edit', edit_users_shipment_path(s), :class => 'btn btn-small btn-info'
               - if s.invoice
-                = link_to 'Invoice', edit_users_invoice_path(s.invoice), :class => 'btn btn-small btn-info'
+                = link_to 'Invoice', users_invoice_path(s.invoice), :class => 'btn btn-small btn-info'
+                = link_to 'Delete', users_shipments_delete_path(s), :confirm => 'Are you sure?' , :class => 'btn btn-small btn-info'
               - else
                 = link_to 'Invoice', new_users_invoice_path(:shipment => s), :class => 'btn btn-small btn-info'
-              = link_to 'Delete', users_shipments_delete_path(s), :confirm => 'Are you sure?' , :class => 'btn btn-small btn-info'
