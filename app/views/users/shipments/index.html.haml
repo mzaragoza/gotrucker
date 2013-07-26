@@ -18,6 +18,7 @@
           %th= t(:deliver_date)
           %th= t(:price)
           %th= t(:load_conformation)
+          %th= t(:status)
           %th
       %tbody
         - shipments.each do |s|
@@ -37,6 +38,7 @@
                 = link_to 'load_conformation_pdf', s.load_conformation_pdf_url, :target => '_blanl'
               - else
                 %span{:style => 'color:#F00'}= t(:load_conformation)
+            %td= s.status
 
             %td
               = link_to 'Edit', edit_users_shipment_path(s), :class => 'btn btn-small btn-info'
