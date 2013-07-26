@@ -16,6 +16,7 @@
           %th=t(:trailer)
           %th=t(:cell)
           %th=t(:email)
+          %th=t(:active)
           %th
           %th
       %tbody
@@ -29,6 +30,11 @@
               = link_to d.truck.trailer.name, users_trailer_path(d.truck.trailer) if d.truck and d.truck.trailer
             %td= number_to_phone(d.cell)
             %td= mail_to d.email
+            %td
+              -if d.active
+                .badge.badge-success= t(:active)
+              - else
+                .badge.badge-important= t(:inactive)
             %td
               - if d.photo?
                 = image_tag d.photo.thumb.url, :width => '50'
