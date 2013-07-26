@@ -153,7 +153,7 @@
               %span.mws-stat-content
                 %span.mws-stat-title Paid Sales
                 %span.mws-stat-value
-                  = number_to_currency( current_account.shipments.sum(:price,:conditions=> "paid_status = 'paid'" ) )
+                  = number_to_currency( current_account.invoices.sum(:price,:conditions=> "paid_status = 'paid'" ) )
             = link_to users_shipments_path, :class => 'mws-stat' do
               / Statistic Icon (edit to change icon)
               %span.mws-stat-icon.icol32-unpaid
@@ -161,7 +161,7 @@
               %span.mws-stat-content
                 %span.mws-stat-title Unpaid Sales
                 %span.mws-stat-value
-                  = number_to_currency( current_account.shipments.sum(:price,:conditions=> "paid_status = 'unpaid'" ) )
+                  = number_to_currency( current_account.invoices.sum(:price,:conditions=> "paid_status = 'unpaid'" ) )
             = link_to users_receipts_path, :class => 'mws-stat' do
               / Statistic Icon (edit to change icon)
               %span.mws-stat-icon.icol32-credit-card

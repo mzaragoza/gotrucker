@@ -1,4 +1,43 @@
 - content_for :pagetitle do 
   Dashboard
 
-What should go here?
+.mws-panel.grid_4
+  .mws-panel-header
+    %span
+      Current Loads
+  .mws-panel-body.no-padding
+    %table.mws-datatable-fn.mws-table
+      %thead
+        %tr
+          %th= t(:truck)
+          %th= t(:trailer)
+          %th= t(:driver)
+          %th= t(:status)
+          %th= t(:load_number)
+          %th= t(:broker)
+          %th= t(:pickup)
+          %th= t(:delivery)
+      %tbody
+        - trucks.each do |t|
+          %tr
+            %td= link_to t.name, users_truck_path(t)
+            %td
+              = link_to t.trailer.name, users_trailer_path(t.trailer) if t.trailer
+            %td
+              = link_to t.driver.full_name, users_driver_path(t.driver) if t.driver
+            %td
+              = t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]).first.status.titleize if t.shipments != [] && t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"])
+            %td
+              = link_to t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]).first.load_number, users_shipment_path(t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]).first.id) if t.shipments != [] && t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"])
+            %td
+              = t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]).first.broker.name if t.shipments != [] && t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]) && t.shipments != [] && t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]).first.broker
+            %td
+              = t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]).first.pick_up_location_city if t.shipments != [] && t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"])
+              = t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]).first.pick_up_location_state if t.shipments != [] && t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"])
+              = t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]).first.pick_up_date.to_time.strftime('%D') if t.shipments != [] && t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"])
+              = t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]).first.pick_up_appointment if t.shipments != [] && t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"])
+            %td
+              = t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]).first.delivery_location_city if t.shipments != [] && t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"])
+              = t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]).first.delivery_location_state if t.shipments != [] && t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"])
+              = t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]).first.deliver_date.to_time.strftime('%D') if t.shipments != [] && t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"])
+              = t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]).first.delivery_appointment if t.shipments != [] && t.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"])
