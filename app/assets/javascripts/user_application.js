@@ -14,5 +14,25 @@
 //= require bootstrap/js/bootstrap.min
 //= require js/core/mws
 //= require js/demo/demo.table
+//= require plugins/cleditor/jquery.cleditor.min
+//= require plugins/cleditor/jquery.cleditor.table.min
+//= require plugins/cleditor/jquery.cleditor-xhtml.min
+//= require plugins/cleditor/jquery.cleditor.icon.min
+
+
 $( ".datepicker" ).datepicker({  dateFormat: "yy-mm-dd" });
 $( ".timepicker" ).timepicker({});
+$(document).ready(function() {
+
+    $( '.cleditor').cleditor({
+      width: '100%',
+      controls: "bold italic underline strikethrough highlight | size style | removeformat | undo redo | rule cut copy paste pastetext   | source"
+    });
+    if($.fn.select2) {
+      $( '.select2-select' ).select2();
+    }
+
+    setInterval(function() {
+      $('#messages_box').load('/users/dashboard/_messages_box');
+    }, 10000);
+});

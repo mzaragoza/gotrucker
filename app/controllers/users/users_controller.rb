@@ -3,6 +3,7 @@ class Users::UsersController < UserController
   before_filter :check_user_level
   expose(:users){ current_account.users.order("id DESC").scoped{} }
   expose(:user)
+  expose(:comment) { user.comments.new}
 
   def create
     if user.save
