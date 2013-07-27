@@ -56,6 +56,10 @@
     .mws-form-item
     = f.input :hire_date, :label => false, :input_html => { :class => 'datepicker'}
   .mws-form-row
+    %label.mws-form-label= t(:release_date)
+    .mws-form-item
+    = f.input :release_date, :label => false, :input_html => { :class => 'datepicker'}
+  .mws-form-row
     %label.mws-form-label= t(:active)
     .mws-form-item
     = f.input :active, :label => false
