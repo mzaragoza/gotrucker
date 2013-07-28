@@ -216,5 +216,9 @@
       / Main Container End
     / JavaScript Plugins
     = javascript_include_tag "user_application"
+    %script{:src => "/assets/plugins/cleditor/jquery.cleditor.js?body=1", :type => "text/javascript"}
+    %script{:src => "/assets/plugins/cleditor/jquery.cleditor.table.js?body=1", :type => "text/javascript"}
+    %script{:src => "/assets/plugins/cleditor/jquery.cleditor-xhtml.js?body=1", :type => "text/javascript"}
+    %script{:src => "/assets/plugins/cleditor/jquery.cleditor.icon.js?body=1", :type => "text/javascript"}
     = render '/shared/uservoise'
     = yield :page_footer

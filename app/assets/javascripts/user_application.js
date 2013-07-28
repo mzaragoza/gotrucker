@@ -14,10 +14,10 @@
 //= require bootstrap/js/bootstrap.min
 //= require js/core/mws
 //= require js/demo/demo.table
-//= require plugins/cleditor/jquery.cleditor
-//= require plugins/cleditor/jquery.cleditor.table
-//= require plugins/cleditor/jquery.cleditor-xhtml
-//= require plugins/cleditor/jquery.cleditor.icon
+//=# require plugins/cleditor/jquery.cleditor
+//=# require plugins/cleditor/jquery.cleditor.table
+//=# require plugins/cleditor/jquery.cleditor-xhtml
+//=# require plugins/cleditor/jquery.cleditor.icon
 
 
 $( ".datepicker" ).datepicker({  dateFormat: "yy-mm-dd" });
