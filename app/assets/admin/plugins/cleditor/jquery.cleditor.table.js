@@ -2,7 +2,7 @@
  @preserve CLEditor Table Plugin v1.0.2
  http://premiumsoftware.net/cleditor
  requires CLEditor v1.2.2 or later
- 
+
  Copyright 2010, Chris Landowski, Premium Software, LLC
  Dual licensed under the MIT or GPL Version 2 licenses.
 */
@@ -22,7 +22,7 @@
     command: "inserthtml",
     popupName: "table",
     popupClass: "cleditorPrompt",
-    popupContent:         
+    popupContent:
       "<table cellpadding=0 cellspacing=0><tr>" +
       "<td>Cols:<br><input type=text value=4 size=6></td>" +
       "<td>Rows:<br><input type=text value=4 size=6></td>" +
@@ -33,7 +33,7 @@
   // Add the button to the default controls
   $.cleditor.defaultOptions.controls = $.cleditor.defaultOptions.controls
     .replace("rule ", "rule table ");
-        
+
   // Table button click event handler
   function tableButtonClick(e, data) {
 
