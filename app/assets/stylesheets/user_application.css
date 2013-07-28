@@ -49,7 +49,7 @@
   *= require jui/jquery-ui.custom
   *= require css/mws-theme
   *= require css/themer
-  *= require plugins/cleditor/jquery.cleditor
+  *=# require plugins/cleditor/jquery.cleditor
   *= require my_css
   *= require_self
  */
