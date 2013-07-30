@@ -23,11 +23,11 @@
         - drivers.each do |d|
           %tr
             %td= link_to t(:show), users_driver_path(d), :class => 'btn btn-small btn-info'
-            %td= link_to d.full_name, users_driver_path(d)
+            %td= link_to d.full_name.titleize, users_driver_path(d)
             %td
-              = link_to d.truck.name, users_truck_path(d.truck) if d.truck
+              = link_to d.truck.name.titleize, users_truck_path(d.truck) if d.truck
             %td
-              = link_to d.truck.trailer.name, users_trailer_path(d.truck.trailer) if d.truck and d.truck.trailer
+              = link_to d.truck.trailer.name.titleize, users_trailer_path(d.truck.trailer) if d.truck and d.truck.trailer
             %td= number_to_phone(d.cell)
             %td= mail_to d.email
             %td
