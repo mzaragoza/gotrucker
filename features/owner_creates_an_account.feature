@@ -10,7 +10,6 @@ Feature: Owner creates an account
 
   Scenario: Owner should be able to create an account
     Given I go to the home page
-    And I debug
     When I follow "Try For Free"
     Then I should see "Pricing Table"
 
