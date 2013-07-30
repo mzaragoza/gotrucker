@@ -54,6 +54,21 @@ Gotrucker::Application.routes.draw do
     end
   end
 
+  namespace :api do
+    namespace :internal do
+      namespace :v1 do
+        resources :users
+        resources :drivers
+        resources :trucks
+        resources :trailers
+        resources :brokers
+        resources :shipments
+        resources :receipts
+        resources :repairs
+        resources :invoices
+      end
+    end
+  end
   resources :comments
   resources :leads, :only => [:new, :create]
   match '/contact_us' => 'leads#new', :as => :contact_us
