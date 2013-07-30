@@ -7,7 +7,7 @@ Feature: User should be able to mange trailers
     Given I am signed in as an user
     Given I go to the users trailers page
 
-  Scenario: Owner should be able add and update a trailer
+  Scenario: User should be able add and update a trailer
     When I follow "Add Trailer"
     And I fill in "trailer_name" with "the white gost"
     And I fill in "trailer_length" with "40 ft"
