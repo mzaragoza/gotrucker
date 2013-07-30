@@ -4,7 +4,7 @@ Fabricator(:subscription) do
   slug {Faker::Lorem.sentence}
   licenses {rand(100)}
   after_build do |s|
-    s.account ||= Account.last || Fabricate(:account)
+    s.account ||= Account.last # || Fabricate(:account)
     s.plan ||= Plan.last || Fabricate(:plan)
   end
 end

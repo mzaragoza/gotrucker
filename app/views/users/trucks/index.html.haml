@@ -23,11 +23,11 @@
         - trucks.each do |t|
           %tr
             %td= link_to t(:show), users_truck_path(t), :class => 'btn btn-small btn-info'
-            %td= link_to t.name, users_truck_path(t)
+            %td= link_to t.name.titleize, users_truck_path(t)
             %td
-              = link_to t.trailer.name, users_trailer_path(t.trailer) if t.trailer
+              = link_to t.trailer.name.titleize, users_trailer_path(t.trailer) if t.trailer
             %td
-              = link_to t.driver.full_name, users_driver_path(t.driver) if t.driver
+              = link_to t.driver.full_name.titleize, users_driver_path(t.driver) if t.driver
             %td= t.vehicle_tag
             %td= t.vehicle_identification_number
             %td= t.annual_inspection_date

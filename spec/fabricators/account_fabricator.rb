@@ -10,5 +10,8 @@ Fabricator(:account) do
   website {Faker::Internet.url}
   motor_carrier_number {rand(999999)}
 
+  after_build do |a|
+    a.subscription ||= Fabricate(:subscription)
+  end
 end
 

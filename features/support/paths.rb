@@ -15,6 +15,8 @@ module NavigationHelpers
       '/admins/sign_in'
     when /^the user sign in page$/
       '/users/sign_in'
+    when /^the users accounts page$/
+      '/users/accounts/1'
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
