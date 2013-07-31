@@ -47,7 +47,7 @@ function lsShowNotice(lsobj,issue,ver){
 
 		// IMPROVEMENT v4.1.0 Checking jQuery version
 		// IMPROVEMENT v4.1.3 Changed required version from 1.7.2 to 1.7.0
-		
+
 		var reqVer = '1.7.0';
 		var curVer = $.fn.jquery;
 		var el = $(this);
@@ -80,17 +80,17 @@ function lsShowNotice(lsobj,issue,ver){
 
 			return true;
 		};
-		
+
 		if( !checkVersions('1.8.0',curVer) ){
 			el.addClass('ls-norotate');
 		}
-	
+
 		// Initializing if jQuery version is greater than 1.7.0
 
 		if( !checkVersions(reqVer,curVer) ){
-			lsShowNotice( el, 'oldjquery', curVer );			
+			lsShowNotice( el, 'oldjquery', curVer );
 		}else{
-			
+
 			if( (typeof(options)).match('object|undefined') ){
 				return this.each(function(i){
 					new layerSlider(this, options);
@@ -112,7 +112,7 @@ function lsShowNotice(lsobj,issue,ver){
 								if( typeof options == 'number' ){
 									if( options > 0 && options < lsData.g.layersNum + 1 && options != lsData.g.curLayerIndex ){
 										lsData.change(options);
-									}						
+									}
 								}else{
 									switch(options){
 										case 'prev':
@@ -128,17 +128,17 @@ function lsShowNotice(lsobj,issue,ver){
 												lsData.o.cbStart(lsData.g);
 												lsData.g.originalAutoSlideshow = true;
 												lsData.start();
-											}							
+											}
 											break;
 									}
 								}
 							}
 							if( options == 'debug' ){
-								lsData.d.show();							
+								lsData.d.show();
 							}
 							if( ( lsData.g.autoSlideshow || ( !lsData.g.autoSlideshow && lsData.g.originalAutoSlideshow ) ) && options == 'stop' ){
 								lsData.o.cbStop(lsData.g);
-								lsData.g.originalAutoSlideshow = false;								
+								lsData.g.originalAutoSlideshow = false;
 								lsData.g.curLayer.find('iframe[src*="www.youtu"], iframe[src*="player.vimeo"]').each(function(){
 
 									// Clearing videoTimeouts
@@ -149,10 +149,10 @@ function lsShowNotice(lsobj,issue,ver){
 								lsData.stop();
 							}
 							if( options == 'force stop'){
-								lsData.forcestop();								
+								lsData.forcestop();
 							}
 						}
-					});				
+					});
 				}
 			}
 		}
@@ -169,7 +169,7 @@ function lsShowNotice(lsobj,issue,ver){
 		ls.load = function(){
 
 			// Setting options (user settings) and global (not modificable) parameters
-			
+
 			ls.o = $.extend({},layerSlider.options, options);
 			ls.g = $.extend({},layerSlider.global);
 
@@ -195,7 +195,7 @@ function lsShowNotice(lsobj,issue,ver){
 
 				// Added debug mode v3.5
 
-				ls.debug();					
+				ls.debug();
 
 				if( $('html').find('meta[content*="WordPress"]').length ){
 					ls.g.wpVersion = $('html').find('meta[content*="WordPress"]').attr('content').split('WordPress')[1];
@@ -203,23 +203,23 @@ function lsShowNotice(lsobj,issue,ver){
 
 				if( $('html').find('script[src*="layerslider"]').length ){
 					if( $('html').find('script[src*="layerslider"]').attr('src').indexOf('?') != -1 ){
-						ls.g.lswpVersion = $('html').find('script[src*="layerslider"]').attr('src').split('?')[1].split('=')[1];					
+						ls.g.lswpVersion = $('html').find('script[src*="layerslider"]').attr('src').split('?')[1].split('=')[1];
 					}
 				}
 
 				// Debug mode controls
-				
+
 				ls.d.aT('LayerSlider controls');
 				ls.d.aU('<a href="#">prev</a> | <a href="#">next</a> | <a href="#">start</a> | <a href="#">stop</a> | <a href="#">force stop</a>');
 				ls.d.history.find('a').each(function(){
 					$(this).click(function(e){
 						e.preventDefault();
 						$(el).layerSlider($(this).text());
-					});					
+					});
 				});
 
 				ls.d.aT('LayerSlider version information');
-				ls.d.aU('JS version: <strong>' + ls.g.version + '</strong>');			
+				ls.d.aU('JS version: <strong>' + ls.g.version + '</strong>');
 				if(ls.g.lswpVersion){
 					ls.d.aL('WP version: <strong>' + ls.g.lswpVersion + '</strong>');
 				}
@@ -251,7 +251,7 @@ function lsShowNotice(lsobj,issue,ver){
 
 					$(el).addClass('ls-'+ls.o.skin);
 
-					var skinStyle = ls.o.skinsPath+ls.o.skin+'/skin.css';
+					var skinStyle = '/assets/plugins/layerslider/skins/youxi/skin.css';
 
 					cssContainer = $('head');
 
@@ -268,21 +268,21 @@ function lsShowNotice(lsobj,issue,ver){
 						if( !ls.g.loaded ){
 
 							ls.g.loaded = true;
-							
+
 							// IMPROVEMENT v4.5.0 Added delay because of caching bugs
 
 							setTimeout(function(){
-								ls.init();								
+								ls.init();
 							},150);
 						}
-						
+
 					}else{
 						if (document.createStyleSheet){
 							document.createStyleSheet(skinStyle);
 							var curSkin = $('link[href="'+skinStyle+'"]');
 						}else{
-							var curSkin = $('<link rel="stylesheet" href="'+skinStyle+'" type="text/css" />').appendTo( cssContainer );					
-						}						
+							var curSkin = $('<link rel="stylesheet" href="'+skinStyle+'" type="text/css" />').appendTo( cssContainer );
+						}
 					}
 
 					// curSkin.load(); function for most of the browsers.
@@ -298,7 +298,7 @@ function lsShowNotice(lsobj,issue,ver){
 							// IMPROVEMENT v4.5.0 Added delay because of caching bugs
 
 							setTimeout(function(){
-								ls.init();								
+								ls.init();
 							},150);
 						}
 					});
@@ -316,7 +316,7 @@ function lsShowNotice(lsobj,issue,ver){
 							// IMPROVEMENT v4.5.0 Added delay because of caching bugs
 
 							setTimeout(function(){
-								ls.init();								
+								ls.init();
 							},150);
 						}
 					});
@@ -333,18 +333,18 @@ function lsShowNotice(lsobj,issue,ver){
 
 							ls.g.loaded = true;
 							ls.init();
-						}					
+						}
 					}, 1000);
 				}
 			}
 		};
-		
+
 		ls.init = function(){
 
 			// IMPROVEMENT v4.0.1 Trying to add special ID to <body> or <html> (required to overwrite WordPresss global styles)
-			
+
 			if( !$('html').attr('id') ){
-				$('html').attr('id','ls-global');				
+				$('html').attr('id','ls-global');
 			}else if( !$('body').attr('id') ){
 				$('body').attr('id','ls-global');
 			}
@@ -358,7 +358,7 @@ function lsShowNotice(lsobj,issue,ver){
 					return $(el).width();
 				}
 			}
-			
+
 			ls.g.sliderHeight = function(){
 				if( ls.g.normalHeight && ls.g.goingNormal ){
 					return ls.g.normalHeight;
@@ -368,7 +368,7 @@ function lsShowNotice(lsobj,issue,ver){
 			}
 
 			// REPLACED FEATURE v2.0 If there is only ONE layer, instead of duplicating it, turning off slideshow and loops, hiding all controls, etc.
-			
+
 			if( $(el).find('.ls-layer').length == 1 ){
 				ls.o.autoStart = false;
 				ls.o.navPrevNext = false;
@@ -389,13 +389,13 @@ function lsShowNotice(lsobj,issue,ver){
 			}else{
 				ls.g.sliderOriginalWidthRU = ls.g.sliderOriginalWidth = $(el)[0].style.width;
 			}
-			
+
 			if( ls.o.height ){
 				ls.g.sliderOriginalHeight = '' + ls.o.height;
 			}else{
 				ls.g.sliderOriginalHeight = $(el)[0].style.height;
 			}
-			
+
 			if( ls.g.sliderOriginalWidth.indexOf('%') == -1 && ls.g.sliderOriginalWidth.indexOf('px') == -1 ){
 				ls.g.sliderOriginalWidth += 'px';
 			}
@@ -409,18 +409,18 @@ function lsShowNotice(lsobj,issue,ver){
 			}else{
 				ls.g.responsiveMode = false;
 			}
-			
-			// IMPROVEMENT v3.0 preventing WordPress to wrap your sublayers in <code> or <p> elements	
-			
+
+			// IMPROVEMENT v3.0 preventing WordPress to wrap your sublayers in <code> or <p> elements
+
 			$(el).find('*[class*="ls-s"], *[class*="ls-bg"]').each(function(){
 				if( !$(this).parent().hasClass('ls-layer') ){
 					$(this).insertBefore( $(this).parent() );
 				}
 			});
-			
+
 			$(el).find('.ls-layer').each(function(){
 				$(this).children(':not([class*="ls-"])').each(function(){
-					$(this).remove();					
+					$(this).remove();
 				});
 			});
 
@@ -430,7 +430,7 @@ function lsShowNotice(lsobj,issue,ver){
 					if( $(this).attr('rel') ){
 						var params = $(this).attr('rel').toLowerCase().split(';');
 					}else{
-						var params = $(this).attr('style').toLowerCase().split(';');						
+						var params = $(this).attr('style').toLowerCase().split(';');
 					}
 					for(x=0;x<params.length;x++){
 						param = params[x].split(':');
@@ -453,10 +453,10 @@ function lsShowNotice(lsobj,issue,ver){
 				// NEW FEATURE v1.7 and v3.0 making the slider responsive - we have to use style.left instead of jQuery's .css('left') function!
 
 				var sl = $(this);
-				
+
 				sl.data( 'originalLeft', sl[0].style.left );
 				sl.data( 'originalTop', sl[0].style.top );
-				
+
 				if( $(this).is('a') && $(this).children().length > 0 ){
 					sl = $(this).children();
 				}
@@ -489,7 +489,7 @@ function lsShowNotice(lsobj,issue,ver){
 				if( sl.css('border-left-width').indexOf('px') == -1 ){
 					sl.data( 'originalBorderLeft', sl[0].style.borderLeftWidth );
 				}else{
-					sl.data( 'originalBorderLeft', sl.css('border-left-width') );					
+					sl.data( 'originalBorderLeft', sl.css('border-left-width') );
 				}
 				if( sl.css('border-right-width').indexOf('px') == -1 ){
 					sl.data( 'originalBorderRight', sl[0].style.borderRightWidth );
@@ -497,18 +497,18 @@ function lsShowNotice(lsobj,issue,ver){
 					sl.data( 'originalBorderRight', sl.css('border-right-width') );
 				}
 				if( sl.css('border-top-width').indexOf('px') == -1 ){
-					sl.data( 'originalBorderTop', sl[0].style.borderTopWidth );				
+					sl.data( 'originalBorderTop', sl[0].style.borderTopWidth );
 				}else{
 					sl.data( 'originalBorderTop', sl.css('border-top-width') );
 				}
 				if( sl.css('border-bottom-width').indexOf('px') == -1 ){
-					sl.data( 'originalBorderBottom', sl[0].style.borderBottomWidth );				
+					sl.data( 'originalBorderBottom', sl[0].style.borderBottomWidth );
 				}else{
 					sl.data( 'originalBorderBottom', sl.css('border-bottom-width') );
 				}
 
 				sl.data( 'originalFontSize', sl.css('font-size') );
-				sl.data( 'originalLineHeight', sl.css('line-height') );				
+				sl.data( 'originalLineHeight', sl.css('line-height') );
 			});
 
 			// CHANGED FEATURE v3.5 url- / deep linking layers
@@ -543,7 +543,7 @@ function lsShowNotice(lsobj,issue,ver){
 			ls.g.layersNum = $(el).find('.ls-layer').length;
 
 			// NEW FEATURE v3.5 randomSlideshow
-			
+
 			if( ls.o.randomSlideshow && ls.g.layersNum > 2 ){
 				ls.o.firstLayer == 'random';
 				ls.o.twoWaySlideshow = false;
@@ -559,25 +559,25 @@ function lsShowNotice(lsobj,issue,ver){
 
 			ls.o.firstLayer = ls.o.firstLayer < ls.g.layersNum + 1 ? ls.o.firstLayer : 1;
 			ls.o.firstLayer = ls.o.firstLayer < 1 ? 1 : ls.o.firstLayer;
-			
+
 			// NEW FEATURE v2.0 loops
-			
+
 			ls.g.nextLoop = 1;
-			
+
 			if( ls.o.animateFirstLayer ){
 				ls.g.nextLoop = 0;
 			}
-			
+
 			// NEW FEATURE v2.0 videoPreview
 
 			var http = document.location.href.indexOf('file:') == -1 ? '' : 'http:';
 
 			// Youtube videos
-			
+
 			$(el).find('iframe[src*="www.youtu"]').each(function(){
 
 				// BUGFIX v4.1.0 Firefox embedded video fix
-				
+
 				$(this).parent().addClass('ls-video-layer');
 
 				if( $(this).parent('[class*="ls-s"]') ){
@@ -585,12 +585,12 @@ function lsShowNotice(lsobj,issue,ver){
 					var iframe = $(this);
 
 					// Getting thumbnail
-					
+
 					$.getJSON( http + '//gdata.youtube.com/feeds/api/videos/' + $(this).attr('src').split('embed/')[1].split('?')[0] + '?v=2&alt=json&callback=?', function(data) {
 
 						iframe.data( 'videoDuration', parseInt(data['entry']['media$group']['yt$duration']['seconds']) * 1000 );
 					});
-					
+
 					var vpContainer = $('<div>').addClass('ls-vpcontainer').appendTo( $(this).parent() );
 
 					$('<img>').appendTo( vpContainer ).addClass('ls-videopreview').attr('src',  http + '//img.youtube.com/vi/' + $(this).attr('src').split('embed/')[1].split('?')[0] + '/' + ls.o.youtubePreview );
@@ -605,83 +605,7 @@ function lsShowNotice(lsobj,issue,ver){
 
 						if( ls.g.paused ){
 							if( ls.o.autoPauseSlideshow != false ){
-								ls.g.paused = false;								
-							}
-							ls.g.originalAutoSlideshow = true;
-						}else{
-							ls.g.originalAutoSlideshow = ls.g.autoSlideshow;
-						}
-
-						if( ls.o.autoPauseSlideshow != false ){
-							ls.stop();
-						}
-
-						ls.g.pausedByVideo = true;
-
-						$(this).find('iframe').attr('src', $(this).find('iframe').data('videoSrc') );
-						$(this).find('.ls-vpcontainer').delay(ls.g.v.d).fadeOut(ls.g.v.fo, function(){							
-							if( ls.o.autoPauseSlideshow == 'auto' && ls.g.originalAutoSlideshow == true ){
-								var videoTimer = setTimeout(function() {
-										ls.start();
-								}, iframe.data( 'videoDuration') - ls.g.v.d );
-								iframe.data( 'videoTimer', videoTimer );
-							}
-							ls.g.isAnimating = false;
-							if( ls.g.resize == true ){
-								ls.makeResponsive( ls.g.curLayer, function(){
-									ls.g.resize = false;
-								});								
-							}
-						});
-					});
-
-					var sep = '&';
-					
-					if( $(this).attr('src').indexOf('?') == -1 ){
-						sep = '?';
-					}
-
-					$(this).data( 'videoSrc', $(this).attr('src') + sep + 'autoplay=1' );
-					$(this).data( 'originalWidth', $(this).attr('width') );
-					$(this).data( 'originalHeight', $(this).attr('height') );
-					$(this).attr('src','');
-				}
-			});
-
-			// Vimeo videos
-
-			$(el).find('iframe[src*="player.vimeo"]').each(function(){
-
-				// BUGFIX v4.1.0 Firefox embedded video fix
-				
-				$(this).parent().addClass('ls-video-layer');
-
-				if( $(this).parent('[class*="ls-s"]') ){
-
-					var iframe = $(this);
-
-					// Getting thumbnail
-
-					var vpContainer = $('<div>').addClass('ls-vpcontainer').appendTo( $(this).parent() );
-
-					$.getJSON( http + '//vimeo.com/api/v2/video/'+ ( $(this).attr('src').split('video/')[1].split('?')[0] ) +'.json?callback=?', function(data){
-
-						$('<img>').appendTo( vpContainer ).addClass('ls-videopreview').attr('src', data[0]['thumbnail_large'] );						
-						iframe.data( 'videoDuration', parseInt( data[0]['duration'] ) * 1000 );
-						$('<div>').appendTo( vpContainer ).addClass('ls-playvideo');						
-					});
-
-
-					$(this).parent().css({
-						width : $(this).width(),
-						height : $(this).height()
-					}).click(function(){
-
-						ls.g.isAnimating = true;
-
-						if( ls.g.paused ){
-							if( ls.o.autoPauseSlideshow != false ){
-								ls.g.paused = false;								
+								ls.g.paused = false;
 							}
 							ls.g.originalAutoSlideshow = true;
 						}else{
@@ -706,13 +630,89 @@ function lsShowNotice(lsobj,issue,ver){
 							if( ls.g.resize == true ){
 								ls.makeResponsive( ls.g.curLayer, function(){
 									ls.g.resize = false;
-								});								
+								});
 							}
 						});
 					});
 
 					var sep = '&';
-					
+
+					if( $(this).attr('src').indexOf('?') == -1 ){
+						sep = '?';
+					}
+
+					$(this).data( 'videoSrc', $(this).attr('src') + sep + 'autoplay=1' );
+					$(this).data( 'originalWidth', $(this).attr('width') );
+					$(this).data( 'originalHeight', $(this).attr('height') );
+					$(this).attr('src','');
+				}
+			});
+
+			// Vimeo videos
+
+			$(el).find('iframe[src*="player.vimeo"]').each(function(){
+
+				// BUGFIX v4.1.0 Firefox embedded video fix
+
+				$(this).parent().addClass('ls-video-layer');
+
+				if( $(this).parent('[class*="ls-s"]') ){
+
+					var iframe = $(this);
+
+					// Getting thumbnail
+
+					var vpContainer = $('<div>').addClass('ls-vpcontainer').appendTo( $(this).parent() );
+
+					$.getJSON( http + '//vimeo.com/api/v2/video/'+ ( $(this).attr('src').split('video/')[1].split('?')[0] ) +'.json?callback=?', function(data){
+
+						$('<img>').appendTo( vpContainer ).addClass('ls-videopreview').attr('src', data[0]['thumbnail_large'] );
+						iframe.data( 'videoDuration', parseInt( data[0]['duration'] ) * 1000 );
+						$('<div>').appendTo( vpContainer ).addClass('ls-playvideo');
+					});
+
+
+					$(this).parent().css({
+						width : $(this).width(),
+						height : $(this).height()
+					}).click(function(){
+
+						ls.g.isAnimating = true;
+
+						if( ls.g.paused ){
+							if( ls.o.autoPauseSlideshow != false ){
+								ls.g.paused = false;
+							}
+							ls.g.originalAutoSlideshow = true;
+						}else{
+							ls.g.originalAutoSlideshow = ls.g.autoSlideshow;
+						}
+
+						if( ls.o.autoPauseSlideshow != false ){
+							ls.stop();
+						}
+
+						ls.g.pausedByVideo = true;
+
+						$(this).find('iframe').attr('src', $(this).find('iframe').data('videoSrc') );
+						$(this).find('.ls-vpcontainer').delay(ls.g.v.d).fadeOut(ls.g.v.fo, function(){
+							if( ls.o.autoPauseSlideshow == 'auto' && ls.g.originalAutoSlideshow == true ){
+								var videoTimer = setTimeout(function() {
+										ls.start();
+								}, iframe.data( 'videoDuration') - ls.g.v.d );
+								iframe.data( 'videoTimer', videoTimer );
+							}
+							ls.g.isAnimating = false;
+							if( ls.g.resize == true ){
+								ls.makeResponsive( ls.g.curLayer, function(){
+									ls.g.resize = false;
+								});
+							}
+						});
+					});
+
+					var sep = '&';
+
 					if( $(this).attr('src').indexOf('?') == -1 ){
 						sep = '?';
 					}
@@ -725,13 +725,13 @@ function lsShowNotice(lsobj,issue,ver){
 			});
 
 			// NEW FEATURE v1.7 animating first layer
-			
+
 			if( ls.o.animateFirstLayer ){
 				ls.o.firstLayer = ls.o.firstLayer - 1 == 0 ? ls.g.layersNum : ls.o.firstLayer-1;
 			}
 
 			ls.g.curLayerIndex = ls.o.firstLayer;
-			ls.g.curLayer = $(el).find('.ls-layer:eq('+(ls.g.curLayerIndex-1)+')');			
+			ls.g.curLayer = $(el).find('.ls-layer:eq('+(ls.g.curLayerIndex-1)+')');
 
 			// Moving all layers to .ls-inner container
 
@@ -770,7 +770,7 @@ function lsShowNotice(lsobj,issue,ver){
 			$(el).find('.ls-inner').css({
 				backgroundColor : ls.o.globalBGColor
 			});
-			
+
 			if( ls.o.globalBGImage ){
 				$(el).find('.ls-inner').css({
 					backgroundImage : 'url('+ls.o.globalBGImage+')'
@@ -802,28 +802,28 @@ function lsShowNotice(lsobj,issue,ver){
 						}
 					}
 				);
-				
+
 				document.addEventListener("fullscreenchange", function () {
 					if( !document.fullscreen ){
-						ls.escFullScreen();						
+						ls.escFullScreen();
 					}else{
-						
+
 					}
 				}, false);
 
 				document.addEventListener("mozfullscreenchange", function () {
 					if( !document.mozFullScreen ){
-						ls.escFullScreen();						
+						ls.escFullScreen();
 					}else{
-						
+
 					}
 				}, false);
 
 				document.addEventListener("webkitfullscreenchange", function () {
 					if( !document.webkitIsFullScreen ){
-						ls.escFullScreen();						
+						ls.escFullScreen();
 					}else{
-						
+
 					}
 				}, false);
 			}
@@ -841,12 +841,12 @@ function lsShowNotice(lsobj,issue,ver){
 					e.preventDefault();
 					$(el).layerSlider('next');
 				}).appendTo($(el));
-				
+
 				if( ls.o.hoverPrevNext ){
 					$(el).find('.ls-nav-prev, .ls-nav-next').css({
 						display: 'none'
 					});
-					
+
 					$(el).hover(
 						function(){
  							if( !ls.g.forceHideControls ){
@@ -863,7 +863,7 @@ function lsShowNotice(lsobj,issue,ver){
 							}else{
 								$(el).find('.ls-nav-prev, .ls-nav-next').stop(true,true).fadeOut(300);
 							}
-						}						
+						}
 					);
 				}
 			}
@@ -871,11 +871,11 @@ function lsShowNotice(lsobj,issue,ver){
 			// Creating bottom navigation
 
 			if( ls.o.navStartStop || ls.o.navButtons ){
-				
+
 				var bottomNav = $('<div class="ls-bottom-nav-wrapper" />').appendTo( $(el) );
-				
+
 				ls.g.bottomWrapper = bottomNav;
-				
+
 				if( ls.o.thumbnailNavigation == 'always' ){
 					bottomNav.addClass('ls-above-thumbnails');
 				}
@@ -897,16 +897,16 @@ function lsShowNotice(lsobj,issue,ver){
 							e.preventDefault();
 							$(el).layerSlider( ($(this).index() + 1) );
 						});
-						
+
 						// NEW FEATURE v3.5 thumbnailNavigation ('hover')
 
 						if( ls.o.thumbnailNavigation == 'hover' ){
-							
+
 							$(el).find('.ls-thumbnail-hover, .ls-thumbnail-hover-img').css({
 								width : ls.o.tnWidth,
-								height : ls.o.tnHeight								
+								height : ls.o.tnHeight
 							});
-							
+
 							var th = $(el).find('.ls-thumbnail-hover');
 
 							var ti = th.find('img').css({
@@ -952,7 +952,7 @@ function lsShowNotice(lsobj,issue,ver){
 												marginLeft : - $(this).width() / 2,
 												left: '50%'
 											});
-										}			
+										}
 									}).attr( 'src', tnSrc );
 
 									console.log( $(this).position().left );
@@ -977,7 +977,7 @@ function lsShowNotice(lsobj,issue,ver){
 									});
 								}
 							);
-						}						
+						}
 					}
 
 					if( ls.o.thumbnailNavigation == 'hover' ){
@@ -989,7 +989,7 @@ function lsShowNotice(lsobj,issue,ver){
 				}
 
 				if( ls.o.navStartStop ){
-					
+
 					var buttonStart = $('<a class="ls-nav-start" href="#" />').click(function(e){
 						e.preventDefault();
 						$(el).layerSlider('start');
@@ -999,26 +999,26 @@ function lsShowNotice(lsobj,issue,ver){
 						e.preventDefault();
 						$(el).layerSlider('stop');
 					}).appendTo( $(el).find('.ls-bottom-nav-wrapper') );
-					
+
 				}else if( ls.o.thumbnailNavigation != 'always' ){
 
 					$('<span class="ls-nav-sides ls-nav-sideleft" />').prependTo( $(el).find('.ls-bottom-nav-wrapper') );
-					$('<span class="ls-nav-sides ls-nav-sideright" />').appendTo( $(el).find('.ls-bottom-nav-wrapper') );						
+					$('<span class="ls-nav-sides ls-nav-sideright" />').appendTo( $(el).find('.ls-bottom-nav-wrapper') );
 				}
-				
+
 				if( ls.o.hoverBottomNav && ls.o.thumbnailNavigation != 'always' ){
-					
+
 					bottomNav.css({
 						display: 'none'
 					});
-					
+
 					$(el).hover(
 						function(){
 							if( !ls.g.forceHideControls ){
 								if( ls.g.ie78 ){
 									bottomNav.css('display','block');
 								}else{
-									bottomNav.stop(true,true).fadeIn(300);									
+									bottomNav.stop(true,true).fadeIn(300);
 								}
 							}
 						},
@@ -1028,7 +1028,7 @@ function lsShowNotice(lsobj,issue,ver){
 							}else{
 								bottomNav.stop(true,true).fadeOut(300);
 							}
-						}						
+						}
 					)
 				}
 			}
@@ -1039,9 +1039,9 @@ function lsShowNotice(lsobj,issue,ver){
 
 				ls.g.thumbsWrapper = $('<div class="ls-thumbnail-wrapper"></div>').appendTo( $(el) );
 				var thumbs = $('<div class="ls-thumbnail"><div class="ls-thumbnail-inner"><div class="ls-thumbnail-slide-container"><div class="ls-thumbnail-slide"></div></div></div></div>').appendTo( ls.g.thumbsWrapper );
-			
+
 				ls.g.thumbnails = $(el).find('.ls-thumbnail-slide-container');
-				
+
 				if( !('ontouchstart' in window) ){
 					ls.g.thumbnails.hover(
 						function(){
@@ -1057,13 +1057,13 @@ function lsShowNotice(lsobj,issue,ver){
 						$(this).find('.ls-thumbnail-slide').stop().css({
 							marginLeft : mL
 						});
-					});				
+					});
 				}else{
 					ls.g.thumbnails.addClass('ls-touchscroll');
 				}
-				
+
 				$(el).find('.ls-layer').each(function(){
-					
+
 					var tempIndex = $(this).index() + 1;
 
 					if( $(this).find('.ls-tn').length ){
@@ -1078,10 +1078,10 @@ function lsShowNotice(lsobj,issue,ver){
 						var thumb = $('<a href="#" class="ls-thumb-' + tempIndex + '"><img src="'+tnSrc+'"></a>');
 					}else{
 						var thumb = $('<a href="#" class="ls-nothumb ls-thumb-' + tempIndex + '"><img src="'+ls.o.skinsPath+ls.o.skin+'/nothumb.png"></a>');
-					}	
+					}
 
 					thumb.appendTo( $(el).find('.ls-thumbnail-slide') );
-					
+
 					if( !('ontouchstart' in window) ){
 
 						thumb.hover(
@@ -1090,18 +1090,18 @@ function lsShowNotice(lsobj,issue,ver){
 							},
 							function(){
 								if( !$(this).children().hasClass('ls-thumb-active') ){
-									$(this).children().stop().fadeTo(300,ls.o.tnInactiveOpacity/100);										
+									$(this).children().stop().fadeTo(300,ls.o.tnInactiveOpacity/100);
 								}
-							}								
-						);					
+							}
+						);
 					}
-					
+
 					thumb.click(function(e){
 						e.preventDefault();
 						$(el).layerSlider( tempIndex );
-					});						
+					});
 				});
-				
+
 				if( buttonStart && buttonStop ){
 					var lsBottomBelowTN = ls.g.bottomWrapper = $('<div class="ls-bottom-nav-wrapper ls-below-thumbnails"></div>').appendTo( $(el) );
 					buttonStart.clone().click(function(e){
@@ -1112,7 +1112,7 @@ function lsShowNotice(lsobj,issue,ver){
 						e.preventDefault();
 						$(el).layerSlider('stop');
 					}).appendTo( lsBottomBelowTN );
-				}				
+				}
 
 				if( ls.o.hoverBottomNav ){
 
@@ -1121,8 +1121,8 @@ function lsShowNotice(lsobj,issue,ver){
 					if( lsBottomBelowTN ){
 						ls.g.bottomWrapper = lsBottomBelowTN.css('display') == 'block' ? lsBottomBelowTN : $(el).find('.ls-above-thumbnails');
 						ls.g.bottomWrapper.css('display','none');
-					}						
-					
+					}
+
 					// BUGFIXES v4.1.3 Added checking of the bottomWrapper variable
 
 					$(el).hover(
@@ -1137,8 +1137,8 @@ function lsShowNotice(lsobj,issue,ver){
 								}else{
 									ls.g.thumbsWrapper.stop(true,true).fadeIn(300);
 									if( ls.g.bottomWrapper ){
-										ls.g.bottomWrapper.stop(true,true).fadeIn(300);								
-									}								
+										ls.g.bottomWrapper.stop(true,true).fadeIn(300);
+									}
 								}
 							}
 						},
@@ -1155,13 +1155,13 @@ function lsShowNotice(lsobj,issue,ver){
 									ls.g.bottomWrapper.stop(true,true).fadeOut(300);
 								}
 							}
-						}						
+						}
 					)
 				}
 			}
 
 			// Adding shadow wrapper
-			
+
 			ls.g.shadow = $('<div class="ls-shadow"></div>').appendTo( $(el) );
 			if( ls.g.shadow.css('display') == 'block' && !ls.g.shadow.find('img').length ){
 				ls.g.showShadow = function(){
@@ -1180,14 +1180,14 @@ function lsShowNotice(lsobj,issue,ver){
 			// Adding keyboard navigation if turned on and if number of layers > 1
 
 			if( ls.o.keybNav && $(el).find('.ls-layer').length > 1 ){
-				
+
 				$('body').bind('keydown',function(e){
 					if( !ls.g.isAnimating && !ls.g.isLoading ){
 						if( e.which == 37 ){
 							ls.o.cbPrev(ls.g);
 							ls.prev('clicked');
 						}else if( e.which == 39 ){
-							ls.o.cbNext(ls.g);							
+							ls.o.cbNext(ls.g);
 							ls.next('clicked');
 						}
 					}
@@ -1195,7 +1195,7 @@ function lsShowNotice(lsobj,issue,ver){
 			}
 
 			// Adding touch-control navigation if number of layers > 1
-			
+
 			if('ontouchstart' in window && $(el).find('.ls-layer').length > 1 && ls.o.touchNav ){
 
 			   $(el).find('.ls-inner').bind('touchstart', function( e ) {
@@ -1211,7 +1211,7 @@ function lsShowNotice(lsobj,issue,ver){
 						ls.g.touchEndX = t[0].clientX;
 					}
 					if( Math.abs( ls.g.touchStartX - ls.g.touchEndX ) > 45 ){
-						e.preventDefault();							
+						e.preventDefault();
 					}
 			    });
 
@@ -1227,11 +1227,11 @@ function lsShowNotice(lsobj,issue,ver){
 					}
 				});
 			}
-			
+
 			// Feature: pauseOnHover (if number of layers > 1)
-			
+
 			if( ls.o.pauseOnHover == true && $(el).find('.ls-layer').length > 1 ){
-				
+
 				// BUGFIX v1.6 stop was not working because of pause on hover
 
 				$(el).find('.ls-inner').hover(
@@ -1247,20 +1247,20 @@ function lsShowNotice(lsobj,issue,ver){
 							// Stopping the animation of Timers
 
 							if( ls.g.barTimer ){
-								ls.g.barTimer.stop();								
+								ls.g.barTimer.stop();
 							}
 
 							if( ls.g.circleTimer ){
-								ls.g.circleTimer.find('.ls-ct-rotate').stop();								
+								ls.g.circleTimer.find('.ls-ct-rotate').stop();
 							}
 							ls.g.pausedSlideTime = new Date().getTime();
 						}
 					},
 					function(){
 						if( ls.g.paused == true ){
-							ls.start();								
+							ls.start();
 							ls.g.paused = false;
-						}						
+						}
 					}
 				);
 			}
@@ -1268,7 +1268,7 @@ function lsShowNotice(lsobj,issue,ver){
 			ls.resizeSlider();
 
 			// NEW FEATURE v1.7 added yourLogo
-			
+
 			if( ls.o.yourLogo ){
 				ls.g.yourLogo = $('<img>').addClass('ls-yourlogo').appendTo($(el)).attr('style', ls.o.yourLogoStyle ).css({
 					visibility: 'hidden',
@@ -1278,25 +1278,25 @@ function lsShowNotice(lsobj,issue,ver){
 					// NEW FEATURE v3.0 added responsive yourLogo
 
 					var logoTimeout = 0;
-					
+
 					if( !ls.g.yourLogo ){
 						logoTimeout = 1000;
 					}
-					
+
 					setTimeout( function(){
-						
+
 						ls.g.yourLogo.data( 'originalWidth', ls.g.yourLogo.width() );
 						ls.g.yourLogo.data( 'originalHeight', ls.g.yourLogo.height() );
 						if( ls.g.yourLogo.css('left') != 'auto' ){
 							ls.g.yourLogo.data( 'originalLeft', ls.g.yourLogo[0].style.left );
-						}					
+						}
 						if( ls.g.yourLogo.css('right') != 'auto' ){
 							ls.g.yourLogo.data( 'originalRight', ls.g.yourLogo[0].style.right );
 						}
 						if( ls.g.yourLogo.css('top') != 'auto' ){
 							ls.g.yourLogo.data( 'originalTop', ls.g.yourLogo[0].style.top );
 						}
-						if( ls.g.yourLogo.css('bottom') != 'auto' ){					
+						if( ls.g.yourLogo.css('bottom') != 'auto' ){
 							ls.g.yourLogo.data( 'originalBottom', ls.g.yourLogo[0].style.bottom );
 						}
 
@@ -1315,7 +1315,7 @@ function lsShowNotice(lsobj,issue,ver){
 						});
 
 						ls.resizeYourLogo();
-						
+
 					}, logoTimeout );
 
 				}).attr( 'src', ls.o.yourLogo );
@@ -1336,8 +1336,8 @@ function lsShowNotice(lsobj,issue,ver){
 						ls.g.resize = false;
 					});
 					if( ls.g.yourLogo ){
-						ls.resizeYourLogo();					
-					}						
+						ls.resizeYourLogo();
+					}
 				}
 			});
 
@@ -1367,7 +1367,7 @@ function lsShowNotice(lsobj,issue,ver){
 							$(this).delay( $(this).data('delayin') + 25 ).queue(function(){
 								$(this).find('.ls-videopreview').click();
 								$(this).dequeue();
-							});							
+							});
 						}
 
 						// NEW FEATURE v3.0 showUntil sublayers
@@ -1377,11 +1377,11 @@ function lsShowNotice(lsobj,issue,ver){
 							// Setting showUntilTimers
 
 							if( $(this).data('showuntil') > 0 ){
-								
+
 								var cursub = $(this);
 
 								// IMPROVEMENT v4.5.0 sublayerShowUntil will be called anly if necessary
-								
+
 								cursub.data('showUntilTimer', setTimeout(function(){
 									ls.sublayerShowUntil( cursub );
 								}, cursub.data('showuntil') ));
@@ -1397,20 +1397,20 @@ function lsShowNotice(lsobj,issue,ver){
 						ls.g.isLoading = false;
 						ls.start();
 					}else{
-						$(el).find('.ls-nav-stop').addClass('ls-nav-stop-active');							
+						$(el).find('.ls-nav-stop').addClass('ls-nav-stop-active');
 					}
 				});
 			}
 
 			// NEW FEATURE v1.7 added cbInit function
 
-			ls.o.cbInit($(el));				
+			ls.o.cbInit($(el));
 		};
 
 		ls.goFullScreen = function(){
 
 			if( !ls.g.isAnimating && !ls.g.isLoading ){
-				
+
 				if (lsPrefixes(document, 'FullScreen') || lsPrefixes(document, 'IsFullScreen')) {
 					lsPrefixes(document, 'CancelFullScreen');
 					ls.escFullScreen();
@@ -1423,10 +1423,10 @@ function lsShowNotice(lsobj,issue,ver){
 				}
 			}
 		};
-		
+
 		ls.escFullScreen = function(){
 			ls.g.goingNormal = true;
-			$(el).removeClass('ls-container-fullscreen');				
+			$(el).removeClass('ls-container-fullscreen');
 		};
 
 		ls.start = function(){
@@ -1447,7 +1447,7 @@ function lsShowNotice(lsobj,issue,ver){
 			$(el).find('.ls-nav-start').addClass('ls-nav-start-active');
 			$(el).find('.ls-nav-stop').removeClass('ls-nav-stop-active');
 		};
-		
+
 		ls.timer = function(){
 
 			var delaytime = $(el).find('.ls-active').data('slidedelay') ? parseInt( $(el).find('.ls-active').data('slidedelay') ) : ls.o.slideDelay;
@@ -1458,7 +1458,7 @@ function lsShowNotice(lsobj,issue,ver){
 			if( !ls.o.animateFirstLayer && !$(el).find('.ls-active').data('slidedelay') ){
 				var tempD = $(el).find('.ls-layer:eq('+(ls.o.firstLayer-1)+')').data('slidedelay');
 				delaytime = tempD ? tempD : ls.o.slideDelay;
-			}				
+			}
 
 			clearTimeout( ls.g.slideTimer );
 
@@ -1472,7 +1472,7 @@ function lsShowNotice(lsobj,issue,ver){
 					ls.g.pausedSlideTime =  new Date().getTime();
 				}
 				if(! ls.g.curSlideTime ){
-					ls.g.curSlideTime = delaytime;					
+					ls.g.curSlideTime = delaytime;
 				}
 				ls.g.curSlideTime -= (ls.g.pausedSlideTime - ls.g.startSlideTime);
 				ls.g.pausedSlideTime = false;
@@ -1486,7 +1486,7 @@ function lsShowNotice(lsobj,issue,ver){
 				ls.g.startSlideTime = ls.g.pausedSlideTime = ls.g.curSlideTime = false;
 				ls.start();
 			}, ls.g.curSlideTime );
-			
+
 			// Animating Timers
 
 			if( ls.g.barTimer ){
@@ -1500,7 +1500,7 @@ function lsShowNotice(lsobj,issue,ver){
 			}
 
 			if( ls.g.circleTimer ){
-				
+
 				var ct1 = ls.g.circleTimer.find('.ls-ct-right .ls-ct-rotate');
 				var ct2 = ls.g.circleTimer.find('.ls-ct-left .ls-ct-rotate');
 
@@ -1512,7 +1512,7 @@ function lsShowNotice(lsobj,issue,ver){
 
 					ct2.css({
 						rotate : 0
-					});					
+					});
 
 					ls.g.circleTimer.fadeIn(350);
 				}
@@ -1553,7 +1553,7 @@ function lsShowNotice(lsobj,issue,ver){
 			if( ls.g.circleTimer ){
 				ls.g.circleTimer.find('.ls-ct-rotate').stop();
 			}
-			
+
 			if( !ls.g.paused && !ls.g.originalAutoSlideshow ){
 				$(el).find('.ls-nav-stop').addClass('ls-nav-stop-active');
 				$(el).find('.ls-nav-start').removeClass('ls-nav-start-active');
@@ -1565,7 +1565,7 @@ function lsShowNotice(lsobj,issue,ver){
 		ls.forcestop = function(){
 
 			$(el).find('*').stop(true,false).dequeue();
-			
+
 			if( !ls.g.paused && !ls.g.originalAutoSlideshow ){
 				$(el).find('.ls-nav-stop').addClass('ls-nav-stop-active');
 				$(el).find('.ls-nav-start').removeClass('ls-nav-start-active');
@@ -1590,7 +1590,7 @@ function lsShowNotice(lsobj,issue,ver){
 			if( $.trim(e.toLowerCase()) == 'swing' || $.trim(e.toLowerCase()) == 'linear'){
 				return e.toLowerCase();
 			}else{
-				return e.replace('easeinout','easeInOut').replace('easein','easeIn').replace('easeout','easeOut').replace('quad','Quad').replace('quart','Quart').replace('cubic','Cubic').replace('quint','Quint').replace('sine','Sine').replace('expo','Expo').replace('circ','Circ').replace('elastic','Elastic').replace('back','Back').replace('bounce','Bounce');				
+				return e.replace('easeinout','easeInOut').replace('easein','easeIn').replace('easeout','easeOut').replace('quad','Quad').replace('quart','Quart').replace('cubic','Cubic').replace('quint','Quint').replace('sine','Sine').replace('expo','Expo').replace('circ','Circ').replace('elastic','Elastic').replace('back','Back').replace('bounce','Bounce');
 			}
 		};
 
@@ -1608,7 +1608,7 @@ function lsShowNotice(lsobj,issue,ver){
 				ls.g.nextLoop = 0;
 				ls.stop();
 				if( ls.o.forceLoopNum == false ){
-					ls.o.loops = 0;						
+					ls.o.loops = 0;
 				}
 			}else{
 				var prev = ls.g.curLayerIndex < 2 ? ls.g.layersNum : ls.g.curLayerIndex - 1;
@@ -1624,7 +1624,7 @@ function lsShowNotice(lsobj,issue,ver){
 			// NEW FEATURE v2.0 loops
 
 			if( !ls.o.randomSlideshow ){
-				
+
 				if( !(ls.g.curLayerIndex < ls.g.layersNum) ){
 					ls.g.nextLoop += 1;
 				}
@@ -1634,7 +1634,7 @@ function lsShowNotice(lsobj,issue,ver){
 					ls.g.nextLoop = 0;
 					ls.stop();
 					if( ls.o.forceLoopNum == false ){
-						ls.o.loops = 0;						
+						ls.o.loops = 0;
 					}
 				}else{
 
@@ -1649,7 +1649,7 @@ function lsShowNotice(lsobj,issue,ver){
 				var next = ls.g.curLayerIndex;
 
 				var calcRand = function(){
-					
+
 					next = Math.floor(Math.random() * ls.g.layersNum) + 1;
 
 					if( next == ls.g.curLayerIndex ){
@@ -1657,13 +1657,13 @@ function lsShowNotice(lsobj,issue,ver){
 						calcRand();
 					}else{
 						ls.g.prevNext = 'next';
-						ls.change(next,ls.g.prevNext);						
+						ls.change(next,ls.g.prevNext);
 					}
 				}
-				
+
 				calcRand();
 			}else if( clicked ){
-				
+
 				var next = ls.g.curLayerIndex < ls.g.layersNum ? ls.g.curLayerIndex + 1 : 1;
 				ls.g.prevNext = 'next';
 				ls.change(next,ls.g.prevNext);
@@ -1694,19 +1694,19 @@ function lsShowNotice(lsobj,issue,ver){
 
 				ls.g.pausedByVideo = false;
 				ls.g.autoSlideshow = ls.g.originalAutoSlideshow;
-				
+
 				ls.g.curLayer.find('iframe[src*="www.youtu"], iframe[src*="player.vimeo"]').each(function(){
 
 					$(this).parent().find('.ls-vpcontainer').fadeIn(ls.g.v.fi,function(){
-						$(this).parent().find('iframe').attr('src','');						
+						$(this).parent().find('iframe').attr('src','');
 					});
 				});
 			}
-			
+
 			$(el).find('iframe[src*="www.youtu"], iframe[src*="player.vimeo"]').each(function(){
-				
+
 				// Clearing videoTimeouts
-				
+
 				clearTimeout( $(this).data( 'videoTimer') );
 			});
 
@@ -1722,13 +1722,13 @@ function lsShowNotice(lsobj,issue,ver){
 					ls.g.prevNext = 'next';
 				}else{
 					ls.g.prevNext = 'prev';
-				}				
+				}
 			}
 
 			// Added timeOut to wait for the fade animation of videoPreview image...
 
 			var timeOut = 0;
-			
+
 			if( $(el).find('iframe[src*="www.youtu"], iframe[src*="player.vimeo"]').length > 0 ){
 				timeOut = ls.g.v.fi;
 			}
@@ -1744,15 +1744,15 @@ function lsShowNotice(lsobj,issue,ver){
 					}else{
 						ls.imgPreload(ls.g.nextLayer,function(){
 							ls.animate();
-						});						
+						});
 					}
 				}
-				
+
 				waitForGoingNormal();
 
 			}, timeOut );
 		};
-		
+
 		// Preloading images
 
 		ls.imgPreload = function(layer,callback){
@@ -1764,9 +1764,9 @@ function lsShowNotice(lsobj,issue,ver){
 			if( ls.g.showSlider ){
 				$(el).css({
 					visibility : 'visible'
-				});				
+				});
 			}
-			
+
 			// If image preload is on
 
 			if( ls.o.imgPreload ){
@@ -1775,13 +1775,13 @@ function lsShowNotice(lsobj,issue,ver){
 				var preloaded = 0;
 
 				// NEW FEATURE v1.8 Prealoading background images of layers
-				
+
 				if( layer.css('background-image') != 'none' && layer.css('background-image').indexOf('url') != -1 ){
 					var bgi = layer.css('background-image');
 					bgi = bgi.match(/url\((.*)\)/)[1].replace(/"/gi, '');
 					preImages.push(bgi);
 				}
-				
+
 				// Images inside layers
 
 				layer.find('img').each(function(){
@@ -1791,7 +1791,7 @@ function lsShowNotice(lsobj,issue,ver){
 				// Background images inside layers
 
 				layer.find('*').each(function(){
-					
+
 					// BUGFIX v1.7 fixed preload bug with sublayers with gradient backgrounds
 
 					if( $(this).css('background-image') != 'none' && $(this).css('background-image').indexOf('url') != -1 ){
@@ -1820,7 +1820,7 @@ function lsShowNotice(lsobj,issue,ver){
 
 						// BUGIFX v4.1.3 Adding delay to the showing of the loading indicator
 
-						ls.g.li.delay(400).fadeIn(300);			
+						ls.g.li.delay(400).fadeIn(300);
 					}
 
 					for(x=0;x<preImages.length;x++){
@@ -1828,7 +1828,7 @@ function lsShowNotice(lsobj,issue,ver){
 							if( ++preloaded == preImages.length ){
 
 								// NEW FEATURE v4.0 Hiding loading indicator
-								
+
 								ls.g.li.stop(true,true).css({
 									display: 'none'
 								});
@@ -1840,7 +1840,7 @@ function lsShowNotice(lsobj,issue,ver){
 								ls.makeResponsive(layer, callback);
 							}
 						}).attr('src',preImages[x]);
-					}					
+					}
 				}
 			}else{
 
@@ -1851,7 +1851,7 @@ function lsShowNotice(lsobj,issue,ver){
 				ls.makeResponsive(layer, callback);
 			}
 		};
-		
+
 		// NEW FEATURE v1.7 making the slider responsive
 
 		ls.makeResponsive = function(layer, callback ){
@@ -1867,17 +1867,17 @@ function lsShowNotice(lsobj,issue,ver){
 			ls.resizeSlider();
 
 			if( ls.o.thumbnailNavigation == 'always' ){
-				ls.resizeThumb();				
+				ls.resizeThumb();
 			}
 			layer.children().each(function(){
-				
+
 				var sl = $(this);
 
 				// positioning
 
 				var ol = sl.data('originalLeft') ? sl.data('originalLeft') : '0';
 				var ot = sl.data('originalTop') ? sl.data('originalTop') : '0';
-				
+
 				if( sl.is('a') && sl.children().length > 0 ){
 					sl.css({
 						display : 'block'
@@ -1887,7 +1887,7 @@ function lsShowNotice(lsobj,issue,ver){
 
 				var ow = 'auto';
 				var oh = 'auto';
-				
+
 				if( sl.data('originalWidth') ){
 
 					if( typeof sl.data('originalWidth') == 'number' ){
@@ -1896,15 +1896,15 @@ function lsShowNotice(lsobj,issue,ver){
 						ow = sl.data('originalWidth');
 					}
 				}
-				
+
 				if( sl.data('originalHeight') ){
 					if( typeof sl.data('originalHeight') == 'number' ){
-						oh = parseInt( sl.data('originalHeight') ) * ls.g.ratio;						
+						oh = parseInt( sl.data('originalHeight') ) * ls.g.ratio;
 					}else if( sl.data('originalHeight').indexOf('%') != -1 ){
 						oh = sl.data('originalHeight');
 					}
 				}
-				
+
 				// padding
 
 				var opl = sl.data('originalPaddingLeft') ? parseInt( sl.data('originalPaddingLeft') ) * ls.g.ratio : 0;
@@ -1913,7 +1913,7 @@ function lsShowNotice(lsobj,issue,ver){
 				var opb = sl.data('originalPaddingBottom') ? parseInt( sl.data('originalPaddingBottom') ) * ls.g.ratio : 0;
 
 				// border
-				
+
 				var obl = sl.data('originalBorderLeft') ? parseInt( sl.data('originalBorderLeft') ) * ls.g.ratio : 0;
 				var obr = sl.data('originalBorderRight') ? parseInt( sl.data('originalBorderRight') ) * ls.g.ratio : 0;
 				var obt = sl.data('originalBorderTop') ? parseInt( sl.data('originalBorderTop') ) * ls.g.ratio : 0;
@@ -1959,7 +1959,7 @@ function lsShowNotice(lsobj,issue,ver){
 							height : oh
 						});
 					}
-					
+
 					if( !sl.is('img') ){
 						sl.css({
 							width : ow,
@@ -1968,12 +1968,12 @@ function lsShowNotice(lsobj,issue,ver){
 							'line-height' : parseInt(olh) * ls.g.ratio + 'px'
 						});
 					}
-					
+
 					if( sl.is('div') && sl.find('iframe').data('videoSrc') ){
-						
+
 						var videoIframe = sl.find('iframe');
 						videoIframe.attr('width', parseInt( videoIframe.data('originalWidth') ) * ls.g.ratio ).attr('height', parseInt( videoIframe.data('originalHeight') ) * ls.g.ratio );
-						
+
 						sl.css({
 							width : parseInt( videoIframe.data('originalWidth') ) * ls.g.ratio,
 							height : parseInt( videoIframe.data('originalHeight') ) * ls.g.ratio
@@ -1985,7 +1985,7 @@ function lsShowNotice(lsobj,issue,ver){
 						borderLeftWidth : obl + 'px',
 						borderRightWidth : obr + 'px',
 						borderTopWidth : obt + 'px',
-						borderBottomWidth : obb + 'px'						
+						borderBottomWidth : obb + 'px'
 					});
 				}
 
@@ -1998,7 +1998,7 @@ function lsShowNotice(lsobj,issue,ver){
 					if( sl.parent().is('a') ){
 						sl = sl.parent();
 					}
-								
+
 					// NEW FEATURE v3.5 sublayerContainer
 
 					var slC = ls.o.sublayerContainer > 0 ? ( ls.g.sliderWidth() - ls.o.sublayerContainer ) / 2 : 0;
@@ -2014,7 +2014,7 @@ function lsShowNotice(lsobj,issue,ver){
 						sl.css({
 							left : slC + parseInt(ol) * ls.g.ratio
 						});
-					}	
+					}
 
 					// (RE)positioning sublayer (top property)
 
@@ -2053,7 +2053,7 @@ function lsShowNotice(lsobj,issue,ver){
 							if( ls.g.sliderWidth() > ow * or ){
 								or = ls.g.sliderWidth() / ow;
 							}
-						}						
+						}
 					}
 
 					sl.css({
@@ -2073,7 +2073,7 @@ function lsShowNotice(lsobj,issue,ver){
 			// Resizing shadow
 
 			ls.resizeShadow();
-			
+
 			callback();
 
 			$(this).dequeue();
@@ -2083,11 +2083,11 @@ function lsShowNotice(lsobj,issue,ver){
 				ls.g.normalHeight = false;
 				ls.g.normalRatio = false;
 				ls.g.goingNormal = false;
-			}			
+			}
 		};
-		
+
 		// Resizing shadow
-		
+
 		ls.resizeShadow = function(){
 			if( ls.g.shadowImg ){
 				var resizeShadow = function(){
@@ -2095,12 +2095,12 @@ function lsShowNotice(lsobj,issue,ver){
 						if( ls.g.shadowBtmMod > 0 ){
 							ls.g.shadow.css({
 								height: ls.g.shadowImg.height() / 2
-							});							
+							});
 						}else{
 							ls.g.shadow.css({
 								height: ls.g.shadowImg.height(),
 								marginTop: - ls.g.shadowImg.height() / 2
-							});							
+							});
 						}
 					}else{
 						setTimeout(function(){
@@ -2109,7 +2109,7 @@ function lsShowNotice(lsobj,issue,ver){
 					}
 				};
 
-				resizeShadow();				
+				resizeShadow();
 			}
 		};
 
@@ -2118,7 +2118,7 @@ function lsShowNotice(lsobj,issue,ver){
 		ls.resizeSlider = function(){
 
 			if( ls.o.responsiveUnder > 0 ){
-				
+
 				if( $(window).width() < ls.o.responsiveUnder ){
 					ls.g.responsiveMode = true;
 					ls.g.sliderOriginalWidth = ls.o.responsiveUnder + 'px';
@@ -2128,11 +2128,11 @@ function lsShowNotice(lsobj,issue,ver){
 					ls.g.ratio = 1;
 				}
 			}
-		
+
 			// NEW FEATURE v3.0 added "normal" responsive mode with image and font resizing
 
 			if( ls.g.responsiveMode ){
-				
+
 				var parent = $(el).parent();
 
 				if( ls.g.normalRatio && ls.g.goingNormal ){
@@ -2162,9 +2162,9 @@ function lsShowNotice(lsobj,issue,ver){
 					height : ls.g.sliderOriginalHeight
 				});
 			}
-			
+
 			// WP fullWidth mode (originally forceResponsive mode)
-			
+
 			if( $(el).closest('.ls-wp-fullwidth-container').length ){
 
 				$(el).closest('.ls-wp-fullwidth-helper').css({
@@ -2192,7 +2192,7 @@ function lsShowNotice(lsobj,issue,ver){
 				width : ls.g.sliderWidth(),
 				height : ls.g.sliderHeight()
 			});
-			
+
 			// BUGFIX v2.0 fixed width problem if firstLayer is not 1
 
 			if( ls.g.curLayer && ls.g.nextLayer ){
@@ -2224,11 +2224,11 @@ function lsShowNotice(lsobj,issue,ver){
 				width : ls.g.yourLogo.data( 'originalWidth' ) * ls.g.ratio,
 				height : ls.g.yourLogo.data( 'originalHeight' ) * ls.g.ratio
 			});
-			
+
 			if( ls.g.ie78 ){
 				ls.g.yourLogo.css('display','block');
 			}else{
-				ls.g.yourLogo.fadeIn(300);				
+				ls.g.yourLogo.fadeIn(300);
 			}
 
 			var oL = oR = oT = oB = 'auto';
@@ -2287,7 +2287,7 @@ function lsShowNotice(lsobj,issue,ver){
 			$(el).find('.ls-thumbnail-slide').css({
 				height : parseInt( ls.o.tnHeight * ls.g.ratio )
 			});
-			
+
 			var tn = $(el).find('.ls-thumbnail');
 
 			var originalWidth = ls.o.tnContainerWidth.indexOf('%') == -1 ? parseInt( ls.o.tnContainerWidth ) : parseInt( sliderW / 100 * parseInt( ls.o.tnContainerWidth ) );
@@ -2304,17 +2304,17 @@ function lsShowNotice(lsobj,issue,ver){
 
 			ls.bottomNavSizeHelper('off');
 		};
-		
+
 		// Changing thumbnails
-		
+
 		ls.changeThumb = function(index){
-			
+
 			var curIndex = index ? index : ls.g.nextLayerIndex;
 
 			$(el).find('.ls-thumbnail-slide a:not(.ls-thumb-'+curIndex+')').children().each(function(){
 				$(this).removeClass('ls-thumb-active').stop().fadeTo(750,ls.o.tnInactiveOpacity/100);
 			});
-			
+
 			$(el).find('.ls-thumbnail-slide a.ls-thumb-'+curIndex).children().addClass('ls-thumb-active').stop().fadeTo(750,ls.o.tnActiveOpacity/100);
 		};
 
@@ -2322,7 +2322,7 @@ function lsShowNotice(lsobj,issue,ver){
 
 		ls.scrollThumb = function(){
 
-			if( !$(el).find('.ls-thumbnail-slide-container').hasClass('ls-thumbnail-slide-hover') ){				
+			if( !$(el).find('.ls-thumbnail-slide-container').hasClass('ls-thumbnail-slide-hover') ){
 				var curThumb = $(el).find('.ls-thumb-active').length ? $(el).find('.ls-thumb-active').parent() : false;
 				if( curThumb ){
 					var thumbCenter = curThumb.position().left + curThumb.width() / 2;
@@ -2331,15 +2331,15 @@ function lsShowNotice(lsobj,issue,ver){
 					mL = mL > 0 ? 0 : mL;
 					$(el).find('.ls-thumbnail-slide').animate({
 						marginLeft : mL
-					}, 600, 'easeInOutQuad');				
+					}, 600, 'easeInOutQuad');
 				}
 			}
 		};
-		
+
 		// IMPROVEMENT v4.1.3 Changed the working of some Thumbnail and Bottom Navigation features
 
 		ls.bottomNavSizeHelper = function(val){
-		
+
 			if( ls.o.hoverBottomNav && !$(el).hasClass('ls-hover') ){
 				switch(val){
 					case 'on':
@@ -2357,7 +2357,7 @@ function lsShowNotice(lsobj,issue,ver){
 				}
 			}
 		};
-		
+
 		// Animating layers and sublayers
 
 		ls.animate = function(){
@@ -2420,7 +2420,7 @@ function lsShowNotice(lsobj,issue,ver){
 
 					if( slideDirection == 'left' || slideDirection == 'right' ){
 						curLayerWidth = curLayerTop = nextLayerWidth = nextLayerTop = 0;
-						layerMarginTop = 0;				
+						layerMarginTop = 0;
 					}
 					if( slideDirection == 'top' || slideDirection == 'bottom' ){
 						curLayerHeight = curLayerLeft = nextLayerHeight = nextLayerLeft = 0;
@@ -2452,7 +2452,7 @@ function lsShowNotice(lsobj,issue,ver){
 						left : curLayerLeft,
 						right : curLayerRight,
 						top : curLayerTop,
-						bottom : curLayerBottom			
+						bottom : curLayerBottom
 					});
 					ls.g.nextLayer.css({
 						width : nextLayerWidth,
@@ -2490,9 +2490,9 @@ function lsShowNotice(lsobj,issue,ver){
 						}, curDuration, curEasing,function(){
 
 							curLayerCallback();
-						});						
+						});
 					};
-					
+
 					var curLayerCallback = function(){
 
 						// Stopping current sublayer animations if needed (they are not visible at this point).
@@ -2519,7 +2519,7 @@ function lsShowNotice(lsobj,issue,ver){
 
 						if( ls.g.autoSlideshow ){
 							ls.timer();
-						}	
+						}
 
 						// Changing variables
 
@@ -2527,7 +2527,7 @@ function lsShowNotice(lsobj,issue,ver){
 						if( ls.g.resize == true ){
 							ls.makeResponsive( ls.g.curLayer, function(){
 								ls.g.resize = false;
-							});								
+							});
 						}
 					};
 
@@ -2583,7 +2583,7 @@ function lsShowNotice(lsobj,issue,ver){
 							// IMPROVEMENT v4.0 Distance (P.level): -1
 
 							var curSubPLevel = parseInt( $(this).attr('class').split('ls-s')[1] );
-							
+
 							if( curSubPLevel == -1 ){
 								var endLeft = parseInt( $(this).css('left') );
 								var endTop = parseInt( $(this).css('top') );
@@ -2604,7 +2604,7 @@ function lsShowNotice(lsobj,issue,ver){
 							}
 
 							var curSubDelay = $(this).data('delayout') ? parseInt($(this).data('delayout')) : ls.o.delayOut;
-							var curSubTime = $(this).data('durationout') ? parseInt($(this).data('durationout')) : ls.o.durationOut;								
+							var curSubTime = $(this).data('durationout') ? parseInt($(this).data('durationout')) : ls.o.durationOut;
 							var curSubEasing = $(this).data('easingout') ? $(this).data('easingout') : ls.o.easingOut;
 
 							// On new layer transitions, all sublayer will be slide / fade out in 500ms without any delays
@@ -2651,14 +2651,14 @@ function lsShowNotice(lsobj,issue,ver){
 											visibility: 'hidden',
 											opacity: $(this).data( 'originalOpacity')
 										});
-									});									
+									});
 								}else{
 									$(this).stop(true,true).delay( curSubDelay ).fadeOut(curSubTime, curSubEasing,function(){
 										$(this).css({
 											visibility: 'hidden',
 											display: 'block'
 										});
-									});									
+									});
 								}
 							}else{
 								$(this).stop(true,false).delay( curSubDelay ).animate({
@@ -2666,9 +2666,9 @@ function lsShowNotice(lsobj,issue,ver){
 									scale : curSubScale,
 									marginLeft : -lml * curSubPar,
 									marginTop : -lmt * curSubPar
-								}, curSubTime, curSubEasing);						
+								}, curSubTime, curSubEasing);
 							}
-						});	
+						});
 					};
 
 					var nextLayer = function(){
@@ -2718,7 +2718,7 @@ function lsShowNotice(lsobj,issue,ver){
 							// IMPROVEMENT v4.0 Distance (P.level): -1
 
 							var nextSubPLevel = parseInt( $(this).attr('class').split('ls-s')[1] );
-							
+
 							if( nextSubPLevel == -1 ){
 								var endLeft = parseInt( $(this).css('left') );
 								var endTop = parseInt( $(this).css('top') );
@@ -2735,7 +2735,7 @@ function lsShowNotice(lsobj,issue,ver){
 								var nextSubPar = 1;
 							}else{
 								var nextSubParMod = ls.g.nextLayer.data('parallaxin') ? parseInt(ls.g.nextLayer.data('parallaxin')) : ls.o.parallaxIn;
-								var nextSubPar = nextSubPLevel * nextSubParMod;								
+								var nextSubPar = nextSubPLevel * nextSubParMod;
 							}
 
 							var nextSubDelay = $(this).data('delayin') ? parseInt($(this).data('delayin')) : ls.o.delayIn;
@@ -2745,13 +2745,13 @@ function lsShowNotice(lsobj,issue,ver){
 							var cursub = $(this);
 
 							var nextSubCallback = function(){
-								
+
 								// NEW FEATURE v2.0 autoPlayVideos
 
 								if( ls.o.autoPlayVideos == true ){
 
 									cursub.find('.ls-videopreview').click();
-								}					
+								}
 
 								// NEW FEATURE v3.0 showUntil sublayers
 
@@ -2762,7 +2762,7 @@ function lsShowNotice(lsobj,issue,ver){
 									cursub.data('showUntilTimer', setTimeout(function(){
 										ls.sublayerShowUntil( cursub );
 									}, cursub.data('showuntil') ));
-								}								
+								}
 							}
 
 							// NEW FEATURE v4.5.0 Rotating sublayers
@@ -2806,7 +2806,7 @@ function lsShowNotice(lsobj,issue,ver){
 									},nextSubTime, nextSubEasing, function(){
 
 										nextSubCallback();
-									});									
+									});
 								}else{
 
 									$(this).css({
@@ -2819,7 +2819,7 @@ function lsShowNotice(lsobj,issue,ver){
 										nextSubCallback();
 									});
 								}
-								
+
 							}else{
 
 								// iOS fade bug when GPU acceleration is enabled #4
@@ -2852,7 +2852,7 @@ function lsShowNotice(lsobj,issue,ver){
 								}, nextSubTime, nextSubEasing, function(){
 
 									nextSubCallback();
-								});								
+								});
 							}
 						});
 					};
@@ -2866,7 +2866,7 @@ function lsShowNotice(lsobj,issue,ver){
 					// In this case, if user didn't specify any 2D transitions, a random will be selected
 
 					var selectTransition = function(){
-						
+
 						// if the browser supports CSS3 3D and user specified at least one of 3D transitions
 
 						if( lsSupport3D( $(el) ) && typeof $.transit != 'undefined' && ( ls.g.nextLayer.data('transition3d') || ls.g.nextLayer.data('customtransition3d') ) ){
@@ -2880,7 +2880,7 @@ function lsShowNotice(lsobj,issue,ver){
 							}else{
 								getTransitionType('custom3d',ls.g.nextLayer.data('customtransition3d'));
 							}
-							
+
 						}else{
 
 							if( ls.g.nextLayer.data('transition2d') && ls.g.nextLayer.data('customtransition2d') ){
@@ -2892,10 +2892,10 @@ function lsShowNotice(lsobj,issue,ver){
 							}else if( ls.g.nextLayer.data('customtransition2d') ){
 								getTransitionType('custom2d',ls.g.nextLayer.data('customtransition2d'));
 							}else{
-								getTransitionType('2d','all');								
+								getTransitionType('2d','all');
 							}
 						}
-					};							
+					};
 
 					// Needed by the demo page
 
@@ -2905,12 +2905,12 @@ function lsShowNotice(lsobj,issue,ver){
 							getTransitionType('3d',LSCustomTransition.split(':')[1]);
 						}else{
 							if( LSCustomTransition.indexOf('3d') != -1){
-								getTransitionType('2d','all');								
+								getTransitionType('2d','all');
 							}else{
 								getTransitionType('2d',LSCustomTransition.split(':')[1]);
 							}
 						}
-					};							
+					};
 
 					// Choosing layer transition type (2d, 3d, or both)
 
@@ -2926,7 +2926,7 @@ function lsShowNotice(lsobj,issue,ver){
 						if( transitionlist.indexOf('last') != -1 ){
 							number = tr['t'+tt].length-1;
 							lt = 'last';
-						}else if( transitionlist.indexOf('all') != -1){						
+						}else if( transitionlist.indexOf('all') != -1){
 							number = Math.floor(Math.random() * lsCountProp(tr['t'+tt]) );
 							lt = 'random from all';
 						}else{
@@ -2985,10 +2985,10 @@ function lsShowNotice(lsobj,issue,ver){
 							}else if( rows > 2 ){
 								rows = 2;
 							}
-							
+
 							// Reducing more :)
-							
-							if( rows > 2 && cols > 2 ){								
+
+							if( rows > 2 && cols > 2 ){
 								rows = 2;
 								if( cols > 4){
 									cols = 4;
@@ -3090,9 +3090,9 @@ function lsShowNotice(lsobj,issue,ver){
 
 						}else{
 							ls.g.totalDuration = sublayersDurationOut + ((cols * rows) - 1) * prop.tile.delay + prop.transition.duration;
-							
+
 							// IMPROVEMENT v4.5.0 Creating separated containers for current and next tiles
-							
+
 							ls.g.curTiles = $('<div>').addClass('ls-curtiles').appendTo( ls.g.ltContainer );
 							ls.g.nextTiles = $('<div>').addClass('ls-nexttiles').appendTo( ls.g.ltContainer );
 						}
@@ -3164,7 +3164,7 @@ function lsShowNotice(lsobj,issue,ver){
 								if( prop.animation.direction == 'vertical' && Math.abs(prop.animation.transition.rotateX) > 90){
 									createCuboids('ls-3d-back',tile.find('.ls-3d-box'),W,H,-W2,-H2,-D2,180,0);
 								}else{
-									createCuboids('ls-3d-back',tile.find('.ls-3d-box'),W,H,-W2,-H2,-D2,0,180);								
+									createCuboids('ls-3d-back',tile.find('.ls-3d-box'),W,H,-W2,-H2,-D2,0,180);
 								}
 
 								createCuboids('ls-3d-bottom',tile.find('.ls-3d-box'),W,D,-W2,H2-D2,0,-90,0);
@@ -3207,7 +3207,7 @@ function lsShowNotice(lsobj,issue,ver){
 								if( prop.after ){
 									curCub.transition( $.extend({},{ scale3d : 1 }, prop.after.transition), prop.after.duration, prop.after.easing );
 								}
-								
+
 							}else{
 
 								// If current transition is a 2d transition
@@ -3223,7 +3223,7 @@ function lsShowNotice(lsobj,issue,ver){
 								}
 
 								// IMPROVEMENT v4.5.0 Reversing animation directions if slider is moving backwards
-								
+
 								if( prop.name.toLowerCase().indexOf('mirror') != -1 && tiles%2 == 0 ){
 									if( pn == 'prev' ){
 										pn = 'next';
@@ -3282,25 +3282,25 @@ function lsShowNotice(lsobj,issue,ver){
 									case 'topleft':
 										T1 = tile.height();
 										T2 = 0;
-										L1 = tile.width(); 
+										L1 = tile.width();
 										L2 = 0;
 									break;
 									case 'topright':
 										T1 = tile.height();
 										T2 = 0;
-										L1 = - tile.width(); 
+										L1 = - tile.width();
 										L2 = 0;
 									break;
 									case 'bottomleft':
 										T1 = - tile.height();
 										T2 = 0;
-										L1 = tile.width(); 
+										L1 = tile.width();
 										L2 = 0;
 									break;
 									case 'bottomright':
 										T1 = - tile.height();
 										T2 = 0;
-										L1 = - tile.width(); 
+										L1 = - tile.width();
 										L2 = 0;
 									break;
 								}
@@ -3308,7 +3308,7 @@ function lsShowNotice(lsobj,issue,ver){
 								ls.g.scale2D = prop.transition.scale ? prop.transition.scale : 1;
 
 								if( carousel == true && ls.g.scale2D != 1 ){
-									
+
 									T1 = T1 / 2;
 									T2 = T2 / 2;
 									L1 = L1 / 2;
@@ -3335,7 +3335,7 @@ function lsShowNotice(lsobj,issue,ver){
 //								}
 
 								// IMPROVEMENT v4.5.0 Implemented Rotation and Scale into 2D Transitions
-								
+
 								if((( prop.transition.rotate || prop.transition.rotateX || prop.transition.rotateY ) || ls.g.scale2D != 1 ) && !ls.g.ie78 && prop.transition.type != 'slide' ){
 									tile.css({
 										overflow : 'visible'
@@ -3343,9 +3343,9 @@ function lsShowNotice(lsobj,issue,ver){
 								}else{
 									tile.css({
 										overflow : 'hidden'
-									});									
+									});
 								}
-								
+
 								if( carousel == true){
 									ls.g.curTiles.css({
 										overflow: 'visible'
@@ -3353,7 +3353,7 @@ function lsShowNotice(lsobj,issue,ver){
 								}else{
 									ls.g.curTiles.css({
 										overflow: 'hidden'
-									});									
+									});
 								}
 
 								if( prop.transition.type == 'slide' || carousel == true ){
@@ -3384,7 +3384,7 @@ function lsShowNotice(lsobj,issue,ver){
 									var rY = prop.transition.rotateY ? prop.transition.rotateY : 0;
 
 									// Reversing rotation degrees if slider is moving backwards
-									
+
 									if( pn == 'prev' ){
 										r = -r;
 										rX = -rX;
@@ -3398,9 +3398,9 @@ function lsShowNotice(lsobj,issue,ver){
 											'-ms-transform': 'rotate('+r+'deg) rotateX('+rX+'deg) rotateY('+rY+'deg) scale('+ls.g.scale2D+','+ls.g.scale2D+')',
 											'-moz-transform': 'rotate('+r+'deg) rotateX('+rX+'deg) rotateY('+rY+'deg) scale('+ls.g.scale2D+','+ls.g.scale2D+')',
 											'-webkit-transform': 'rotate('+r+'deg) rotateX('+rX+'deg) rotateY('+rY+'deg) scale('+ls.g.scale2D+','+ls.g.scale2D+')'
-										});										
+										});
 									}
-									
+
 									nextTile.transition({
 										delay : curTileDelay,
 										top : 0,
@@ -3413,7 +3413,7 @@ function lsShowNotice(lsobj,issue,ver){
 									}, prop.transition.duration, prop.transition.easing );
 
 									if( ( prop.transition.type == 'slide' || carousel == true ) && prop.name.toLowerCase().indexOf('mirror') == -1 ){
-																				
+
 										var r2 = 0;
 
 										if( r != 0 ){
@@ -3440,7 +3440,7 @@ function lsShowNotice(lsobj,issue,ver){
 											top : T2,
 											left : L2
 										}, prop.transition.duration, prop.transition.easing );
-									}	
+									}
 								}
 							}
 
@@ -3479,7 +3479,7 @@ function lsShowNotice(lsobj,issue,ver){
 						}
 
 						// Storing current and next layer elements in a local variable (needed by setTimeout functions in some cases)
-						
+
 						var curLayer = ls.g.curLayer;
 						var nextLayer = ls.g.nextLayer;
 
@@ -3488,10 +3488,10 @@ function lsShowNotice(lsobj,issue,ver){
 						nextLayer.find('.ls-bg').css({
 							visibility : 'hidden'
 						});
-						
-						// Sliding out the sublayers of the current layer 
+
+						// Sliding out the sublayers of the current layer
 						// (immediately, delay out and duration out properties are not applied to the sublayers during the new layer transitions)
-						
+
 						curSubLayers(sublayersDurationOut);
 
 						// Hiding current layer after its sublayers animated out
@@ -3519,7 +3519,7 @@ function lsShowNotice(lsobj,issue,ver){
 								curLayer.removeClass('ls-active');
 								ls.makeResponsive( nextLayer, function(){
 									ls.g.resize = false;
-								});								
+								});
 							}
 
 							// Sliding in / fading in the sublayers of the next layer
@@ -3551,7 +3551,7 @@ function lsShowNotice(lsobj,issue,ver){
 								if( ls.g.ie78 ){
 									nextLayer.find('.ls-bg').css('display','block');
 									setTimeout(function(){
-										curLayerCallback();										
+										curLayerCallback();
 									},500);
 								}else{
 									nextLayer.find('.ls-bg').fadeIn(500, function(){
@@ -3559,7 +3559,7 @@ function lsShowNotice(lsobj,issue,ver){
 									});
 								}
 							}else{
-								curLayerCallback();								
+								curLayerCallback();
 							}
 
 						}, ls.g.totalDuration );
@@ -3578,11 +3578,11 @@ function lsShowNotice(lsobj,issue,ver){
 
 						if( ls.g.layersNum == 1 ){
 							var curDelay = 0;
-							
+
 							// IMPROVEMENT v4.1.0 Calling cbAnimStop(); function if only one layer is in the slider
 
 							ls.o.cbAnimStop(ls.g);
-							
+
 						}else{
 							var nextLayerTimeShift = parseInt(ls.g.nextLayer.data('timeshift')) ? parseInt(ls.g.nextLayer.data('timeshift')) : 0;
 							var d = transitionType == 'new' ? 0 : curDuration;
@@ -3590,14 +3590,14 @@ function lsShowNotice(lsobj,issue,ver){
 								curLayerCallback();
 							}, d + Math.abs(nextLayerTimeShift) );
 						}
-						
+
 						// curDelay must be 0!
 
-						ls.g.totalDuration = true;			
+						ls.g.totalDuration = true;
 
 						// Animating SUBLAYERS of the first layer
 
-						nextSubLayers();							
+						nextSubLayers();
 
 						// Displaying the first layer (immediately)
 
@@ -3609,12 +3609,12 @@ function lsShowNotice(lsobj,issue,ver){
 						if( !ls.g.ie78 ){
 							ls.g.nextLayer.find('.ls-bg').css({
 								display : 'none'
-							}).fadeIn(500);							
+							}).fadeIn(500);
 						}
 
 						ls.g.firstLayerAnimated = true;
 						ls.g.isLoading = false;
-					}else{						
+					}else{
 
 						switch(transitionType){
 
@@ -3625,7 +3625,7 @@ function lsShowNotice(lsobj,issue,ver){
 								ls.g.totalDuration = false;
 
 								// BUGFIX v4.5.0 Removing elements from ls-lt-container is necessary
-								
+
 								if( ls.g.ltContainer ){
 									ls.g.ltContainer.empty();
 								}
@@ -3638,7 +3638,7 @@ function lsShowNotice(lsobj,issue,ver){
 								// Animating NEXT LAYER and its SUBLAYERS
 
 								nextLayer();
-								nextSubLayers();							
+								nextSubLayers();
 							break;
 
 							// NEW FEATURE v4.0 2D & 3D Layer Transitions
@@ -3648,7 +3648,7 @@ function lsShowNotice(lsobj,issue,ver){
 								if( typeof LSCustomTransition != 'undefined' ){
 									selectCustomTransition();
 								}else{
-									selectTransition();									
+									selectTransition();
 								}
 							break;
 						}
@@ -3715,7 +3715,7 @@ function lsShowNotice(lsobj,issue,ver){
 			// IMPROVEMENT v4.0 Distance (P.level): -1
 
 			var curSubPLevel = parseInt( sublayer.attr('class').split('ls-s')[1] );
-			
+
 			if( curSubPLevel == -1 ){
 				var endLeft = parseInt( sublayer.css('left') );
 				var endTop = parseInt( sublayer.css('top') );
@@ -3734,7 +3734,7 @@ function lsShowNotice(lsobj,issue,ver){
 				var curSubParMod = ls.g.curLayer.data('parallaxout') ? parseInt(ls.g.curLayer.data('parallaxout')) : ls.o.parallaxOut;
 				var curSubPar = curSubPLevel * curSubParMod;
 			}
-			
+
 //			var curSubDelay = parseInt( sublayer.data('showuntil') );
 
 			var curSubTime = sublayer.data('durationout') ? parseInt(sublayer.data('durationout')) : ls.o.durationOut;
@@ -3757,7 +3757,7 @@ function lsShowNotice(lsobj,issue,ver){
 			}
 
 			if( curSubSlideOutDir == 'fade' || ( !curSubSlideOutDir && curSubSlideDir == 'fade' )){
-				
+
 				// iOS fade bug when GPU acceleration is enabled #5
 
 				if( !ls.g.ie78 ){
@@ -3772,7 +3772,7 @@ function lsShowNotice(lsobj,issue,ver){
 					sublayer.fadeOut(curSubTime, curSubEasing);
 				}
 			}else{
-				
+
 //				sublayer.delay( curSubDelay ).animate({
 				sublayer.animate({
 					rotate: curSubRotate,
@@ -3786,8 +3786,8 @@ function lsShowNotice(lsobj,issue,ver){
 		// v3.6 Improved Debug Mode
 
 		ls.debug = function(){
-			
-			ls.d = {				
+
+			ls.d = {
 				history : $('<div>'),
 				// adds a H1 (title)
 				aT : function(content){
@@ -3830,9 +3830,9 @@ function lsShowNotice(lsobj,issue,ver){
 				},
 				show : function(){
 					if( !$('body').find('.ls-debug-console').length ){
-						
+
 						if( !ls.d.putData ){
-							
+
 							// Init code
 
 							ls.d.aT('Init code');
@@ -3895,7 +3895,7 @@ function lsShowNotice(lsobj,issue,ver){
 								}, 600, 'easeInOutQuad', function(){
 									$(this).remove();
 								});
-							}							
+							}
 						});
 						var ds = $('<div>').css({
 							width: '100%',
@@ -3904,14 +3904,14 @@ function lsShowNotice(lsobj,issue,ver){
 						}).appendTo( dc );
 						var dd = $('<div>').css({
 							width: '100%'
-						}).appendTo( ds ).append( ls.d.history );						
+						}).appendTo( ds ).append( ls.d.history );
 					}
 				},
 				hide : function(){
 					$('body').find('.ls-debug-console').remove();
 				}
 			};
-			
+
 			$(el).click(function(e){
 				if(e.shiftKey && e.altKey){
 					ls.d.show();
@@ -3926,7 +3926,7 @@ function lsShowNotice(lsobj,issue,ver){
 	// Support3D checks the CSS3 3D capability of the browser (based on the idea of Modernizr.js)
 
 	var lsSupport3D = function( el ) {
-		
+
 		var testEl = $('<div>'),
 			s3d1 = false,
 			s3d2 = false,
@@ -3936,9 +3936,9 @@ function lsShowNotice(lsobj,issue,ver){
 		for (var i = properties.length - 1; i >= 0; i--){
 			s3d1 = s3d1 ? s3d1 : testEl[0].style[properties[i]] != undefined;
 		};
-		
+
 		// preserve 3D test
-		
+
 		for (var i = transform.length - 1; i >= 0; i--){
 			testEl.css( 'transform-style', 'preserve-3d' );
 			s3d2 = s3d2 ? s3d2 : testEl[0].style[transform[i]] == 'preserve-3d';
@@ -3962,7 +3962,7 @@ function lsShowNotice(lsobj,issue,ver){
 		if(dir=='forward'){
 			for( var a=0; a<x;a++){
 				for( var b=0; b<y; b++){
-					i.push(a+b*x);	
+					i.push(a+b*x);
 				}
 			}
 		}else{
@@ -3987,7 +3987,7 @@ function lsShowNotice(lsobj,issue,ver){
 	    }
 	    return count;
 	};
-	
+
 	// We need the browser function (removed from jQuery 1.9)
 
 	var lsBrowser = function(){
@@ -4020,9 +4020,9 @@ function lsShowNotice(lsobj,issue,ver){
 		} else if ( browser.webkit ) {
 			browser.safari = true;
 		}
-		return browser;			
+		return browser;
 	};
-	
+
 	lsPrefixes = function(obj, method){
 
 		var pfx = ['webkit', 'khtml', 'moz', 'ms', 'o', ''];
@@ -4039,15 +4039,15 @@ function lsShowNotice(lsobj,issue,ver){
 				return (t == 'function' ? obj[m]() : obj[m]);
 			}
 			p++;
-		}		
+		}
 	};
 
 	layerSlider.global = {
-		
+
 		// Global parameters (Do not change these settings!)
 
 		version				: '4.5.5',
-		
+
 		isMobile			: function(){
 								if( navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i) ){
 									return true;
@@ -4059,7 +4059,7 @@ function lsShowNotice(lsobj,issue,ver){
 								if( el.css('padding-bottom') == 'auto' || el.css('padding-bottom') == 'none' || el.css('padding-bottom') == 0 || el.css('padding-bottom') == '0px' ){
 									return true;
 								}else{
-									return false;									
+									return false;
 								}
 							},
 
@@ -4102,14 +4102,14 @@ function lsShowNotice(lsobj,issue,ver){
 		v					: {
 								d	: 500,
 								fo	: 750,
-								fi	: 500	
+								fi	: 500
 							}
 	};
 
 	layerSlider.options = {
-		
+
 		// User settings (can be modified)
-		
+
 		autoStart			: true,						// If true, slideshow will automatically start after loading the page.
 		firstLayer			: 1,						// LayerSlider will begin with this layer. Use the word 'random' to start with a random layer.
 		twoWaySlideshow		: true, 					// If true, slideshow will go backwards if you click the prev button.
@@ -4134,12 +4134,12 @@ function lsShowNotice(lsobj,issue,ver){
 		yourLogoStyle		: 'left: -10px; top: -10px;', // You can style your logo. You are allowed to use any CSS properties, for example add left and top properties to place the image inside the LayerSlider container anywhere you want.
 
 		// NEW FEATURES v1.8 yourLogoLink & yourLogoTarget
-		
+
 		yourLogoLink		: false,					// You can add a link to your logo. Set false is you want to display only an image without a link.
 		yourLogoTarget		: '_blank',					// If '_blank', the clicked url will open in a new window.
 
 		// NEW FEATURES v2.0 touchNav, loops, forceLoopNum, autoPlayVideos, autoPauseSlideshow & youtubePreview
-		
+
 		touchNav			: true,						// Touch-control (on mobile devices)
 		loops				: 0,						// Number of loops if autoStart set true (0 means infinite!)
 		forceLoopNum		: true,						// If true, the slider will always stop at the given number of loops even if the user restarts the slideshow
@@ -4148,7 +4148,7 @@ function lsShowNotice(lsobj,issue,ver){
 		youtubePreview		: 'maxresdefault.jpg',		// Default thumbnail picture of YouTube videos. Can be 'maxresdefault.jpg', 'hqdefault.jpg', 'mqdefault.jpg' or 'default.jpg'. Note, that 'maxresdefault.jpg' os not available to all (not HD) videos.
 
 		// NEW FEATURE v3.0 responsive
-		
+
 		responsive			: true,						// Responsive mode with smart-resizing feature
 
 		// NEW FEATURES v3.5 responsiveUnder, randomSlideshow, sublayerContainer, thumbnailMode
@@ -4169,16 +4169,16 @@ function lsShowNotice(lsobj,issue,ver){
 
 		showBarTimer		: false,					// You can show or hide the bar timer.
 		showCircleTimer		: true,						// You can show or hide the circle timer.
-		
+
 		// FEATURES optimizeForMobile, optimizeForIE78
-		
+
 		optimizeForMobile	: true,						// If true and the slider is animating with one of the new layer transitions and the user is viewing the slider on mobile / tablet, the rows and cols of the transition will be maximized for better performance.
 		optimizeForIE78		: true,						// If true and the slider is animating with one of the new layer transitions and the user is viewing the slider on IE7 / 8, the rows and cols of the transition will be maximized and slide will be used instead of mixed and fade transitions for better performance.
 
 		// NEW FEATURE allowFullScreenMode (beta, do not use it!)
 
 		allowFullScreenMode : false,					// If true and you click on the full screen icon, the slider will go to full screen mode in modern browsers
-		
+
 		// LayerSlider API callback functions
 
 		cbInit				: function(element){},		// Calling when LayerSlider loads, returns the LayerSlider jQuery object of the LayerSlider container HTML element.

@@ -1,4 +1,4 @@
-#@javascript
+@javascript
 Feature: Owner should be able to manage their account
   In order for our clients to manage their account
   should be able to ...

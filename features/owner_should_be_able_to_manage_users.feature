@@ -1,4 +1,4 @@
-#@javascript
+@javascript
 Feature: Owner should be able to manage users
   In order for our clients to manage their staff they
   should be able to manage users

@@ -27,7 +27,7 @@
                 .ribbon
                   .ribbon-label Featured
               .table-header
-                .name= p.name.titleize
+                .name= link_to p.name.titleize, new_user_registration_path(:plan => p.slug)
               .table-price
                 .price
                   %span>

@@ -1,4 +1,4 @@
-#@javascript
+@javascript
 Feature: Owners should be able to login
   In order to make money
   Owners should be able to login

@@ -1,4 +1,4 @@
-#@javascript
+@javascript
 Feature: User should be able to mange trucks
   In order for our clients to know what trucks they have 
   should be able to manage there trukcs

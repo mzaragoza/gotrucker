@@ -82,4 +82,5 @@ group :development, :test do
   gem 'timecop', '0.3.5'
   gem 'email_spec'
   gem 'pry'
+  gem 'chromedriver-helper'
 end

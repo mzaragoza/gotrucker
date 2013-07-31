@@ -1,4 +1,4 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *
  * Youxi v1.1 - Template Setup Script
  *
@@ -24,7 +24,7 @@
 				wf.type = 'text/javascript';
 				wf.async = 'true';
 				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(wf, s);			
+				s.parentNode.insertBefore(wf, s);
 			})();
 
 			window.load_gmap = function() {
@@ -33,13 +33,13 @@
 					var options = {
 						map: {
 							options: {
-								zoom: $( this ).data( 'zoom' ) || 1, 
-								center: [ $( this ).data( 'center-lat' ), $( this ).data( 'center-lng' ) ], 
-								scrollwheel: false, 
-								mapTypeControl: false, 
+								zoom: $( this ).data( 'zoom' ) || 1,
+								center: [ $( this ).data( 'center-lat' ), $( this ).data( 'center-lng' ) ],
+								scrollwheel: false,
+								mapTypeControl: false,
 								streetViewControl: false
 							}
-						}, 
+						},
 						marker: {
 							latLng:[ $( this ).data( 'marker-lat' ), $( this ).data( 'marker-lng' ) ]
 						}
@@ -59,9 +59,9 @@
 				var username = $( this ).data( 'twitter-username' );
 				var count = $( this ).data( 'count' ) || 1;
 				$( this ).tweet({
-					username: username, 
-					template: '{text}{time}', 
-					count: count, 
+					username: username,
+					template: '{text}{time}',
+					count: count,
 					loading_text: 'Loading Tweets...'
 				});
 			});
@@ -79,8 +79,8 @@
 					.prependTo( this ).jflickrfeed({
 						qstrings: {
 							id: flickrId
-						}, 
-						limit: limit, 
+						},
+						limit: limit,
 						itemTemplate: '<li><a href="{{link}}" title="{{title}}" target="_blank"><img src="{{image_s}}" alt="{{title}}" /></a></li>'
 					});
 			});
@@ -101,8 +101,8 @@
 				if( el.length ) {
 					var pos = el.position();
 					guide.css({
-						'left': pos.left, 
-						'top': pos.top + $( el ).outerHeight() - 1, 
+						'left': pos.left,
+						'top': pos.top + $( el ).outerHeight() - 1,
 						'width': $( el ).outerWidth()
 					});
 				}
@@ -131,7 +131,7 @@
 		------------------------------------------------------------------------ */
 		if( $.fn.tinyNav ) {
 			$( '.header .navigation > ul' ).tinyNav({
-				active: 'active', 
+				active: 'active',
 				header: '-- Menu --'
 			});
 		}
@@ -147,7 +147,7 @@
 			if( percent ) {
 				bar.find( '.inner' ).stop().css({ 'width': 0 })
 					.animate({ 'width': percent + '%' }, {
-						'duration': 1000, 
+						'duration': 1000,
 						'progress': function( a, b ) {
 							progress.text( Math.ceil( b * percent ) + '%' );
 						}
@@ -162,10 +162,10 @@
 		if( $.fn.layerSlider ) {
 			$( '.layerslider' ).each(function() {
 				$( this ).layerSlider( $.extend( true, {
-					responsive: true, 
-					skin: 'youxi', 
-					skinsPath: 'plugins/layerslider/skins/', 
-					responsiveUnder: 1024, 
+					responsive: true,
+					skin: 'youxi',
+					skinsPath: '/assets/plugins/layerslider/skins/',
+					responsiveUnder: 1024,
 					sublayerContainer: 1024
 				}, $( this ).data() ) );
 			});
@@ -278,26 +278,26 @@
 
 					items.carouFredSel({
 						items: {
-							height: 'auto', 
+							height: 'auto',
 							visible: {
-								min: 1, 
+								min: 1,
 								max: 16
 							}
-						}, 
-						responsive: true, 
+						},
+						responsive: true,
 						auto: {
 							play: false
-						}, 
+						},
 						scroll: {
 							items: 1
-						}, 
+						},
 						swipe: {
-							onTouch: true, 
+							onTouch: true,
 							onMouse: true
-						}, 
+						},
 						next: {
 							button: nextNav
-						}, 
+						},
 						prev: {
 							button: prevNav
 						}
@@ -350,13 +350,13 @@
 		if( $.fn.magnificPopup ) {
 
 			$( '.img-gallery, .portfolio-items' ).magnificPopup({
-				delegate: '[rel="magnific-popup"]', 
-				type: 'image', 
+				delegate: '[rel="magnific-popup"]',
+				type: 'image',
 				gallery: {
-					enabled: true, 
-					navigateByImgClick: true, 
+					enabled: true,
+					navigateByImgClick: true,
 					preload: [ 0, 1 ]
-				}, 
+				},
 				image: {
 					titleSrc: function( item ) {
 						return item.el.attr( 'title' );

@@ -1,4 +1,4 @@
-#@javascript
+@javascript
 Feature: User should be able to mange drivers
   In order for our clients to know who is driveing there trucks
   they should be able to manage there drivers

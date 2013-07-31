@@ -1,4 +1,4 @@
-#@javascript
+@javascript
 Feature: Users should be able to login
   In order to make money
   users should be able to login

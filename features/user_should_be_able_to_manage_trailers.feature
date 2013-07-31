@@ -1,4 +1,4 @@
-#@javascript
+@javascript
 Feature: User should be able to mange trailers
   In order for our clients to know what trailers they have 
   should be able to manage there trailers
