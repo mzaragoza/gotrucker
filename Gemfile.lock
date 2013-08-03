@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/Reprazent/ruby-paypal.git
+  revision: bde36806717b0156a70e30383eef8e7e922c1579
+  specs:
+    ruby-paypal (0.0.7)
+
+GIT
   remote: git://github.com/ctran/annotate_models.git
   revision: 18a4e2eb77c8f3ef695b563e4a7ca45dfede819b
   specs:
@@ -417,6 +423,7 @@ DEPENDENCIES
   reveal_rails
   rmagick
   rspec-rails
+  ruby-paypal!
   ruby_parser
   sass-rails (~> 3.2.3)
   selenium

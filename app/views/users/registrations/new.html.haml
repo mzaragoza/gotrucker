@@ -68,8 +68,8 @@
               %label.form-label= t(:website)
               .form-item
                 = account_form.input :website, :error => false, :label => false, :class => 'small'
-            %label.form-label= t(:subscriptions_type)
-            .form-item
+            -#%label.form-label= t(:subscriptions_type)
+            -#.form-item
               = f.input :subscriptions_type, :collection => subscriptions_type_list,  :as => :select, include_blank: false, :label => false
           .form-row
             %label.form-label
