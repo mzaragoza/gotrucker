@@ -19,6 +19,7 @@
               = link_to t(:home), root_path, :class => 'btn btn-primary btn-small pull-right'
         .mws-form-row
           = f.button :submit, "Login", :class => 'btn btn-success mws-login-button'
+          = link_to  "Forgot password?", new_password_path(resource_name), :class => 'mws-login-button'
       %strong{:style => 'color:#ffffff'} 
         Call:
         = t(:tollfree)
