@@ -50,7 +50,7 @@
                       %input{:name => "hosted_button_id", :type => "hidden", :value => "#{p.paypal_id}"}/
                       %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypalobjects.com/en_US/i/scr/pixel.gif", :width => "1"}/
                       = submit_tag t(:sign_up), :class => 'btn btn-large'
-                      = link_to new_user_registration_path, new_user_registration_path
+                      =# link_to new_user_registration_path, new_user_registration_path
         .pricing-tables{ :class => "#{1.to_words}" + '-tables' }
           .pricing-table
             .table-header
