@@ -20,8 +20,8 @@
       .row
         All Plans come with 30 days free trial
       .row
-        - plans.in_groups_of(4, false) do |plans|
-          .pricing-tables{ :class => "#{(plans.count).to_words}" + '-tables' }
+        - plans.in_groups_of(3, false) do |plans|
+          .pricing-tables{ :class => "#{(plans.count + 1 ).to_words}" + '-tables' }
             - plans.each do |p|
               .pricing-table{:class => "#{('featured' if p.featured )}"}
                 - if p.featured
@@ -42,7 +42,7 @@
                   .table-features
                     %ul
                       %li
-                        %strong Number of Trucks
+                        %strong number of trucks
                         = p.licenses
                   .table-footer
                     %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :target => "_top"}
@@ -51,21 +51,21 @@
                       %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypalobjects.com/en_US/i/scr/pixel.gif", :width => "1"}/
                       = submit_tag t(:sign_up), :class => 'btn btn-large'
                       =# link_to new_user_registration_path, new_user_registration_path
-        .pricing-tables{ :class => "#{1.to_words}" + '-tables' }
-          .pricing-table
-            .table-header
-              = submit_tag t(:custom), :class => 'btn btn-large'
-            .table-price
-              .price
-                %span
-                You Tell Us
-              .price-description
-                per month
-            .table-features
-              %ul
-                %li
-                  %strong Number of Users
-                  Custom
-            .table-footer
-              = link_to t(:contact_us), contact_us_path, :class => 'btn'
-  
+            .pricing-table
+              .table-header
+                = submit_tag t(:custom), :class => 'btn btn-large'
+              .table-price
+                .price
+                  %span
+                  You Tell Us
+                .price-description
+                  per month
+              .table-features
+                %ul
+                  %li
+                    %strong Number of Users
+                    Custom
+                    %br
+              .table-footer
+                = link_to t(:contact_us), contact_us_path, :class => 'btn'
+
