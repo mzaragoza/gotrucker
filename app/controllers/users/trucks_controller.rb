@@ -4,6 +4,10 @@ class Users::TrucksController < UserController
   expose(:comment) { truck.comments.new}
 
   def create
+    if current_account.subscription.licenses
+      truck.active = false
+      flash[:error] = t(:excited_licenses)
+    end
     if truck.save
       flash[:notice] = t(:truck_was_successfully_created)
       redirect_to(users_trucks_path)
@@ -13,12 +17,19 @@ class Users::TrucksController < UserController
   end
 
   def update
+    if current_account.subscription.licenses
+      truck.active = false
+      flash[:error] = t(:excited_licenses)
+    end
     if truck.save
       flash[:notice] = t(:truck_was_successfully_updated)
       redirect_to(users_trucks_path)
     else
       render :edit
     end
+  end
+  private
+  def check_licences
   end
 end
 

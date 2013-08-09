@@ -6,7 +6,7 @@
   .mws-form-row
     %label.mws-form-label= t(:truck)
     .mws-form-item
-    = f.association :truck, collection: current_account.trucks.all(order: 'name'), prompt: "Choose a Truck", :label => false
+    = f.association :truck, collection: current_account.trucks.where(:active => true).order("name DESC"), prompt: "Choose a Truck", :label => false
   .mws-form-row
     %label.mws-form-label= t(:trailer)
     .mws-form-item
@@ -191,6 +191,7 @@
     %label.mws-form-label= t(:load_conformation_pdf)
     .mws-form-item
     = f.input :load_conformation_pdf, :label => false
+
   .mws-form-row
     %label.mws-form-label= t(:bill_of_lading_pdf)
     .mws-form-item

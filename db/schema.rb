@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130803181953) do
+ActiveRecord::Schema.define(:version => 20130809144312) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name",                 :default => ""
@@ -333,32 +333,33 @@ ActiveRecord::Schema.define(:version => 20130803181953) do
   create_table "trucks", :force => true do |t|
     t.integer  "account_id"
     t.integer  "trailer_id"
-    t.string   "name",                          :default => "", :null => false
-    t.string   "annual_inspection_date",        :default => "", :null => false
-    t.string   "engine",                        :default => "", :null => false
-    t.string   "sleeper_size",                  :default => "", :null => false
-    t.string   "transmission",                  :default => "", :null => false
-    t.string   "suspension",                    :default => "", :null => false
-    t.string   "front_axel_capacity",           :default => "", :null => false
-    t.string   "rear_axle_capacity",            :default => "", :null => false
-    t.string   "rear_end_ratio",                :default => "", :null => false
-    t.string   "wheelbase",                     :default => "", :null => false
-    t.string   "wheels",                        :default => "", :null => false
-    t.string   "tires",                         :default => "", :null => false
-    t.string   "odometer",                      :default => "", :null => false
-    t.string   "vehicle_identification_number", :default => "", :null => false
-    t.string   "vehicle_tag",                   :default => "", :null => false
-    t.string   "truck_year",                    :default => "", :null => false
-    t.string   "photo",                         :default => "", :null => false
-    t.string   "manufacturer",                  :default => "", :null => false
-    t.string   "truck_model",                   :default => "", :null => false
-    t.string   "engine_specs",                  :default => "", :null => false
-    t.string   "engine_type",                   :default => "", :null => false
-    t.datetime "created_at",                                    :null => false
-    t.datetime "updated_at",                                    :null => false
+    t.string   "name",                          :default => "",   :null => false
+    t.string   "annual_inspection_date",        :default => "",   :null => false
+    t.string   "engine",                        :default => "",   :null => false
+    t.string   "sleeper_size",                  :default => "",   :null => false
+    t.string   "transmission",                  :default => "",   :null => false
+    t.string   "suspension",                    :default => "",   :null => false
+    t.string   "front_axel_capacity",           :default => "",   :null => false
+    t.string   "rear_axle_capacity",            :default => "",   :null => false
+    t.string   "rear_end_ratio",                :default => "",   :null => false
+    t.string   "wheelbase",                     :default => "",   :null => false
+    t.string   "wheels",                        :default => "",   :null => false
+    t.string   "tires",                         :default => "",   :null => false
+    t.string   "odometer",                      :default => "",   :null => false
+    t.string   "vehicle_identification_number", :default => "",   :null => false
+    t.string   "vehicle_tag",                   :default => "",   :null => false
+    t.string   "truck_year",                    :default => "",   :null => false
+    t.string   "photo",                         :default => "",   :null => false
+    t.string   "manufacturer",                  :default => "",   :null => false
+    t.string   "truck_model",                   :default => "",   :null => false
+    t.string   "engine_specs",                  :default => "",   :null => false
+    t.string   "engine_type",                   :default => "",   :null => false
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
     t.string   "annual_inspection_pdf",         :default => ""
     t.string   "insurance_pdf",                 :default => ""
     t.string   "registration_pdf",              :default => ""
+    t.boolean  "active",                        :default => true
   end
 
   create_table "users", :force => true do |t|

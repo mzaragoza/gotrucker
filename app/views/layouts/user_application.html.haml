@@ -130,7 +130,7 @@
               %span.mws-stat-content
                 %span.mws-stat-title Trucks
                 %span.mws-stat-value
-                  = current_account.trucks.count
+                  = current_account.trucks.where(:active => true).count
             = link_to users_trailers_path, :class => 'mws-stat' do
               / Statistic Icon (edit to change icon)
               %span.mws-stat-icon.icol32-trailers

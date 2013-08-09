@@ -27,6 +27,15 @@
             %span.text-nowrap= truck.trailer.name if truck.trailer
         %li
           %span.key
+            = t(:active)
+          %span.val
+            %span.text-nowrap
+              - if truck.active
+                .badge.badge-success= t(:yes)
+              - else
+                .badge.badge-important= t(:no)
+        %li
+          %span.key
             = t(:annual_inspection_date)
           %span.val
             %span.text-nowrap= truck.annual_inspection_date

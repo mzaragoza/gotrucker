@@ -11,7 +11,7 @@ en:
   sign_up: "Sign Up"
   custom: "Custom"
   show_support: "Show Support"
-  excited_licenses: "You have exceeded your user license limit. Please contact your account manager."
+  excited_licenses: "You have exceeded your license limit. Please contact your account manager."
   access_denied: "ACCESS DENIED. Please contact your account mannager"
   admin_was_successfully_created: "Admin was successfully created"
   admin_was_successfully_updated: "Admin was successfully updated"

@@ -17,6 +17,7 @@
           %th= t(:tag)
           %th= t(:vin)
           %th= t(:last_annual_inspection_date)
+          %th= t(:active)
           %th
           %th
       %tbody
@@ -31,6 +32,12 @@
             %td= t.vehicle_tag
             %td= t.vehicle_identification_number
             %td= t.annual_inspection_date
+            %td
+              - if t.active
+                .badge.badge-success= t(:yes)
+              - else
+                .badge.badge-important= t(:no)
+
             %td
               - unless t.photo.blank?
                 = image_tag t.photo.large_thumb.url, :width => '50'
