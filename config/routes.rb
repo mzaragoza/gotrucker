@@ -22,53 +22,54 @@ Gotrucker::Application.routes.draw do
       resources :repairs
       match '/invoices/:id/pdf' => 'invoices#pdf', :as => :invoices_pdf
       resources :invoices
+      match '/sign_up', :to => 'registrations#new'
       get '/dashboard' => 'dashboards#index', as: :dashboard
       get '/' => 'dashboards#index'
     end
   end
 
-  devise_for :admins, :controllers => { registrations: 'admins/registrations',
-                                      :sessions => "admins/sessions",
-                                      :passwords => 'admins/passwords',
-                                      :confirmations => 'admins/confirmations'
-  }
-  authenticate :admin do
-    namespace :admins do
-      resources :ui
-      resources :accounts
-      resources :admins
-      resources :brokers
-      resources :drivers
-      resources :leads
-      resources :plans
-      resources :profile, :only => [:edit, :update]
-      resources :receipts
-      resources :repairs
-      resources :shipments
-      resources :trailers
-      resources :trucks
-      resources :users
-      post '/users/login_as' => 'users#login_as', as: :login_as_user
-      get '/dashboard' => 'dashboards#index', as: :dashboard
-      get '/' => 'dashboards#index'
-    end
-  end
-
-  namespace :api do
-    namespace :internal do
-      namespace :v1 do
-        resources :users
-        resources :drivers
-        resources :trucks
-        resources :trailers
-        resources :brokers
-        resources :shipments
-        resources :receipts
-        resources :repairs
-        resources :invoices
-      end
-    end
-  end
+#   devise_for :admins, :controllers => { registrations: 'admins/registrations',
+#                                       :sessions => "admins/sessions",
+#                                       :passwords => 'admins/passwords',
+#                                       :confirmations => 'admins/confirmations'
+#   }
+#   authenticate :admin do
+#     namespace :admins do
+#       resources :ui
+#       resources :accounts
+#       resources :admins
+#       resources :brokers
+#       resources :drivers
+#       resources :leads
+#       resources :plans
+#       resources :profile, :only => [:edit, :update]
+#       resources :receipts
+#       resources :repairs
+#       resources :shipments
+#       resources :trailers
+#       resources :trucks
+#       resources :users
+#       post '/users/login_as' => 'users#login_as', as: :login_as_user
+#       get '/dashboard' => 'dashboards#index', as: :dashboard
+#       get '/' => 'dashboards#index'
+#     end
+#   end
+#
+#   namespace :api do
+#     namespace :internal do
+#       namespace :v1 do
+#         resources :users
+#         resources :drivers
+#         resources :trucks
+#         resources :trailers
+#         resources :brokers
+#         resources :shipments
+#         resources :receipts
+#         resources :repairs
+#         resources :invoices
+#       end
+#     end
+#   end
   resources :comments
   resources :leads, :only => [:new, :create]
   match '/contact_us' => 'leads#new', :as => :contact_us
