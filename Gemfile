@@ -45,7 +45,6 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'binding_of_caller'
 gem 'oauth'
 gem 'rmagick'
-gem "ruby-paypal", :git => "git://github.com/Reprazent/ruby-paypal.git"
 
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
