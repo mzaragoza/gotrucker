@@ -16,7 +16,6 @@ class PagesController < ApplicationController
     render :layout => false
   end
   def sign_up
-    SymmetricEncryption.load!('config/symmetric-encryption.yml', 'production')
     s = Subscription.new
     s.payer_id = params[:payer_id]
     s.first_name = params[:first_name]
@@ -37,8 +36,9 @@ class PagesController < ApplicationController
     s.period3 = params[:period3]
     s.mc_amount3 = params[:mc_amount3]
     s.auth = params[:auth]
+    s.key = rand(36**200).to_s(36)
     s.save
-    redirect_to new_user_registration_path(:s => SymmetricEncryption.encrypt(s.id))
+    redirect_to new_user_registration_path(:s => s.key)
   end
   private
   def redirect_if_logged_in
