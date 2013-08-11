@@ -4,7 +4,7 @@ class Users::TrucksController < UserController
   expose(:comment) { truck.comments.new}
 
   def create
-    if current_account.subscription.licenses < current_account.trucks.where(:active => true).count
+    if current_account.subscription.licenses <= current_account.trucks.where(:active => true).count
       truck.active = false
       flash[:error] = t(:excited_licenses)
     end
@@ -17,7 +17,7 @@ class Users::TrucksController < UserController
   end
 
   def update
-    if current_account.subscription.licenses < current_account.trucks.where(:active => true).count
+    if current_account.subscription.licenses <= current_account.trucks.where(:active => true).count
       truck.active = false
       flash[:error] = t(:excited_licenses)
     end
