@@ -125,6 +125,8 @@
                 .badge.badge-success= t(:hazardous_materials)
               - if driver.combination_of_tank_vehicle_and_hazardous_materials
                 .badge.badge-success= t(:combination_of_tank_vehicle_and_hazardous_materials)
+              - if driver.twic_card
+                .badge.badge-success= t(:twic_card)
   .mws-panel.grid_6
     .mws-panel-header
       %span

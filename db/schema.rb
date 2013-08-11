@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130811045714) do
+ActiveRecord::Schema.define(:version => 20130811054641) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name",                 :default => ""
@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20130811045714) do
     t.datetime "updated_at",                                                             :null => false
     t.string   "medical_long_form_pdf",                               :default => ""
     t.string   "release_date"
+    t.boolean  "twic_card",                                           :default => false
   end
 
   create_table "invoices", :force => true do |t|

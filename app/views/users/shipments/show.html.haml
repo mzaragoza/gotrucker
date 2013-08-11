@@ -158,6 +158,8 @@
               = t(:tank_vehicle)
             - if shipment.hazardous_materials
               = t(:hazardous_materials)
+            - if shipment.twic_card
+              = t(:twic_card)
       %li
         %span.key
           = t(:suspension)
