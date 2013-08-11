@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130809144312) do
+ActiveRecord::Schema.define(:version => 20130811021100) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name",                 :default => ""
@@ -302,6 +302,26 @@ ActiveRecord::Schema.define(:version => 20130809144312) do
     t.integer  "licenses"
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
+    t.string   "subscr_id",          :default => ""
+    t.string   "payer_id",           :default => ""
+    t.string   "first_name",         :default => ""
+    t.string   "last_name",          :default => ""
+    t.string   "item_name",          :default => ""
+    t.string   "amount1",            :default => ""
+    t.string   "amount3",            :default => ""
+    t.string   "recurring",          :default => ""
+    t.string   "payer_status",       :default => ""
+    t.string   "payer_email",        :default => ""
+    t.string   "reattempt",          :default => ""
+    t.string   "item_number",        :default => ""
+    t.string   "subscr_date",        :default => ""
+    t.string   "btn_id",             :default => ""
+    t.string   "charset",            :default => ""
+    t.string   "period1",            :default => ""
+    t.string   "mc_amount1",         :default => ""
+    t.string   "period3",            :default => ""
+    t.string   "mc_amount3",         :default => ""
+    t.string   "auth",               :default => ""
   end
 
   create_table "trailers", :force => true do |t|

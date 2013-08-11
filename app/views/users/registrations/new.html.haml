@@ -22,7 +22,7 @@
           %ul.list-style
             - resource.errors.full_messages.each do |e|
               %li.arrow-list=e
-          = f.input :plan_slug, as: :hidden
+          = f.hidden_field :s, :value => params[:s]
           .form-row
             %label.form-label= t(:email)
             .form-item

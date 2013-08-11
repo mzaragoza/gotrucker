@@ -45,6 +45,8 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'binding_of_caller'
 gem 'oauth'
 gem 'rmagick'
+gem 'symmetric-encryption'
+
 
 group :assets do
   gem 'sass-rails', '~> 3.2.3'

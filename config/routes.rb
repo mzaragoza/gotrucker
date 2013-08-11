@@ -72,6 +72,7 @@ Gotrucker::Application.routes.draw do
 #   end
   resources :comments
   resources :leads, :only => [:new, :create]
+  post '/sign_up' => 'pages#sign_up', :as => :sign_up
   match '/contact_us' => 'leads#new', :as => :contact_us
   match '/thanks' => 'leads#thanks', :as => :thanks
   match "/prices" => "pages#prices", :as => :prices
