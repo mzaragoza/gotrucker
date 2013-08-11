@@ -22,7 +22,10 @@
           %ul.list-style
             - resource.errors.full_messages.each do |e|
               %li.arrow-list=e
-          = f.hidden_field :s, :value => params[:s]
+          - if params[:s] 
+            = f.hidden_field :s, :value => params[:s]
+          - else
+            = f.hidden_field :s
           .form-row
             %label.form-label= t(:email)
             .form-item
