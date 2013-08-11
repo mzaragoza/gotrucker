@@ -22,7 +22,6 @@ Gotrucker::Application.routes.draw do
       resources :repairs
       match '/invoices/:id/pdf' => 'invoices#pdf', :as => :invoices_pdf
       resources :invoices
-      match '/sign_up', :to => 'registrations#new'
       get '/dashboard' => 'dashboards#index', as: :dashboard
       get '/' => 'dashboards#index'
     end
