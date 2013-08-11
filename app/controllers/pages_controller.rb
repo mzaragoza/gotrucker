@@ -16,7 +16,7 @@ class PagesController < ApplicationController
     render :layout => false
   end
   def sign_up
-    SymmetricEncryption.load
+    SymmetricEncryption.load!('config/symmetric-encryption.yml', 'production')
     s = Subscription.new
     s.payer_id = params[:payer_id]
     s.first_name = params[:first_name]
