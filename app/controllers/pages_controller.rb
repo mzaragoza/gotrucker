@@ -18,6 +18,7 @@ class PagesController < ApplicationController
   def sign_up
     s = Subscription.new
     s.payer_id = params[:payer_id]
+    s.subscr_id = params[:subscr_id]
     s.first_name = params[:first_name]
     s.last_name = params[:last_name]
     s.item_name = params[:item_name]
