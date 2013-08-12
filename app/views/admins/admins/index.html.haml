@@ -21,7 +21,7 @@
       %tbody
         - admins.each do |a|
           %tr
-            %td= link_to t(:show), admins_admin_path(a), :class => 'btn btn-small btn-info'
+            %td= link_to a.id, admins_admin_path(a), :class => 'btn btn-small btn-info'
             %td= link_to a.full_name.titleize, admins_admin_path(a)
             %td= mail_to a.email.downcase
             %td= number_to_phone(a.phone)
