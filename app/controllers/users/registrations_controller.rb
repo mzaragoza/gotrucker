@@ -38,7 +38,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
      else
        price = plan.yearly_price
      end
-     Subscription.new(:account_id => resource.account.id, :plan_id => plan.id, :name => plan.name, :price => price, :slug => plan.slug, :licenses => plan.licenses, :subscriptions_type => params[:user][:subscriptions_type]  ).save
+     s.update_attributes(:account_id => resource.account.id, :plan_id => plan.id, :name => plan.name, :price => price, :slug => plan.slug, :licenses => plan.licenses, :subscriptions_type => params[:user][:subscriptions_type]  ).save
    end
  end
 
