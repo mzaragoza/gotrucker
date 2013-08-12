@@ -1,0 +1,39 @@
+- content_for :pagetitle do 
+  Admins
+
+.grid_8
+  = link_to t(:add_admin), new_admins_admin_path, :class => 'btn btn-info pull-right'
+.mws-panel.grid_8
+  .mws-panel-header
+    %span
+      Admins
+  .mws-panel-body.no-padding
+    %table.mws-datatable-fn.mws-table
+      %thead
+        %tr
+          %th
+          %th= t(:name)
+          %th= t(:email)
+          %th= t(:phone)
+          %th= t(:active)
+          %th
+          %th
+      %tbody
+        - admins.each do |a|
+          %tr
+            %td= link_to t(:show), admins_admin_path(a), :class => 'btn btn-small btn-info'
+            %td= link_to a.full_name.titleize, admins_admin_path(a)
+            %td= mail_to a.email.downcase
+            %td= number_to_phone(a.phone)
+            %td
+              -if a.active
+                .badge.badge-success Active
+              -else
+                .badge.badge-important Inactive
+            %td
+              - if a.photo?
+                = image_tag a.photo.thumb.url, :width => '50'
+              - else
+                = image_tag 'myicons/user-icon-small.png', :width => '50'
+            %td
+              = link_to 'Edit', edit_admins_admin_path(a), :class => 'btn btn-small btn-info'

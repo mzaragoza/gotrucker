@@ -1,0 +1,51 @@
+- content_for :pagetitle do 
+  Admins | Account
+
+.mws-panel.grid_8
+  .mws-panel-header
+    %span
+      Accounts
+  .mws-panel-body.no-padding
+    %table.mws-datatable-fn.mws-table
+      %thead
+        %tr
+          %th= t(:id)
+          %th= t(:name)
+          %th= t(:address)
+          %th= t(:phone)
+          %th= t(:active)
+          %th= t(:website)
+          %th= t(:logo)
+          %th= t(:show_support)
+          %th
+      %tbody
+        - accounts.each do |a|
+          %tr
+            %td= link_to a.id, admins_account_path(a), :class => 'btn btn-small btn-info'
+            %td= link_to a.name.titleize, admins_account_path(a)
+            %td
+              = a.address
+              = a.address2
+              = a.city
+              = a.state
+              = a.zip
+            %td= number_to_phone(a.phone)
+            %td
+              -if a.active
+                .badge.badge-success Active
+              -else
+                .badge.badge-important Inactive
+            %td= a.website
+            %td
+              - if a.photo?
+                = image_tag a.photo.thumb.url, :width => '50'
+              - else
+                = image_tag '/assets/css/icons/icol32/accounts.png', :width => '50'
+            %td
+              -if a.show_support
+                .badge.badge-success Yes
+              -else
+                .badge.badge-important No
+            %td
+              = link_to 'Edit', edit_admins_admin_path(a), :class => 'btn btn-small btn-info'
+

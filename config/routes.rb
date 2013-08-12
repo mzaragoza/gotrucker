@@ -27,33 +27,33 @@ Gotrucker::Application.routes.draw do
     end
   end
 
-#   devise_for :admins, :controllers => { registrations: 'admins/registrations',
-#                                       :sessions => "admins/sessions",
-#                                       :passwords => 'admins/passwords',
-#                                       :confirmations => 'admins/confirmations'
-#   }
-#   authenticate :admin do
-#     namespace :admins do
-#       resources :ui
-#       resources :accounts
-#       resources :admins
-#       resources :brokers
-#       resources :drivers
-#       resources :leads
-#       resources :plans
-#       resources :profile, :only => [:edit, :update]
-#       resources :receipts
-#       resources :repairs
-#       resources :shipments
-#       resources :trailers
-#       resources :trucks
-#       resources :users
-#       post '/users/login_as' => 'users#login_as', as: :login_as_user
-#       get '/dashboard' => 'dashboards#index', as: :dashboard
-#       get '/' => 'dashboards#index'
-#     end
-#   end
-#
+   devise_for :admins, :controllers => { registrations: 'admins/registrations',
+                                       :sessions => "admins/sessions",
+                                       :passwords => 'admins/passwords',
+                                       :confirmations => 'admins/confirmations'
+   }
+   authenticate :admin do
+     namespace :admins do
+       resources :ui
+       resources :accounts
+       resources :admins
+       resources :brokers
+       resources :drivers
+       resources :leads
+       resources :plans
+       resources :profile, :only => [:edit, :update]
+       resources :receipts
+       resources :repairs
+       resources :shipments
+       resources :trailers
+       resources :trucks
+       resources :users
+       post '/users/login_as' => 'users#login_as', as: :login_as_user
+       get '/dashboard' => 'dashboards#index', as: :dashboard
+       get '/' => 'dashboards#index'
+     end
+   end
+
 #   namespace :api do
 #     namespace :internal do
 #       namespace :v1 do

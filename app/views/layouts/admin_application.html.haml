@@ -1,0 +1,126 @@
+!!!
+/[if lt IE 7] <html class="lt-ie9 lt-ie8 lt-ie7" lang="en">
+/[if IE 7] <html class="lt-ie9 lt-ie8" lang="en">
+/[if IE 8] <html class="lt-ie9" lang="en">
+/ [if gt IE 8]><!
+%html{:lang => "en"}
+  / <![endif]
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width,initial-scale=1.0", :name => "viewport"}/
+    = stylesheet_link_tag 'user_application', :media => "all"
+    %link{:href => "/assets/plugins/cleditor/jquery.cleditor.css?body=1", :media => "all", :rel => "stylesheet", :type => "text/css"}/
+    %title
+      = yield :pagetitle
+      | Go Trucker Go
+  %body
+    / Header
+    #mws-header.clearfix
+      / Logo Container
+      #mws-logo-container
+        / Logo Wrapper, images put within this wrapper will always be vertically centered
+        #mws-logo-wrap
+          = image_tag 'logo_white.png', :alt => t(:go_trucker_go), :class => 'pull-left'
+      / User Tools (notifications, logout, profile, change password)
+      #mws-user-tools.clearfix
+        / Notifications
+        #mws-user-info.mws-inset
+          / User Photo
+          #mws-user-photo
+            - if current_admin.photo_url
+              = image_tag current_admin.photo.thumb, :alt => current_admin.full_name
+            - else
+              = image_tag '/assets/example/profile.jpg', :alt => current_admin.full_name
+
+          / Username and Functions
+          #mws-user-functions
+            #mws-username
+              Hello,
+              = current_admin.full_name
+            %ul
+              %li
+                = link_to 'Profile', edit_admins_profile_path(current_admin)
+              %li
+                = link_to 'Logout', destroy_admin_session_path, :method => :delete
+    #mws-wrapper
+      / Necessary markup, do not remove
+      #mws-sidebar-stitch
+      #mws-sidebar-bg
+      / Sidebar Wrapper
+      #mws-sidebar
+        / Hidden Nav Collapse Button
+        #mws-nav-collapse
+          %span
+          %span
+          %span
+        / Searchbox
+        / Main Navigation
+        #mws-navigation
+          %ul
+            %li{:class => "#{'active' if params[:controller] == 'admins/dashboards' }"}
+              = link_to admins_dashboard_path do
+                %i.icol32-dashboard
+                Dashboard
+            %li{:class => "#{'active' if params[:controller] == 'admins/admins' }"}
+              = link_to admins_admins_path do
+                %i.icol32-premium-support
+                Admins
+            %li{:class => "#{'active' if params[:controller] == 'admins/accounts' }"}
+              = link_to admins_accounts_path do
+                %i.icol32-accounts
+                Accounts
+            %li{:class => "#{'active' if params[:controller] == 'admins/users' }"}
+              = link_to admins_users_path do
+                %i.icol32-user
+                Users
+      / Main Container Start
+      #mws-container.clearfix
+        / Inner Container Start
+        .container
+          .mws-stat-container.clearfix
+            / Statistic Item
+            -#= link_to users_drivers_path, :class => 'mws-stat' do
+              / Statistic Icon (edit to change icon)
+              %span.mws-stat-icon.icol32-drivers
+              / Statistic Content
+              %span.mws-stat-content
+                %span.mws-stat-title Drivers
+                %span.mws-stat-value
+                  = current_account.drivers.count
+        - unless flash[:notice].blank?
+          .container
+            #notice
+              %h3= flash[:notice]
+            %br
+        - unless flash[:error].blank?
+          .container
+            #error
+              %h3= flash[:error]
+            %br
+        - unless flash[:alert].blank?
+          .container
+            #alert
+              %h3= flash[:alert]
+            %br
+        .container
+          = yield
+        / Panels Start
+        / Inner Container End
+        / Footer
+        #mws-footer
+          Copyright 
+          Go Trucker Go
+          = Time.now.strftime('%Y')
+          All Rights Reserved.
+          .pull-left
+            Support#
+            =t(:tollfree)
+      / Main Container End
+    / JavaScript Plugins
+    = javascript_include_tag "user_application"
+    %script{:src => "/assets/plugins/cleditor/jquery.cleditor.js?body=1", :type => "text/javascript"}
+    %script{:src => "/assets/plugins/cleditor/jquery.cleditor.table.js?body=1", :type => "text/javascript"}
+    %script{:src => "/assets/plugins/cleditor/jquery.cleditor-xhtml.js?body=1", :type => "text/javascript"}
+    %script{:src => "/assets/plugins/cleditor/jquery.cleditor.icon.js?body=1", :type => "text/javascript"}
+    = render '/shared/uservoise'
+    = yield :page_footer
