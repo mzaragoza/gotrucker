@@ -1,4 +1,4 @@
-class PagesController < ApplicationController
+lass PagesController < ApplicationController
   expose(:plans){Plan.where(:active =>true).where("paypal_id != ''").order("monthy_price ASC")}
   before_filter :redirect_if_logged_in
   def index

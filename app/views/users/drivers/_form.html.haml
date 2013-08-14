@@ -14,7 +14,7 @@
   .mws-form-row
     %label.mws-form-label= t(:truck)
     .mws-form-item
-    = f.association :truck, collection: current_account.trucks.all(order: 'name'), prompt: "Choose a Truck", :label => false
+    = f.association :truck, collection: current_account.trucks.all(order: 'name'), prompt: "Choose a Truck", :label => false, include_blank: true
   .mws-form-row
     %label.mws-form-label= t(:address)
     .mws-form-item
