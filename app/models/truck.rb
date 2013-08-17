@@ -17,7 +17,7 @@ class Truck < ActiveRecord::Base
     if self.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]) != []
       self.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]).first
     else
-      self.shipments.order("id DESC").first
+      self.shipments.order("id DESC").first if self.shipments
     end
   end
 end
