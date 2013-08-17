@@ -79,14 +79,30 @@
         .container
           .mws-stat-container.clearfix
             / Statistic Item
-            -#= link_to users_drivers_path, :class => 'mws-stat' do
+            = link_to admins_accounts_path, :class => 'mws-stat' do
               / Statistic Icon (edit to change icon)
-              %span.mws-stat-icon.icol32-drivers
+              %span.mws-stat-icon.icol32-accounts
               / Statistic Content
               %span.mws-stat-content
-                %span.mws-stat-title Drivers
+                %span.mws-stat-title All Accounts
                 %span.mws-stat-value
-                  = current_account.drivers.count
+                  = Account.count
+            = link_to admins_accounts_path, :class => 'mws-stat' do
+              / Statistic Icon (edit to change icon)
+              %span.mws-stat-icon.icol32-accounts
+              / Statistic Content
+              %span.mws-stat-content
+                %span.mws-stat-title Active Accounts
+                %span.mws-stat-value
+                  = Account.where(:active => true).count
+            = link_to admins_accounts_path, :class => 'mws-stat' do
+              / Statistic Icon (edit to change icon)
+              %span.mws-stat-icon.icol32-accounts
+              / Statistic Content
+              %span.mws-stat-content
+                %span.mws-stat-title New Accounts
+                %span.mws-stat-value
+                  = Account.where(:created_at => Time.now.beginning_of_month..Time.now.end_of_month).count
         - unless flash[:notice].blank?
           .container
             #notice

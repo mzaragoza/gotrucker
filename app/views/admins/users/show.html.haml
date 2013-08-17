@@ -10,6 +10,9 @@
   .mws-panel.grid_6
     .mws-panel-header
       = link_to 'Edit', edit_admins_user_path(user), :class => 'btn btn-info pull-right'
+      = simple_form_for :user, :url => admins_login_as_user_path, :html =>{:target => '_blank'} do |f|
+        = hidden_field_tag :id, user.id.to_s
+        = f.button :submit, :value => t(:login_as), :class => 'btn btn-info pull-right'
       %span
         User -
         = user.full_name.titleize

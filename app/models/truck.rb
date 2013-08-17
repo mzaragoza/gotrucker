@@ -14,7 +14,11 @@ class Truck < ActiveRecord::Base
   mount_uploader :registration_pdf, FileUploader
 
   def current_shipment
-    self.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]).first
+    if self.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]) != []
+      self.shipments.where(:status => ["dispatched", "en route to pickup", "loaded"]).first
+    else
+      self.shipments.order("id DESC").first
+    end
   end
 end
 
