@@ -103,6 +103,17 @@
                 %span.mws-stat-title New Accounts
                 %span.mws-stat-value
                   = Account.where(:created_at => Time.now.beginning_of_month..Time.now.end_of_month).count
+            - Plan.all.each do |p|
+              = link_to admins_accounts_path, :class => 'mws-stat' do
+                / Statistic Icon (edit to change icon)
+                %span.mws-stat-icon.icol32-accounts
+                / Statistic Content
+                %span.mws-stat-content
+                  %span.mws-stat-title 
+                    Accounts In
+                    = p.name.titleize
+                  %span.mws-stat-value
+                    = Subscription.where(:slug => p.slug).count
         - unless flash[:notice].blank?
           .container
             #notice
