@@ -17,6 +17,7 @@
           %th= t(:website)
           %th= t(:logo)
           %th= t(:show_support)
+          %th= t(:subscription)
           %th
       %tbody
         - accounts.each do |a|
@@ -46,5 +47,6 @@
                 .badge.badge-success Yes
               -else
                 .badge.badge-important No
+            %td= a.subscription.name.titleize if a.subscription
             %td
               = link_to 'Edit', edit_admins_account_path(a), :class => 'btn btn-small btn-info'
