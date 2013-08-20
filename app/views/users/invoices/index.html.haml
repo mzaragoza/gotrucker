@@ -27,7 +27,7 @@
             %td= number_to_currency(i.total)
             %td= i.pick_up_date
             %td= i.paid_status
-            %td= i.paid_date.to_time.strftime('%D') if i.paid_date
+            %td= i.paid_date.to_time
             %td= i.created_at.strftime('%D')
             %td
               = link_to 'PDF', users_invoices_pdf_path(i), :class => 'btn btn-small btn-info'
