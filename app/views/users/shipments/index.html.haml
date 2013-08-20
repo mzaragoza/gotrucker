@@ -20,6 +20,8 @@
           %th= t(:load_conformation)
           %th= t(:load_number)
           %th= t(:status)
+          %th= t(:invoiced_date)
+          %th= t(:invoiced_status)
           %th
       %tbody
         - shipments.each do |s|
@@ -41,6 +43,8 @@
                 %span{:style => 'color:#F00'}= t(:load_conformation)
             %td= s.load_number
             %td= s.status
+            %td= s.invoice.created_at.strftime('%D') if s.invoice
+            %td= s.invoice.paid_status if s.invoice
 
             %td
               = link_to 'Edit', edit_users_shipment_path(s), :class => 'btn btn-small btn-info'
