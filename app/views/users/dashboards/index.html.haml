@@ -34,12 +34,12 @@
             %td
               = t.current_shipment.pick_up_location_city if t.current_shipment
               = t.current_shipment.pick_up_location_state if t.current_shipment
-              = t.current_shipment.pick_up_date.to_time.strftime('%D') if t.current_shipment
+              = t.current_shipment.pick_up_date.to_time.strftime('%D') unless t.current_shipment.pick_up_date.blank?
               = t.current_shipment.pick_up_appointment if t.current_shipment
             %td
               = t.current_shipment.delivery_location_city if t.current_shipment
               = t.current_shipment.delivery_location_state if t.current_shipment
-              = t.current_shipment.deliver_date.to_time.strftime('%D') if t.current_shipment
+              = t.current_shipment.deliver_date.to_time.strftime('%D') unless t.current_shipment.deliver_date.blank?
               = t.current_shipment.delivery_appointment if t.current_shipment
 .mws-panel.grid_4
   .mws-panel-header
