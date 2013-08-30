@@ -41,7 +41,42 @@
             %td
               = t.current_shipment.delivery_location_city if t.current_shipment
               = t.current_shipment.delivery_location_state if t.current_shipment
-              - t.current_shipment
+              - if t.current_shipment
                 - unless t.current_shipment.deliver_date.blank?
                   = t.current_shipment.deliver_date.to_time.strftime('%D')
               = t.current_shipment.delivery_appointment if t.current_shipment
+.mws-panel.grid_12
+  .mws-panel-header
+    %span
+      Drivers
+  .mws-panel-body.no-padding
+    %table.mws-datatable-fn.mws-table
+      %thead
+        %tr
+          %th=t(:driver)
+          %th=t(:truck)
+          %th=t(:trailer)
+          %th=t(:cell)
+          %th=t(:endorsements)
+      %tbody
+        - drivers.each do |d|
+          %tr
+            %td= link_to d.full_name, users_driver_path(d)
+            %td
+              = link_to d.truck.name, users_truck_path(d.truck) if d.truck
+            %td
+              = link_to d.truck.trailer.name, users_trailer_path(d.truck.trailer) if d.truck and d.truck.trailer
+            %td= number_to_phone(d.cell)
+            %td
+              - if d.double_triple_trailers
+                .badge.badge-success= t(:double_triple_trailers)
+              - if d.passenger
+                .badge.badge-success= t(:passenger)
+              - if d.tank_vehicle
+                .badge.badge-success= t(:tank_vehicle)
+              - if d.hazardous_materials
+                .badge.badge-success= t(:hazardous_materials)
+              - if d.combination_of_tank_vehicle_and_hazardous_materials
+                .badge.badge-success= t(:combination_of_tank_vehicle_and_hazardous_materials)
+              -# if d.twic_card
+                .badge.badge-success= t(:twic_card)
