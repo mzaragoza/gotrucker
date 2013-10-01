@@ -22,7 +22,9 @@
             %td= link_to t(:show), users_trailer_path(t), :class => 'btn btn-small btn-info'
             %td= link_to t.name.titleize, users_trailer_path(t)
             %td
-              -t.drivers.each do |d|
+              -t.truck.drivers.each_with_index do |d , index|
+                - unless index == 0 
+                  = "-"
                 = link_to d.full_name, users_driver_path(d)
             %td
               -t.truck.drivers.each do |d|
