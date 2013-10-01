@@ -22,9 +22,11 @@
             %td= link_to t(:show), users_trailer_path(t), :class => 'btn btn-small btn-info'
             %td= link_to t.name.titleize, users_trailer_path(t)
             %td
-              = link_to t.truck.name.titleize, users_truck_path(t.truck) if t.truck
+              -t.drivers.each do |d|
+                = link_to d.full_name, users_driver_path(d)
             %td
-              = link_to t.truck.driver.full_name.titleize, users_driver_path(t.truck.driver) if t.truck and t.truck.driver
+              -t.truck.drivers.each do |d|
+                = link_to d.full_name, users_driver_path(d)
             %td
               - unless t.photo.blank?
                 = image_tag t.photo.thumb.url, :width => '50'

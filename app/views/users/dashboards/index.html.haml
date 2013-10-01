@@ -24,7 +24,8 @@
             %td
               = link_to t.trailer.name, users_trailer_path(t.trailer) if t.trailer
             %td
-              = link_to t.driver.full_name, users_driver_path(t.driver) if t.driver
+              -t.drivers.each do |d|
+                = link_to d.full_name, users_driver_path(d)
             %td
               = t.current_shipment.status.titleize if t.current_shipment
             %td
