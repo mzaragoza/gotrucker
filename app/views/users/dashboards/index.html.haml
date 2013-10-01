@@ -24,7 +24,9 @@
             %td
               = link_to t.trailer.name, users_trailer_path(t.trailer) if t.trailer
             %td
-              -t.drivers.each do |d|
+              -t.drivers.where(:active => true).each_with_index do |d , index|
+                - if index != 0 
+                  -
                 = link_to d.full_name, users_driver_path(d)
             %td
               = t.current_shipment.status.titleize if t.current_shipment
