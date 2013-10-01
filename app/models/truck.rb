@@ -1,5 +1,5 @@
 class Truck < ActiveRecord::Base
-  has_one :driver
+  has_many :drivers
   belongs_to :trailer
   belongs_to :account
   has_many :shipments
