@@ -1124,3 +1124,6 @@
 .icon-quote:before {
 	content: "\e032";
 }
+.icon-gotruckergo:before {
+	 background:url('/assets/myicons/mange.png');
+}
